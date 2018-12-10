@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>55.相对定位绝对定位及水平居中.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 500px;
+			border: 1px solid;
+			position: relative;
+			margin:0 auto;
+
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			left:250px;
+		
+			margin-left: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

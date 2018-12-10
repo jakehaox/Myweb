@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+	var oUl1 = document.getElementById('ul1');
+	var oLi = document.getElementsByTagName('li');
+	var oLi1 = document.querySelector('li');
+    var oLi = document.createElement('li');
+    var oLi2 = document.createElement('li');
+    oLi.innerHTML = 4;
+    oUl1.appendChild(oLi);
+
+    oUl1.insetBefore(oLi2,oUl1[0].firstChild);
+    oLi2.innerHTML = 0;
+
+    oUl1.removeChild(li);
+    
+</script>
+</html>

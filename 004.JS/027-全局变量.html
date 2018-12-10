@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-全局变量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 2;
+	function fn(){
+      console.log("fn",a);
+      var a = 3;
+      getAge("getAge");
+      function fun1(){
+      console.log('fen1',a)
+      }
+      fen1();
+	}
+</script>
+</html>

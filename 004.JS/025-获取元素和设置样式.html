@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获得元素和设置样式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<buttom id="btn1">变大</buttom>
+	<buttom id="btn2">设置样式</buttom>
+	<div id="box"></div>
+</body>
+<script>
+
+
+	function css(obj,attr,val){
+        if(arguments.length == 2){
+        	return gerComputedStyle(obj,false)[attr]
+        }else{
+        	obj.style[attr] = val;
+        }
+	}
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBox = document.getElementById('box');
+
+    oBtn1.onclick = function(){
+     // alert(getComputedStyle(oBox,false)["width"]); 
+     alert(css(oBox,"width"));
+    }
+
+    oBtn2.onclick = function(){
+    	css(oBox,"width","400px");
+    }
+</script>
+</html>

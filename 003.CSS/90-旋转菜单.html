@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转菜单.html</title>
+    <style>
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	li{
+    		list-style: none;
+    	}
+    	.box{
+    		width: 400px;
+    		height: 500px;
+    		border: 1px solid #000;
+    		margin:50px auto;
+    	}
+    	nav{
+    		height: 40px;
+    		background: gray;
+    		list-style: none;
+
+
+    	}
+    	.nav>li{
+    		float: left;
+            width:100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background:yellow; 
+            margin-left: 30px;
+    	}
+        .sub>li{
+        	width: 100px;
+        	height: 40px;
+        	line-height: 40px;
+        	text-align: center;
+        	background:pink;
+        	transform: rotateY(180deg);
+        	transition: all 1s;
+        	opacity: 0;
+        }
+        .nav>li span:hover  ~ .sub li {
+             transform: rotateY(360deg);
+             opacity: 1;
+		}
+        .nav>li:hover .sub>li:nth-child(1){
+        	transition-delay: 0ms;
+        }.nav>li:hover .sub>li:nth-child(2){
+        	transition-delay: 200ms;
+        }.nav>li:hover .sub>li:nth-child(3){
+        	transition-delay: 400ms;
+        }
+        .sub>li:nth-child(3){
+        	transition-delay: 0ms;
+        }
+        .sub>li:nth-child(2){
+        	transition-delay: 200ms;
+        }
+        .sub>li:nth-child(1){
+        	transition-delay: 400ms;
+        }
+    </style>
+</head>
+<body>
+	<div class="box">
+		<ul class="nav">
+			<li>
+				<span>一级菜单</span>
+				<ul class="sub">
+					<li>香蕉</li>
+					<li>西瓜</li>
+					<li>橘子</li>
+				</ul>
+			</li>
+			<li>二级菜单</li>
+			<li>三级菜单</li>
+		</ul>
+	</div>
+</body>
+</html>

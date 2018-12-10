@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>80-1.css3正方体.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			list-style: none;
+			position: relative;
+			transform: rotateX(6deg) rotateY(19deg);
+			transform-style: preserve-3d;
+		}
+		li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+            line-height: 200px;
+            text-align: center;
+		}
+		li:nth-child(1){
+            background: red;
+            transform: translateX(-100px) rotateY(90deg);
+		}
+		li:nth-child(2){
+            background: yellow;
+            transform: translateX(100px) rotateY(90deg);
+		}
+		li:nth-child(3){
+            background: blue;
+            transform: translateY(-100px) rotateX(90deg);
+		}
+		li:nth-child(4){
+            background: green;
+            transform: translateY(100px) rotateX(90deg);
+		}
+		li:nth-child(5){
+            background: orange;
+            transform: translateZ(100px);
+		}
+		li:nth-child(6){
+           background: purple;
+           transform: translateZ(-100px) 
+		}
+	</style>
+</head>
+<body>
+	<div class="box">	
+     <ul>
+     	<li>1</li>
+     	<li>2</li>
+     	<li>3</li>
+     	<li>4</li>
+     	<li>5</li>
+     	<li>6</li>
+     </ul>
+	</div>
+</body>
+</html>

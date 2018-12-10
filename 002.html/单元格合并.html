@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单元格合并.html</title>
+</head>
+<body>
+	<table width="300px" height="300px" cellspacing="1px" align="center"  cellpadding="10px"  bgcolor="blue">
+		<tr valign="center" align="center" bgcolor="white" >
+			<td valign="bottom" width="50px" colspan="2">1</td><!--水平上单元格合并，左右合并-->
+			<!--<td>2</td>-->
+			<td>3</td>
+		</tr>
+		<tr valign="center" height="200px" bgcolor="white">
+			<td valign="bottom" >1</td><!--垂直方向上合并，向下合并-->
+		    <td>2</td>
+			<td rowspan="2">3</td>
+		</tr>
+		<tr valign="center" bgcolor="white">
+			<td valign="bottom">1</td>
+			<td>2</td>
+			<!--<td>3</td>-->
+		</tr>
+</body>
+</html>

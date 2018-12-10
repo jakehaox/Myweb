@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin值的溢出-父元素上的重叠.html</title>
+	<style type="text/css">
+		.father{
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-top: 50px;
+            /*防止溢出的方法/*
+            /*padding-top: 1px; 方法一：给父元素添加内边距*/
+            /*border-top: 1px solid transparent; 方法二：给父元素添加边框*/
+            /*overflow: hidden; 方法三：触发BFC属性*/
+            /*float: left;*/
+           
+		}
+		.son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

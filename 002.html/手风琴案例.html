@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴案例.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #ccc;
+			list-style: none;
+			margin:  50px auto;
+		}
+		ul li{
+			float: left;
+			width: 200px;
+			height: 600px;
+			background: red;
+			transition: width 0.5s linear; 
+		}
+		ul li img{
+			height: 600px;
+		}
+		ul:hover li{
+			width: 100px;
+		}
+		ul li:hover{
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li> <img src="image/a.jpg"></li>
+		<li> <img src="image/b.jpg"></li>
+		<li> <img src="image/c.jpg"></li>
+		<li> <img src="image/d.jpg"></li>
+		<li> <img src="image/e.jpg"></li>
+	</ul>
+</body>
+</html>

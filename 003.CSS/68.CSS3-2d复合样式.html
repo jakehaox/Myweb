@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>68.CSS3-2d复合样式.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 600px;
+			height: 600px;
+			border: 1px solid;
+			margin:50px auto;
+			list-style: none;
+			text-align: center;
+		}
+		li{
+			width: 100px;
+			height: 30px;
+			background: blue;
+			margin: 50px auto;
+		}
+		li:nth-child(2){
+			transform: rotate(60deg);
+		}
+		li:nth-child(3){
+			transform:translate(20px,20px);
+		}
+		li:nth-child(4){
+			transform: scale(1.5);
+		}
+		v
+		li:nth-child(5){
+			transform: rotate(60deg) translate(20px,20px) scale(1.5);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>默认</li>
+		<li>旋转</li>
+		<li>平移</li>
+		<li>缩放</li>
+		<li>复合样式</li>
+	</ul>
+</body>
+</html>

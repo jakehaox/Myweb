@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-属性操作.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<input type="button" id="btn" value="点击">
+	<textarea id="content" id="" cols="30" rows="10"></textarea>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oContent = document.getElementById('content');
+   oBtn.onclick = function(){
+   	/*方法一：.属性名称
+   	var val = oTxt.value;
+   	oContent.value = val;
+   	*/
+   	/*方法二：["属性名称"]
+   	var val = oTxt["value"];
+   	oContent["value"] = val;
+   	*/
+   	
+   	var val = oTxt.getAttribute('value');
+   	console.log(val);
+   	oContent["value"] = val;
+    
+
+   
+   }
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin重叠及BFC的使用.html</title>
+	<style type="text/css">
+		.father{
+             overflow: hidden;/*触发BFC给父元素添加overflow:hidden属性*/
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-bottom: 100px;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			margin-top: 150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+	<div class="box1"></div>
+	</div>
+	<div class="box2"></div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>85.css3-3D旋转轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			transform-style: preserve-3d;
+		}
+		ul{
+           width: 200px;
+           height: 200px;
+           margin: 100px auto;
+           /*border: 1px solid #000;*/
+           position: relative;
+           transform-style: preserve-3d;
+		   animation:sport 4s linear 0s infinite normal;
+		}
+		@keyframes sport{
+			form{
+				transform: rotateX(0deg);
+			}
+			to{
+				transform: rotateX(360deg);
+			}
+		
+        }
+		li{
+			position: absolute;
+			left: 0;
+			top: 0;
+			list-style: none;
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center; 
+		}
+		ul li img{
+			width: 100%;
+			height: 100%;
+		}
+		li:nth-child(1){
+			background: red;
+			transform:rotateX(90deg) translateZ(100px) scale(1.5,1); 
+	    }	
+		li:nth-child(2){
+			background: blue;
+			transform:rotateX(180deg) translateZ(100px) scale(1.5,1);
+		}
+		li:nth-child(3){
+			background:purple;
+			transform: rotateX(270deg) translateZ(100PX) scale(1.5,1);
+		}
+		li:nth-child(4){
+			background: yellow;
+			transform: rotateX(360deg) translateZ(100PX) scale(1.5,1);
+		}
+		li:nth-child(5){
+			background: green;
+			transform: rotateY(90deg) translateZ(150px);
+		}
+		li:nth-child(6){
+			background: pink;
+			transform: rotateY(90deg) translateZ(-150px);
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li><img src="image/a.jpg"></li>
+			<li><img src="image/b.jpg"></li>
+			<li><img src="image/c.jpg"></li>
+			<li><img src="image/d.jpg"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

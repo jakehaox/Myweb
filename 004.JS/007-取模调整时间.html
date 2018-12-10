@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-取模调整时间.html</title>
+	<script>
+		var iSecond = 3676;
+
+		var hour = parseInt(iSecond / 3600);
+
+		var minute = parseInt((iSecond % 3600) / 60);
+
+		var second = (iSecond % 3600) % 60；
+
+		if (hour < 10) {
+			hour ='0'+ hour;
+		}
+		if (minute < 10) {
+			minute ='0' + minute;
+		}
+		if (second < 10) {
+			second = '0' + second;
+		}
+
+		alert(hour + ":"+ minute ":" + second);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

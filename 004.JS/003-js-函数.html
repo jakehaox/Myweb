@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-js-函数.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 100px auto;
+		}
+	</style>
+	<script>
+		function toBig(){
+			var oDiv=document.getElementById('box');
+			oDiv.style.width='200px';
+			oDiv.style.height='200px';
+			oDiv.style.background='blue';
+		}
+
+        function toSmall(){
+        	var oDiv=document.getElementById('box');
+            oDiv.style.width='100px';
+			oDiv.style.height='100px';
+			oDiv.style.background='red';
+        	
+        }
+
+
+        function sayHello(){
+        alert('sayHello')
+
+        }
+        sayHello();
+        
+
+	</script>
+</head>
+<body>
+	<div id="box" onclick="toBig()" onmousemove="toBig()" onmouseout="toSmall()"></div>
+	
+</body>
+</html>

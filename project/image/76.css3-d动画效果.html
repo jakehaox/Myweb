@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>76.css3-d动画效果.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1{
+			width: 200px;
+			height: 100px;
+			background: red;
+		}
+		.box1:hover{
+			width: 600px;
+			transition: 2s;
+		}
+
+		.box2{
+			width: 200px;
+			height: 100px;
+			margin-top: 10px;
+			background: blue;
+			animation-name: sport;
+			animation-duration: 2s;
+		}
+		@keyframes sport{
+			form{
+				width: 200px;
+			}
+             to{
+             	width: 600px;
+             }
+
+		
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>

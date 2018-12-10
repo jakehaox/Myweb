@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-获取兄弟元素.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li id="li3">3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	var oLi3 = document.getElementById('li3');
+	var oUl = document.getElementById('ul1');
+    /*包含文本节点和元素节点
+	console.log(oLi3.nextSibling == oUl.childNodes[6]);
+	console.log(oLi3.previousSibling == oUl.childNodes[4]);
+	*/
+	//只包含元素节点
+	console.log(oLi3.nextSibling);
+	console.log(oLi3.nextElementSibling);
+	console.log(oLi3.previousElementSibling);
+
+</script>
+</html>

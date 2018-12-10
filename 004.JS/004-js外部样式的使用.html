@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-js外部样式的使用.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			border:1px solid;
+
+		}
+	</style>
+	<script>
+		function toChange(){
+			var toBig = document.getElementById('box');
+			toBig.style.width = '200px';
+			toBig.style.height = '200px';
+			toBig.style.background = 'blue';
+		}
+
+	</script>
+</head>
+<body>
+	<div id="box" onclick="toChange()"></div>
+</body>
+</html>

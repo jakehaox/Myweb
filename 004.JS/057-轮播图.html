@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>057-轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	    .carousel{
+	    	margin: 100px auto;
+			width: 1226px;
+			height:460px;
+	        position: relative;
+        }
+        .carousel .carousel-imgs-item{
+	        position: absolute;
+	        top: 0px;
+	        left: 0px;
+	        height: 100%;
+        }
+        .carousel .arrow{
+	        position: absolute;
+	        top: 50%;
+	        z-index: 888;
+	        width: 40px;
+	        height: 80px;
+	        line-height: 80px;
+	        margin-top: -40px;
+	        font-size: 30px;
+	        color: #eee;
+	        font-weight: bold;
+	        text-align: center;
+	        cursor: pointer;
+        }
+        .carousel .arrow:hover{
+	        background: rgba(0,0,0,0.4);
+        }
+        .carousel .left-arrow{
+            left: 0px;
+            z-index: 999;
+        }
+        .carousel .right-arrow{
+	        right: 0px;
+	        z-index: 999;
+        }
+        .carousel .carousel-imgs-item img{
+	        width: 100%;
+	        height: 460px;
+        }
+        .carousel .carousel-btn{
+	        position: absolute;
+	        right: 35px;
+	        bottom: 24px;
+	        z-index: 888;
+        }
+        .carousel .carousel-btn li{
+	        float: left;
+	        width: 5px;
+	        height: 5px;
+	        border:4px solid #b5b3bd;
+	        background: #96938a;
+	        border-radius: 50%;
+	        margin-left: 10px;
+	        cursor: pointer;
+        }
+        .carousel .carousel-btn li:hover{
+	        border-color: #979590;
+	        background:#fcf9f0;
+        }
+	</style>
+</head>
+<body>
+	<div class="carousel">
+	    <ul class="carousel-imgs">
+	    	<li class="carousel-imgs-item" style="z-index: 999"><img src="images/b1.jpg"></li>
+	    	<li class="carousel-imgs-item"><img src="images/b2.jpg"></li>
+			<li class="carousel-imgs-item"><img src="images/b3.jpg"></li>
+	    </ul>
+	    <span class="arrow left-arrow">&lt</span>
+	    <span class="arrow right-arrow">&gt</span>
+	    <ul class="carousel-btn">
+	    	<li class="active"></li>
+	    	<li></li>
+	    	<li></li>
+	    </ul>
+	</div>
+</body>
+<script>
+	var oImg = document.querySelectorAll('.carousel-imgs-item');
+	var oLeftArrow = document.querySelector('.left-arrow');
+	var oRightArrow = document.querySelector('.right-arrow');
+	var oBtn = document.querySelector('.carousel-btn');
+
+    var new = 0;
+    oRightArrow.onclick = function(){
+      for(var i = 0 ;i<oImg.length;i++){
+
+         oImg[i].style.zIndex = '999';
+         oImg.className = '';
+         if(now >= 3){
+         	now = oImg.length;
+         }
+         now = this.index;
+      }
+    }
+</script>
+</html>

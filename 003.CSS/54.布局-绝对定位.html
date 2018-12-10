@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位-可视区.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father1{
+			width: 600px;
+			height: 600px;
+			background: blue;
+			margin: 0 auto;
+			border: 2px solid;
+			/*position: absolute;*/
+		}
+		.father2{
+			width: 400px;
+			height: 400px;
+			background: red;
+			position: relative;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background: yellow;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="father1">
+		<div class="father2">
+		   <div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>

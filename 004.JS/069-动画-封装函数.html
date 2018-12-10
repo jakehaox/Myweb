@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>069-动画封装函数.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.contiant{
+			width: 400px;
+            margin: 100px auto;
+		}
+		.contiant div{
+			width: 100px;
+			height: 100px;
+			margin-top: 10px;
+			line-height: 100px;
+			text-align: center;
+			background-color: #f67;
+			opacity: 0.3;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="contiant">
+	    <div id="box1">变宽</div>
+	    <div id="box2">变高</div>
+	    <div id="box3">变色</div>
+	</div>
+</body>
+<script>
+	var oBox1 = document.getElementById('box1');
+	var oBox2 = document.getElementById('box2');
+	var oBox3 = document.getElementById('box3');
+    var timer = 0;
+    /**
+    object obj  [DOM节点对象]
+    string  attr  [属性名称]
+    number target [目标值]
+
+    **/
+
+    function animate(obj,attr,target){
+	    clearInterval(obj.timer);
+	    var iSpend = 0;
+	    obj.timer = setInterval(function(){
+		    var current = parseFloat(getComputedStyle(obj,false)[attr]);
+		    if(attr == 'opacity'){
+		    	  current = Math.round(current * 100);
+		    }
+		    if(current < target){
+		    	iSpend = 10;
+		    }else{
+		    	iSpend = -10;
+		    }
+		    if(Math.abs(target - current) == Math.abs(iSpend)){
+		    	if(attr == 'opacity'){
+		    		obj.style.opacity = target / 100;
+		    	}else{
+		    		obj.style[attr] = target + 'px';
+		    	}
+		    	clearInterval(obj.timer);
+		    }else{
+		    	if(attr == 'opacity'){
+		    	   obj.style.opacity = (current + iSpend) / 100;	
+		    	}else{
+		    		obj.style[attr] = current + iSpend + 'px';
+		    	}
+		      }
+		    },30);
+	    // console.log(obj,attr,target);
+	    }
+	    oBox1.onmouseover = function(){
+            animate(oBox1,'width',300);
+	    }
+	    oBox1.onmouseout = function(){
+            animate(oBox1,'width',100);
+	    }
+	    oBox2.onmouseover = function(){
+	    	animate(oBox2,'height',300);
+    	}
+    	oBox2.onmouseout = function(){
+	    	animate(oBox2,'height',100);
+    	}
+	    oBox3.onmouseover = function(){
+	    	animate(oBox3,'opacity',100);
+	    }
+	    oBox3.onmouseout = function(){
+	    	animate(oBox3,'opacity',30);
+	    }
+
+</script>
+</html>

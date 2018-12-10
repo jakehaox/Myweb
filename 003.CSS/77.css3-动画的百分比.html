@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>77.css3-动画的百分比.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: relative;
+			width: 600px;
+			height: 600px;
+			margin: 50px auto;
+			border: 1px solid #000;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background: skyblue;
+			position: absolute;
+			left: 0;
+			top: 0;
+			animation: sport 4s linear;
+		}
+		@keyframes sport{
+			0%{
+				top: 0px;
+				left: 0px;
+			}
+			25%{
+				top: 0px;
+				left: 500px;
+			}
+			50%{
+				top: 500px;
+				left: 500px;
+			}
+			75%{
+				left: 0px;
+				top: 500px;
+			}
+			100%{
+				top: 0px;
+				left: 0px;
+			}
+		}
+	</style>
+</head>
+<body>
+    <div class="father">
+    		<div class="son"></div>
+    	</div>	
+</body>
+</html>

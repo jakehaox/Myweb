@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>049-延时定时器的使用方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	setTimeout('console.log(1)',2000);
+	function show(){
+		console.log('show something')
+	}
+	setTimeout(show,2000);
+
+	var timer = setTimeout(function(){
+		console.log('haha');
+	},3000);
+	console.log(timer);
+</script>
+</html>

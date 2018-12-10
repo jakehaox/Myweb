@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>66.定位练习方法二.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.container{
+			width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		header{
+			position: fixed;
+			top: 30px;
+			left: 50%;
+			width: 800px;
+			height: 50px;
+			background: gray;
+			margin-left: -400px;
+		}
+		header ul li{
+			float: left;
+			width: 160px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+		}
+		header ul li:nth-child(3){
+			background-color: orange;
+		}
+		header ul li:nth-child(3) img{
+			position: absolute;
+			top: -13px;
+            left: 380px;
+		}
+		.carousel{
+			height: 400px;
+			margin-top: 110px;
+			position: relative;
+		}
+		.carousel img{
+			width: 800px;
+			height: 400px;
+		}
+		.carousel .arrow{
+			position: absolute;
+			top: 50%;
+			margin-top: -40px;
+			width: 40px;
+			height: 80px;
+			line-height: 80px;
+			font-size: 24px;
+			color: #fff;
+			text-align: center;
+			cursor: pointer;
+			background-color: rgba(0,0,0,0.6);
+
+		}
+		.carousel .arrow:hover{
+			background-color: rgba(0,0,0,0.9);
+		}
+		.carousel .left-arrow{
+			left: 0;
+		}
+		.carousel .right-arrow{
+			right: 0;
+		}
+		.carousel .btns{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			width: 200px;
+			height: 30px;
+			
+	    }
+	    .carousel .btns li{
+	    	float: left;
+            width: 30px;
+            height: 30px;
+            background: #ccc;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+	    	border-radius: 50%;
+	    }
+		.content{
+			height: 2000px;
+			background: gray;
+			margin-top: 20px;
+		}
+		.ad{
+            position: fixed;
+			width: 50px;
+			height: 100px;
+			background: red;
+			top: 50%;
+			margin-top: -50px;
+		}
+		.left-ad{
+			left: 0px;
+		}
+		.right-ad{
+			right: 0px;
+		}
+		.back-ad{
+			position: fixed;
+			right: 0px;
+			bottom: 0px;
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			background: gray;
+			list-style: none;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<ul>
+			<li>天猫会员</li>
+			<li>品牌街</li>
+			<li>
+			    电器城 <img src="image/定位流素材副本.jpg">
+		    </li>
+			<li>营业厅</li>
+			<li>魅力惠</li>
+		</ul>
+	</header>
+	<section class="carousel container">
+		<img src="image/定位流素材背景图.png">
+		<span class=" arrow left-arrow">&lt;</span>
+		<span class=" arrow right-arrow">&gt;</span>
+		<ul class="btns">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<div class="ad left-ad"></div>
+		<div class="ad right-ad"></div>
+		<a class="back-ad" href="#">返回顶部</a>
+	</section>
+	<section class="content container"></section>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>布局.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 600px;
+			height: 800px;
+			border: 1px solid;
+			margin: 20px auto;
+		}
+		ul{
+			float: left;
+			width: 150px;
+			height: 80px;
+			line-height: 80px;
+			text-align: center;
+			list-style: none;
+			border: 1px solid;
+			background: red;
+			font-size: 24px;
+			margin-top: 20px;
+			margin-left: 40px;
+		}
+        li{
+        	width: 150px;
+        	height: 40px;
+        	line-height: 20px;
+        	background: pink;
+        	border: 1px solid;
+        	text-align: center;
+        	/*margin-top: 10px;*/	
+        	opacity: 0;
+        }
+        ul:hover  li{
+          opacity: 1;
+          transition: transform 1s linear;
+          transform: rotate(180deg);
+        }
+       /* ul:hover li:nth-child(2){
+          transition: transform 1s linear;
+          transform: rotate(150deg);
+        }*/
+        
+        
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="aa">菜单一
+			<li>水果</li>
+			<li>香蕉</li>
+			<li>西瓜</li>
+			<li>芒果</li>
+		</ul>
+		<ul class="bb">菜单二
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<ul class="cc">菜单三
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

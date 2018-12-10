@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054-时间渐变器.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: black;
+		}
+		#timer{
+			width: 400px;
+			margin: 100px auto;
+			color: #ccc;
+			font-size: 60px;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">19:11:45</div>
+</body>
+<script>
+	
+	var oTimer = document.getElementById('timer');
+
+	function to2Sta(num){
+		return num < 10 ? '0'+ num : '' + num;
+	}
+	function toChange(){
+	 var today = new Date();
+	 var iHour = today.getHours();
+	 var iMinuter = today.getMinutes();
+	 var iSencond = today.getSeconds();
+	 var sTime = to2Sta(iHour) + ":" + to2Sta(iMinuter) + ":" + to2Sta(iSencond);
+	 oTimer.innerHTML = sTime;
+	}
+	setInterval(toChange,500);
+	toChange();
+	
+</script>
+</html>

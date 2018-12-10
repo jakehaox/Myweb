@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型-宽高不变.html</title>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding: 0px;
+		}
+		.father{
+			width: 300px;
+			height: 100px;
+			border: 1px solid black;
+		}
+		.father div{
+			width: 100px;
+			height: 100px;
+			display: inline-block;
+		}
+		.son1{
+            background: red;
+		}
+		.son2{
+            background: blue;
+            padding: 10px;
+            border: 10px dotted black;
+            box-sizing: border-box;
+
+		}
+		.son3{
+            background: green;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div><div class="son2"></div><div class="son3"></div>
+	</div>
+	
+	
+</body>
+</html>

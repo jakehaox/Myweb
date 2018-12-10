@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>050-循环定时器的使用.html</title>
+</head>
+<body>
+	<button id="btn">关闭</button>
+</body>
+<script>
+	window.setInterval('console.log(2)',3000);
+
+	function timer(){
+		console.log('show time');
+	}
+	setInterval(timer,2000);
+	clearInterval(timer);
+</script>
+</html>
