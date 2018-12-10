@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>减速动画</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 20px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background: #f00;
+		}
+		.measure{
+			position: absolute;
+			left: 400px;
+			width: 1px;
+			height: 400px;
+			background: #f00;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始<tton>
+	<div id="box"></div>
+	<div class="measure"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oDiv = document.getElementById('box');
+	console.log(oDiv);
+	var timer = 0;
+	oBtn.onclick = function(){
+		clearInterval(timer);//防止多次点击带来的变化
+		var iSpeed = 0;
+		timer = setInterval(function(){
+			
+			// iSpeed = iSpeed>0? Math.ceil((400 - oDiv.offsetLeft)/10) : Math.floor((400 - oDiv.offsetLeft)/10);速度逐渐变为0
+            // iSpeed = (400 - oDiv.offsetLeft) / 10;
+            iSpeed = Math.ceil(400 - oDiv.offsetLeft) / 10;
+
+			if(Math.abs(400 - oDiv.offsetLeft) < Math.abs(iSpeed)){
+			// if(!iSpeed){//因为速度逐渐变为0停止，所以这里条件可以取非0;即true
+				oDiv.style.left = "400px";
+				clearInterval(timer);
+			}else{
+				oDiv.style.left = oDiv.offsetLeft + iSpeed +"px";
+			}
+			console.log(oDiv.offsetLeft,iSpeed);
+		},30)
+	}
+</script>
+<ml>

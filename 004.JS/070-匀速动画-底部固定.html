@@ -22,7 +22,13 @@
 <body>
 	<div id="box"></div>
 </body>
+<script src="js/util.js"></script>
 <script>
 	var oBox = document.getElementById('box');
+	// oBox.style.top = (window.innerHeight - oBox.offsetHeight) + getScrollTop() + "px";
+	var iTarget = ((window.innerHeight - oBox.offsetHeight) + getScrollTop())
+	animate(oBox,'top',iTarget);
+
+
 </script>
 </html>

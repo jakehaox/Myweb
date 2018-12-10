@@ -1,0 +1,49 @@
+10.24课堂心得
+1.表格标签 table标签属性有width（宽度）设置对象 [table th] height（高度）设置对象[table th]align（水平对齐）设置对象[table tr td]其中包括（left/center/right属性） valign(垂直对齐) 其中包括（top/center/bottom属性) cellspacing 外边距；外边距是单元格和单元格之间的距离，默认有2给像素的距离。
+ cellpadding 内边距；内边距是单元格的边框和文字之间的距离，默认1个像素的距离; bgcolor 背景色   border属性 边框属性默认值1像素 以上属性的样式统一用CSS来控制
+2.细线表格
+第一步：给table标签设置背景色，外边距属性<table bgcolor=”black” cellspasing=”1px” align=”center” withd="10px">
+第二步：给tr设置背景色属性<tr bgcolor=”white”>
+第三步：给td也设置背景色属性
+
+3.完整的表格结构
+
+表头标签 caption 给整个表格设置标题，一定要嵌套在table标签内部才有效。
+
+标题标签 thead tr th,th标签会给每一列设置标题，内容会自动加粗，居中。
+
+主题标签 tbody tr td,tbody用来存放页面中的主体数据，如果不写会自动加上
+
+表尾标签 tfoot tr td,tfoot用来存放表格的页脚。
+
+Colspan属性   上水平方向上的单元格合并
+
+4.销售榜案例
+
+第一步：搭建基本结构；
+<table bgcolor="black" align="center" cellapacing="1px" width="400px">
+  <caption>
+     <h1>添加标题</h1>
+  </caption>
+    <thead>
+       <tr bgcolor="gray" align="center">
+         <th></th>   <!--标题栏内容自动加粗，局中-->
+         <th></th>   
+       </tr>
+    </thead>
+    <tbody>
+        <tr bgcolor="white" align="center">
+          <td></td>
+        </tr>
+    </tbody>
+    <tbody>
+        <tr bgcolor="white" align="center">
+          <td></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr bgcolor="white" align="center">
+          <td></td>
+        </tr>
+    </tfoot>
+</table>
