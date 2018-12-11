@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>076-减速动画-封装函数.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+			opacity: 0.5;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">变宽</div>
+	<div id="div2">变高</div>
+	<div id="div3">变红</div>
+</body>
+<script src="js/util.js"></script>
+<script>
+	var oDiv1 = document.getElemnetById('div1');
+	var oDiv2 = document.getElemnetById('div2');
+	var oDiv3 = document.getElemnetById('div3');
+
+	var timer = 0;
+
+	function animate(obj,attr,target){
+       clearsetInterval(obj,timer);
+       var iSpeed = 0;
+    obj.timer = setInterval(function(){
+    	var current = parseFloat(getComputedStyle(obj,false)[attr]);
+    	if(attr == 'opacity'){
+			 current = Math.round(current*100);
+			}
+			iSpeed = (100 - current)/10;
+
+			iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+			if(!iSpeed){
+				clearInterval(obj.timer);
+			}else{
+				if(attr == 'opacity'){
+					obj.style.opacity = (current + iSpeed)/100 ;
+				}else{
+					obj.style[attr] = current + iSpeed + 'px';
+				}				
+			}		
+	},30)
+}   
+    oDiv1.onmouseover = function(){
+		animate(oDiv1,'width',400);	
+	}
+	oDiv2.onmouseover = function(){
+		animate(oDiv2,'height',400);		
+	}	
+	oDiv3.onmouseover = function(){
+		animate(oDiv3,'opacity',100);
+	}
+</script>
+</html>

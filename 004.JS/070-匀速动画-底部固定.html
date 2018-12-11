@@ -8,11 +8,12 @@
 			margin: 0;
 			padding: 0;
 		}
-		#box{
-			position: fixed;
+		body{
 			height: 3000px;
+		}
+		#box{
+			position:absolute;
 			right: 0;
-			bottom: 0;
 			width: 100px;
 			height: 100px;
 			background-color: red;
@@ -26,9 +27,12 @@
 <script>
 	var oBox = document.getElementById('box');
 	// oBox.style.top = (window.innerHeight - oBox.offsetHeight) + getScrollTop() + "px";
-	var iTarget = ((window.innerHeight - oBox.offsetHeight) + getScrollTop())
-	animate(oBox,'top',iTarget);
-
+	// var iTarget = ((window.innerHeight - oBox.offsetHeight) + getScrollTop())
+	// animate(oBox,'top',iTarget);
+    window.onload = window.onresize =  window.onscroll = function(){
+		var iTarget = (window.innerHeight - oBox.offsetHeight) + getScrollTop();
+		animate(oBox,'top',iTarget);		
+	}
 
 </script>
 </html>
