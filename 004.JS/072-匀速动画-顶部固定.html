@@ -36,17 +36,17 @@
 	var oNav = document.getElementById('nav');
 	var isShow = false;
 	window.onscroll = function(){
-		if(getScrollTop() >= 100){
+					
 			if(!isShow){
 				animate(oNav,'height',100);
 				isShow = true;				
-			}
-		}else{
+			}else{
 			if(isShow){
 				animate(oNav,'height',0);
 				isShow = false;				
 			}
 		}
 	}
+	
 </script>
 </html>
