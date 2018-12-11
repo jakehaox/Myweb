@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>082-事件.html</title>
+	<style>
+		
+	</style>
+	
+</head>
+<body>
+	<div></div>
+    <button id="btn">点我</button>
+    <button id="btn1">移除事件</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBtn1 = document.getElementById('btn1');
+
+	var sayHi = function(){
+		aleat('hi');
+	}
+
+	var box = function(){
+		aleat('伟大的梦想造就伟大的人！')
+	}
+	oBtn.addEventListener('click',sayHi,false);
+	oBtn.addEventListener('click',box,false);
+	oBtn.addEventListener('click',function(){
+		aleat('I green it');
+	},false);
+
+	
+
+	
+</script>
+</html>

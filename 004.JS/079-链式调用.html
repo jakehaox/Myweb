@@ -87,16 +87,14 @@
 			}
 			//如果终止当前的动画,清除定时器
 			if(isStopCurrent){
-				clearInterval(obj.timer);
+				clearInterval(obj.timer);  	//如果不终止当前动画,运动
 				/*
 				if(typeof fnEnd == 'function'){
 					fnEnd();
 				}
-				方法一
+				     调用fnEnd方法一
 				*/
-
-				typeof fnEnd == 'function' && fnEnd();//方法二；
- 			//如果不终止当前动画,运动
+				typeof fnEnd == 'function' && fnEnd();    //调用fnEnd方法二；
 			}else{
 				if(attr == 'opacity'){
 					obj.style.opacity = (current + iSpeed)/100 ;
@@ -107,14 +105,14 @@
 		},30)
 	}
 
-	oDiv1.onmouseover = function(){//false值可以改为true,匀速动画；
+	oDiv1.onmouseover = function(){      //false值可以改为true,匀速动画；
 		animate(oDiv1,'width',400,true,function(){
 			animate(oDiv1,'height',400,true,function(){
 				animate(oDiv1,'opacity',100);
 			});
 		});	
 	}
-	oDiv1.onmouseout = function(){//
+	oDiv1.onmouseout = function(){   //多次调用实现同步
 		animate(oDiv1,'opacity',50,true,function(){
 			animate(oDiv1,'height',100,true,function(){
 				animate(oDiv1,'width',100);
@@ -123,9 +121,15 @@
 	}
 	oDiv2.onmouseover = function(){
 		animate(oDiv2,'height',400);		
-	}	
+	}
+	oDiv2.onmouseout = function(){
+		animate(oDiv2,'height',100);		
+	}		
 	oDiv3.onmouseover = function(){
 		animate(oDiv3,'opacity',100);
+	}
+	oDiv3.onmouseout = function(){
+		animate(oDiv3,'opacity',50);;
 	}
 </script>
 </html>
