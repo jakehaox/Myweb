@@ -10,7 +10,7 @@
 		}
 		#box{
 			position: absolute;
-			left: 800px;
+			left: 0px;
 			width: 100px;
 			height: 100px;
 			background: #f00;
@@ -39,7 +39,7 @@
 		var iSpeed = 0;
 		timer = setInterval(function(){
 			
-			iSpeed = iSpeed>0? Math.ceil((400 - oDiv.offsetLeft)/10) : Math.floor((400 - oDiv.offsetLeft)/10);//速度逐渐变为0
+			iSpeed = iSpeed > 0 ? Math.ceil((400 - oDiv.offsetLeft)/10) : Math.floor((400 - oDiv.offsetLeft)/10);//速度逐渐变为0
 
 
 			// if(Math.abs(400 - oDiv.offsetLeft) < Math.abs(iSpeed)){
@@ -53,4 +53,4 @@
 		},30)
 	}
 </script>
-<ml>
+</html>

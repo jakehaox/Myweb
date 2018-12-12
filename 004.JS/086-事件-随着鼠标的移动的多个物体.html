@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>086-事件-随着鼠标的移动的物体 多个.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+		img{
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+	<img src="images/b.jpg" alt="">
+</body>
+<script src="js/util.js"></script>
+<script>
+	var oImg = document.getElementsByTagName('img');
+	document.onmousemove = function(ev){
+
+		oImg[0].style.left = getScrollLeft() + ev.clientX + 'px';
+		oImg[0].style.top = getScrollTop() + ev.clientY + 'px';
+
+		for(var i = oImg.length - 1;i>0;i--){
+			oImg[i].style.left = oImg[i - 1].offsetLeft + 15 + 'px';
+			oImg[i].style.top = oImg[i - 1].offsetTop + 15 + 'px';
+		}
+
+	}
+
+</script>
+</html>
