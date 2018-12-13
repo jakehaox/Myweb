@@ -8,6 +8,7 @@
 	
 </body>
 <script>
+	// 写法一
 	for(var i =1;i<=9;i++){
 		document.write('<p>');
 		// document.write(i);
@@ -15,7 +16,19 @@
 		for(var j = 1;j<=i;j++){
 		document.write(j + "*" + i + "=" + j*i + "&nbsp");
 	}
-	
+}
+
+// 写法二
+
+for(var m = 0;m<=9;m++){
+		for(var n = 1;n<=m;n++){
+			if(n*m < 10){
+				document.write("&nbsp;");
+			}
+			document.write(n +"*"+ m + "=" + n*m + "&nbsp");
+			// document.write(n*m + "&nbsp;");
+		}
+		document.write("<br>");
 	}
 	
 </script>

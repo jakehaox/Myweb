@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>059-周测考试获取当前时间.html</title>
+	<title>059-周测获取当前时间.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -13,23 +13,32 @@
 		}
 		#timer{
 			width: 400px;
-			margin: 100px auto;
+			margin: 200px auto;
 			color: #ccc;
-			font-size: 60px;
+			font-size: 90px;
 		}
 	</style>
 </head>
 <body>
-	<div id="timer"></div>
+	<div id="timer">09:11:45</div>
 </body>
 <script>
+	
 	var oTimer = document.getElementById('timer');
+
 	function to2Sta(num){
 		return num < 10 ? '0'+ num : '' + num;
 	}
 	function toChange(){
-       var today = new Date();
-       var iHour
+	 var today = new Date();
+	 var iHour = today.getHours();
+	 var iMinuter = today.getMinutes();
+	 var iSencond = today.getSeconds();
+	 var sTime = to2Sta(iHour) + ":" + to2Sta(iMinuter) + ":" + to2Sta(iSencond);
+	 oTimer.innerHTML = sTime;
 	}
+	setInterval(toChange,500);
+	toChange();
+	
 </script>
 </html>
