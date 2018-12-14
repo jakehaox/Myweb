@@ -3,8 +3,128 @@
 <head>
 	<meta charset="UTF-8">
 	<title>093-事件-自定义滚动条控制文字.html</title>
+    <style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			position: relative;
+			width: 500px;
+			margin: 100px auto;
+		}
+        #wrap{
+            position: absolute;
+            top: 0;
+            left: 401px;
+            width: 30px;
+            height: 322px;
+            background-color: #f67;
+        }
+		#btn{
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 30px;
+			height: 30px;
+			background-color:blue;
+		}
+		#content{
+			position: relative;
+			overflow: hidden;
+			width: 400px;
+			height: 320px;
+			border:1px solid #000;
+		}
+		#txt{
+			position: absolute;
+			line-height: 20px;
+			top: 0;
+			left: 0;
+		}
+	
+	</style>
 </head>
 <body>
-	
+	<div class="box">
+	    <div id="wrap">
+	        <div id="btn"></div>
+        </div>
+        <div id="content">
+        	<div id="txt">
+        		　新华社北京12月13日电（记者朱基钗）13日召开的中央政治局会议指出：“反腐败斗争取得压倒性胜利，全面从严治党取得重大成果。”这是党中央对当前反腐败斗争形势的重大判断。
+
+　　此次中央政治局会议听取了中央纪委工作汇报，研究部署2019年党风廉政建设和反腐败工作。会议指出：党的十九大以来，以习近平同志为核心的党中央一以贯之、坚定不移推进全面从严治党，党内政治生态展现新气象，反腐败斗争取得压倒性胜利，全面从严治党取得重大成果。
+
+　　去年10月，党的十九大对反腐败斗争形势作出的判断是——“反腐败斗争压倒性态势已经形成并巩固发展”，从形成“压倒性态势”到取得“压倒性胜利”，标志着我国反腐斗争成果正从量的积累迈向质的转变。
+
+　　党的十八大以来，以习近平同志为核心的党中央深刻认识党风廉政建设和反腐败斗争的严峻形势，把全面从严治党纳入“四个全面”战略布局，坚持无禁区、全覆盖、零容忍，重拳“打虎”“拍蝇”“猎狐”，掀起了力度、广度、深度空前的反腐败斗争。
+
+　　形势决定策略。党的十八大后，党中央猛药去疴、重典治乱、刮骨疗毒，集中消减腐败存量同时遏制增量，治标为治本赢得时间。
+
+　　2015年1月，习近平总书记在十八届中央纪委五次全会上指出：“反腐败斗争形势依然严峻复杂，主要是在实现不敢腐、不能腐、不想腐上还没有取得压倒性胜利”。
+
+　　2016年1月，习近平总书记在十八届中央纪委六次全会上表示：“反腐败斗争压倒性态势正在形成。”
+
+　　2016年12月，习近平总书记主持中央政治局会议，基于新的形势，指出“反腐败斗争压倒性态势已经形成”。
+
+　　根据十八届中央纪委工作报告，党的十八大至十九大的5年间，我国共查处省军级以上党员干部及其他中管干部440人，处分厅局级干部8900余人，县处级干部6.3万人；2014年以来，共从90多个国家和地区追回外逃人员3453名、追赃95.1亿元。
+
+　　党的十九大对反腐败斗争作出新的部署，明确强调“巩固压倒性态势、夺取压倒性胜利的决心必须坚如磐石”。
+
+　　党的十九大以来，党中央反腐败决心不变、力度不减、尺度不松，国家监察体制改革取得重大进展，各级监察委员会成立，将所有行使公权力的公职人员纳入监督范围，推动形成党统一指挥、全面覆盖、权威高效的监督体系。
+
+　　中央纪委国家监委最新数据显示，党的十九大以来截至目前，中央纪委国家监委立案审查调查的中管干部已达70余人。2018年1至9月，全国纪检监察机关立案46.4万件，处分40.6万人。
+
+　　全面从严治党永远在路上，必须时刻保持一份清醒冷静。此次中央政治局会议在作出“反腐败斗争取得压倒性胜利”重大判断的同时，也明确重申“反腐败斗争形势依然严峻复杂，全面从严治党依然任重道远”，并进一步强调“要有力削减存量、有效遏制增量，巩固发展反腐败斗争压倒性胜利”。
+
+　　反腐败斗争不会变风转向，必须始终保持一份坚韧执着。正如习近平总书记在党的十九大报告中所说：“强化不敢腐的震慑，扎牢不能腐的笼子，增强不想腐的自觉，通过不懈努力换来海晏河清、朗朗乾坤。”
+        	</div>
+        </div>
+    </div>
 </body>
+<script>
+    var oBtn = document.getElementById('btn');
+    var oBox = document.getElementById('box');
+    var oWrap = document.getElementById('wrap');
+    var oTxt = document.getElementById('txt');
+    var oContent = document.getElementById('content');
+
+    var disY = 0,t = 0;
+    oBtn.onmousedown = function(ev){
+        disY = ev.clientY - oBtn.offsetTop;
+        document.onmousemove = function(ev){
+            t = ev.clientY - disY;
+            handleMove();
+           
+        }
+        oBtn.onmousewheel = function(ev){
+        	if(ev.wheelDelta > 0){
+        		t += 10;
+        	}else{
+        		t -= 10;
+        	}
+        	handleMove();
+        }
+        function handleMove(){
+        	if(t<0){
+                t = 0;
+            }else if(t > oWrap.offsetHeight - oBtn.offsetHeight){
+               t = oWrap.offsetHeight - oBtn.offsetHeight;
+            }
+            
+            var scale = t / (oWrap.offsetHeight - oBtn.offsetHeight);
+
+            oBtn.style.top = t + 'px';
+            oTxt.style.top = -(oTxt.offsetHeight -oContent.offsetHeight) * scale + 'px';
+        }
+
+           document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+        
+
+</script>
 </html>

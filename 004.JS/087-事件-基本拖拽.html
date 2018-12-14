@@ -30,11 +30,10 @@
 	oBox.onmousedown = function(ev){
 		disX = ev.clientX - oBox.offsetLeft;
         disY = ev.clientY - oBox.offsetTop;
-        console.log(disX,disY);
     }
         document.onmousemove = function(ev){
-        	oBox.style.left = ev.clientX - disX + "px";
-        	oBox.style.top = ev.clienty - disY + "px";
+        	oBox.style.left = ev.clientX - disX + 'px';
+        	oBox.style.top = ev.clientY - disY + 'px';
         }
         document.onmouseup = function(){
         	document.onmousemove = null;
