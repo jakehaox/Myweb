@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#Bigbox{
+            position: absolute;
+            top: 100px;
+            left: 100px;
+		}
+		#Bigbox img{
+			width:600px;
+			height: 600px;
+		}
+		#box{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 450px;
+		}
+		.list{
+			float: left;
+			width: 450px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+	  <div id="Bigbox">
+		<img src="images/1.jpg" alt="">
+		<div id="box">
+			<ul class="list">
+				<li><img src="images/1.jpg" alt=""></li>
+				<li><img src="images/2.jpg" alt=""></li>
+				<li><img src="images/3.jpg" alt=""></li>
+				<li><img src="images/4.jpg" alt=""></li>
+			</ul>
+		</div>
+	  </div>
+	<div id="largerbox">
+		<img src="images/1-1.jpg" alt="">
+		<img src="images/2-2.jpg" alt="">
+		<img src="images/3-3.jpg" alt="">
+		<img src="images/4-4.jpg" alt="">
+	</div>
+
+   </div>
+</body>
+<script>
+	var oBigbox = document.getquerySelctor('#Bigbox');
+	var oBox = document.getquerySelctor('#box li');
+	var oLargerbox = document.getElementById('largerbox');
+	for(var i = 0;i < lsit.length;i++){
+
+	}
+
+</script>
+</html>
