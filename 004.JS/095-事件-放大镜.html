@@ -2,62 +2,110 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>095-事件-放大镜.html</title>
 	<style>
 		*{
 			margin: 0;
 			padding: 0;
 		}
-		#Bigbox{
+		#wrap{
+			position: absolute;
+			top: 100px;
+			left: 100px;
+		}
+		#bigBox{
             position: absolute;
-            top: 100px;
-            left: 100px;
+            top: 0px;
+            left: 0px;
+            width: 450px;
+            height: 450px;
+            border:1px solid #ccc;
 		}
-		#Bigbox img{
-			width:600px;
+		#bigBox img{
+			width:100%;
+			height: 100%;
+		}
+		#list{
+			position:absolute;
+			top: 455px;
+			left: 0;
+		}
+		#list li{
+			float: left;
+			width: 450px;
+			width: 54px;
+			height: 54px;
+			margin-right: 10px;
+			list-style: none;
+			opacity: 0.5;
+			cursor: pointer;
+		}
+		#list li.active{
+            opacity: 1;
+		}
+		#largeBox{
+			position: absolute;
+			left: 452px;
+			width: 600px;
 			height: 600px;
+			border:1px solid #ccc;
+			overflow: hidden;
+			/*display: none;*/
 		}
-		#box{
+		#largeBox img{
+			width: 800px;
+			height: 800px;
+		}
+		#mask{
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 450px;
-		}
-		.list{
-			float: left;
-			width: 450px;
+			width: 240px;
+			height: 240px;
+			background-color: rgba(255,255,0,0.5);
+			display: none;
+
 		}
 	</style>
 </head>
 <body>
-	<div id="wrap">
-	  <div id="Bigbox">
-		<img src="images/1.jpg" alt="">
-		<div id="box">
-			<ul class="list">
-				<li><img src="images/1.jpg" alt=""></li>
-				<li><img src="images/2.jpg" alt=""></li>
-				<li><img src="images/3.jpg" alt=""></li>
-				<li><img src="images/4.jpg" alt=""></li>
-			</ul>
-		</div>
-	  </div>
-	<div id="largerbox">
-		<img src="images/1-1.jpg" alt="">
-		<img src="images/2-2.jpg" alt="">
-		<img src="images/3-3.jpg" alt="">
-		<img src="images/4-4.jpg" alt="">
-	</div>
-
-   </div>
+	<div id="wrap"></div>
+	    <div id="bigBox">
+	    	<img src="images/big-1.jpg" alt="">
+	    	<span id="mask"></span>
+	    </div>
+	    <ul id="list">
+	    	<li class="active"><img src="images/small-1.jpg" alt=""></img></li>
+	    	<li><img src="images/small-2.jpg" alt=""></img></li>
+	    	<li><img src="images/small-3.jpg" alt=""></img></li>
+	    </ul>
+	    <div id="largeBox">
+	    	<img src="images/l001.jpg" alt="">
+	    </div>
+	</div>    
 </body>
 <script>
-	var oBigbox = document.getquerySelctor('#Bigbox');
-	var oBox = document.getquerySelctor('#box li');
-	var oLargerbox = document.getElementById('largerbox');
-	for(var i = 0;i < lsit.length;i++){
-
+	var aSmallImg = document.querySelectorAll('#list li');
+    var oBigImg = document.querySelector('#bigBox img');
+    var oLargeIng = document.querySelector('#largeBox img');
+	for(var i = 0;i< aSmallImg.length;i++){
+		aSmallImg[i].index = i;
+       aSmallImg[i].onmouseover = function(){
+       	for(var j = 0 ;j < aSmallImg.length;j++){
+       		aSmallImg[j].className = '';
+       	}
+       	oBigImg.src = "images/big-1" + (this.index+1) + ".jpg";
+       	oLargeIng.src = "images/l001" + (this.index+1) + ".jpg";
+       	this.className = 'active';
+       }
 	}
+
+
+
+
+
+
+
 
 </script>
 </html>

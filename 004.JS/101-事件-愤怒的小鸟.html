@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>101-事件-愤怒的小鸟.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width: 600px;
+			height: 600px;
+			border:1px solid #000;
+		}
+		#bird{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 60px;
+			height: 60px;
+			margin-left: -30px;
+			background-image: url(images/bird.jpg);
+			background-repeat: no-repeat;
+			background-size: 60px 60px;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="bird"></div>
+	</div>
+</body>
+<script>
+	var oBird = document.getElementById('bird');
+	var oWrap = document.getElementById('wrap');
+	var moveBirdTimer = 0;
+	var iSpeed = 0;
+   
+	clearInterval(moveBirdTimer);
+
+	moveBirdTimer = setInterval(function(){
+		iSpeed += 1;
+		var t = oBird.offestTop + iSpeed;
+		if(t < 0){
+            t = 0;
+		}else if (t > oWrap.offsetHeight - 2 - oBird.offsetHeight){
+            t = oWrap.offsetHeight - 2 - oBird.offsetHeight;
+		}
+		oBird.style.top = t + 'px';
+	},30)
+</script>
+</html>
