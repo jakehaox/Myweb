@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>109-事件-时间对象-鼠标距离.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	document.onclick = function(ev){
+		console.log(ev);
+		鼠标事件属性
+	console.log(ev.clientY,event.clientX )//可视区(浏览器)的内沿到鼠标的距离
+	console.log(ev.pageY,event.pageX) //可视区(浏览器)的内沿加滚动距离到鼠标的距离
+	console.log(ev.screenY,event.screenX)// 显示器屏幕内沿到鼠标的距离
+	
+</script>
+</html>

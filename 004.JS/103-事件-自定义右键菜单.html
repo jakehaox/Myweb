@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>103-事件-自定义右键菜单.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#meau{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 600px;
+			background-color: #f67;
+			display: none;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="meau"></div>
+</body>
+<script>
+	var oMeau = document.getElementById('meau');
+	document.oncontextmenu = function(ev){
+		oMeau.style.display = 'block';
+        oMeau.style.left = ev.clientX + 'px';
+        oMeau.style.top = ev.clientY + 'px';
+        ev.preventDefault();
+		// return false;
+	}
+	oMeau.onclick = function(ev){
+        ev.stopPropagation();
+	}
+	document.onclick = function(){
+	oMeau.style.display = 'none';	
+	}
+</script>
+</html>

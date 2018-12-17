@@ -26,7 +26,20 @@
 			background-image: url(images/bird.jpg);
 			background-repeat: no-repeat;
 			background-size: 60px 60px;
-
+		}
+		.topLine{
+		    width: 30px;
+		    position: absolute;
+		    top: 0;
+		    left: 100%;
+		    background-color: purple;
+		}
+		.bottomLine{
+			position: absolute;
+			bottom: 0;
+			left: 100%;
+			white-space: 30px;
+			background-color: purple;
 		}
 	</style>
 </head>
@@ -40,18 +53,36 @@
 	var oWrap = document.getElementById('wrap');
 	var moveBirdTimer = 0;
 	var iSpeed = 0;
-   
 	clearInterval(moveBirdTimer);
+    
+    function addLine(){
+    	var oTopLine = document.createElement('div');
+    	var oBottomLine = document.createElement('div');
+    }
+
+
+
 
 	moveBirdTimer = setInterval(function(){
+		console.log('move bird..');
 		iSpeed += 1;
-		var t = oBird.offestTop + iSpeed;
+		var t = oBird.offsetTop + iSpeed;
 		if(t < 0){
             t = 0;
+            die();
 		}else if (t > oWrap.offsetHeight - 2 - oBird.offsetHeight){
             t = oWrap.offsetHeight - 2 - oBird.offsetHeight;
+            die();
 		}
 		oBird.style.top = t + 'px';
 	},30)
+
+	function die(){
+		clearInterval(moveBirdTimer);
+	}
+
+	document.onkeydown = function(){
+		iSpeed -= 10;
+	}
 </script>
 </html>

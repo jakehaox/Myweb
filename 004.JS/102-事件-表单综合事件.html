@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>102-表单事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 600px;
+			margin: 50px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+	<form action="" id="form1">
+	    <input type="text" id="txt">	
+	    <input type="submit" id="sub" value="提交">
+	    <input type="reset" id="res" value="重置">
+	    <p id="mes"></p>
+	</form>
+	</div>
+</body>
+<script>
+	var oForm = document.getElementById('form1');
+	var oTxt= document.getElementById('txt');
+	var oSub = document.getElementById('sub');
+	var oRes = document.getElementById('res');
+	var oMes = document.getElementById('mes');
+    var isCheckOk = false;
+
+	oTxt.onfocus = function(){
+		oMes.style.color = 'green'
+		oMes.innerHTML = '请输入3到6位用户名';
+	}
+	oTxt.onblur = function(){
+		var len = oTxt.value.length;
+		if(len < 3 || len >6){
+			oMes.style.color = 'red'
+		    oMes.innerHTML = '用户不合法';
+		    isCheckOk = false;
+	    }else{
+	    	oMes.style.color = 'green'
+		    oMes.innerHTML = '输入正确';
+		    isCheckOk = true;
+	    }
+	}
+		
+	oTxt.onchange = function(){
+        console.log('改动了');
+	}
+	oTxt.oninput = function(){
+       var len = oTxt.value.length;
+		if(len < 3 || len >6){
+			oMes.style.color = 'red'
+		    oMes.innerHTML = '用户不合法';
+	    }else{
+	    	oMes.style.color = 'green'
+		    oMes.innerHTML = '输入正确';
+	    }
+
+	}
+	oForm.onsubmit = function(){
+		console.log(isCheckOk);
+         console.log('submit....')
+         if(!isCheckOk){
+         	return false;
+         }
+	}
+
+    oForm.onreset = function(){
+         console.log('reset..')
+    }
+
+    oSub.onclick = function(){
+    	console.log('aa');
+    }
+    oRes.onclick = function(){
+    	console.log('bb');
+    }
+
+
+
+</script>
+
+</html>
