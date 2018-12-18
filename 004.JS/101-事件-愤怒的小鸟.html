@@ -137,6 +137,9 @@
 	}
 
 	document.onkeydown = function(){
+		if(!isDie){
+			return false;
+		}
 		iSpeed -= 10;
 	}
 </script>
