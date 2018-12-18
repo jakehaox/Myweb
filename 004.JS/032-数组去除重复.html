@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>032-数组去除重复.html</title>
 	<script>
-		var arr1 = [2,3,6,2,8,9,8];
+		var arr = [2,3,6,2,8,9,8];
 		function uniqueArray(arr){
 			var result = [];
 			for(var i = 0;i<arr.length;i++){
@@ -21,10 +21,23 @@
 			return result;
 		}
 
-		var arr2 = uniqueArray(arr1);
-		consloe.log("1::",arr1);
+		var arr2 = uniqueArray(arr);
+		consloe.log("1::",arr);
 		consloe.log("2::",arr2);
-
+        
+        // 去重方法二：利用对象无序且唯一性去除重复
+        function uniqueArray(arr){
+    	var obj = {};
+    	var result = [];
+        for(var i = 0 ;i<arr.length;i++){
+           obj[arr[i]] = '';
+        }
+        for(attr in obj){
+     	result.push(attr);
+        }
+        return result;
+    }
+   console.log(uniqueArray(arr));
 	</script>
 </head>
 <body>

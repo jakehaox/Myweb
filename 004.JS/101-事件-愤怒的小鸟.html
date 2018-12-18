@@ -15,6 +15,7 @@
 			width: 600px;
 			height: 600px;
 			border:1px solid #000;
+			overflow: hidden;
 		}
 		#bird{
 			position: absolute;
@@ -38,7 +39,7 @@
 			position: absolute;
 			bottom: 0;
 			left: 100%;
-			white-space: 30px;
+			width: 30px;
 			background-color: purple;
 		}
 	</style>
@@ -49,20 +50,71 @@
 	</div>
 </body>
 <script>
+
+
+	function getRandom(min,max){
+      return Math.round(min + (max - min)* Math.random());
+	}
+    
+    function checkBump(obj1,obj2){
+		if(obj1.offsetLeft + obj1.offsetWidth > obj2.offsetLeft
+           && obj1.offsetTop + obj1.offsetHeight > obj2.offsetTop
+           && obj2.offsetLeft + obj2.offsetWidth > obj1.offsetLeft
+           && obj2.offsetTop + obj2.offsetHeight > obj1.offsetTop
+            ){
+                return true;
+            }else{
+            	return false;
+            }
+	    }
+
 	var oBird = document.getElementById('bird');
 	var oWrap = document.getElementById('wrap');
-	var moveBirdTimer = 0;
+	var moveBirdTimer = 0,addLineTimer = 0,moveLineTimer = 0;
 	var iSpeed = 0;
-	clearInterval(moveBirdTimer);
+	var spaceHeight = 250;
+	var isDie = false;
+	
     
     function addLine(){
     	var oTopLine = document.createElement('div');
     	var oBottomLine = document.createElement('div');
+    	oTopLine.className ='topLine';
+    	oBottomLine.className ='bottomLine';
+        var h = getRandom(100,300);
+        oTopLine.style.height = h +'px';
+        oBottomLine.style.height =oWrap.offsetHeight - 2- h -spaceHeight + 'px';
+
+        oTopLine.leftData = 100;
+    	oWrap.appendChild(oTopLine);
+    	oWrap.appendChild(oBottomLine);
     }
 
+    clearInterval(addLineTimer);
+    addLineTimer = setInterval(addLine,500)
+
+    clearInterval(moveLineTimer);
+    moveLineTimer = setInterval(function(){
+        var aTopLine = document.querySelectorAll('.topLine');
+        var aBottomLine = document.querySelectorAll('.bottomLine');
+        for(var i = 0;i<aTopLine.length;i++){
+             if(checkBump(oBird,aTopLine[i]) || checkBump(oBird,aBottomLine[i])){
+             	die();
+             }
+
+        	aTopLine[i].style.left = aBottomLine[i].style.left = aTopLine[i].leftData -1 + "%";
+        	aTopLine[i].leftData = aTopLine[i].leftData - 1;
+
+        	if(aTopLine.leftData < -20){
+        		oWrap.removeChild(aTopLine[i]);
+        		oWrap.removeChild(aBottomLine[i]);
+        	}
+        }
+    },30)
 
 
-
+    
+    clearInterval(moveBirdTimer);
 	moveBirdTimer = setInterval(function(){
 		console.log('move bird..');
 		iSpeed += 1;
@@ -78,7 +130,10 @@
 	},30)
 
 	function die(){
+		isDie = true;
 		clearInterval(moveBirdTimer);
+		clearInterval(addLineTimer);
+		clearInterval(moveLineTimer);
 	}
 
 	document.onkeydown = function(){

@@ -10,23 +10,18 @@
 <script>
 	var arr = [11,22,33,44,33,22,55,88];
 
-
-    
-    var uniqueArray = function(arr){
+    function uniqueArray(arr){
     	var obj = {};
     	var result = [];
-     for(var i = 0 ;i<arr.length;i++){
+        for(var i = 0 ;i<arr.length;i++){
            obj[arr[i]] = '';
-     }
-     for(attr in obj){
+        }
+        for(attr in obj){
      	result.push(attr);
-     }
-      for(var i = 0 ;i<arr.length;i++){
-          result[i] = result[i]-0;
-     }
-     return result
-     console.log(result);
+        }
+        return result;
     }
-    uniqueArray();
+    console.log(uniqueArray(arr));
+   
 </script>
 </html>

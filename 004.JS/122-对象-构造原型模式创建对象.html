@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>122-对象-构造原型模式创建对象.html</title>
+	<script>
+	
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.sayHi = function(){
+			console.log('Hi I am ' +this.name);
+		}
+		Person.prototype.sayAge = function(){
+			console.log('I am ' +this.age + ' years old ');
+		}
+
+		var person = new Person('Tom',19);
+		console.log(person);
+		person.sayHi();
+		person.sayAge();
+
+		var person2 = new Person('Jake',39);
+		console.log(person2);
+		person2.sayHi();
+		person2.sayAge();
+
+		console.log(person.sayHi == person2.sayHi);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>121-对象-new-工厂函数-全局函数.html</title>
+	<script>
+		function sayHi(){
+				console.log('Hi I am ' +this.name);
+			}
+		function sayAge(){
+				console.log('I am ' +this.age + ' years old ');
+		}
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			this.sayHi = sayHi;
+			this.sayAge =sayAge;
+			}
+		
+
+		var person = new Person('Tom',19);
+		console.log(person);
+		person.sayHi();
+		person.sayAge();
+
+
+		var person2 = new Person('Jake',39);
+		console.log(person2);
+		person2.sayHi();
+		person2.sayAge();
+
+		console.log(person.sayHi == person2.sayHi);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
