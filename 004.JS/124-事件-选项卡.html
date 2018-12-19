@@ -3,14 +3,104 @@
 <head>
 	<meta charset="UTF-8">
 	<title>124-事件-选项卡.html</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#top{
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+		#top li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			cursor: pointer;
+		}
+		#bottom li{
+		    width: 400px;
+		    height: 400px;
+		    font-size: 80px;
+		    line-height: 400px;
+		    text-align: center;
+		    border: 2px solid #ff6700;
+		    display: none;
+		  
+		}
+		.box{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+
+		}
+	</style>
 </head>
 <body>
-	<div id="box"></div>
+	<ul id="top">
+		<li class="active">热门</li>
+		<li>电视</li>
+		<li>电脑</li>
+		<li>家居</li>
+	</ul>
+	<ul id="bottom">
+		<li style="display: block">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
 	
 </body>
 <script>
-	function Carousel(){
-		
+	/*
+	var aBtn = document.querySelectorAll('#top li');
+	var aBottom = document.querySelectorAll('#bottom li');
+	for(var i = 0; i<aBtn.length;i++){
+		aBtn[i].index =i;
+		aBtn[i].onclick = function(){
+			// console.log(this);
+	for(var j = 0;j<aBtn.length;j++){
+		aBtn[j].className = '';
+		aBottom[j].style.display = 'none';
+		}
+		this.className = 'box';
+		aBottom[this.index].style.display = 'block';
+		}
 	}
+	*/  //用面向对象方法做选项卡
+
+	function Tab(){
+		//1.罗列需要的属性
+		this.aBtn = document.querySelectorAll('#top li');
+		this.aContent = document.querySelectorAll('#bottom li');
+		//2.绑定事件
+		this.bindEvent();
+	}
+	//
+	Tab.prototype.bindEvent = function(){
+       var _this = this;
+       for(var i = 0;i<this.aBtn.length;i++){
+       	this.aBtn[i].index = i;
+       	this.aBtn[i].onclick = function(){
+             _this.fnClick(this);
+		     
+		    }
+        }
+    }
+       Tab.prototype.fnClick = function(oBtn){
+       	for(var i = 0;i<this.aBtn.length;i++){
+       		this.aBtn.className = '';
+       		this.aContent[i].style.display = 'none'
+       	   }
+       	   oBtn.className = 'active';
+       	   this.aContent[oBtn.index].style.display = 'block';
+        }
+	
+	new Tab();
+	
 </script>
 </html>
