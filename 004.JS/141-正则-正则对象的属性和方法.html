@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>141-正则-正则对象的属性和方法.html</title>
+	<script>
+		var str = 'a2b2c3';
+		
+		var reg = /[a-z]/g;
+		
+		console.log(str);
+		console.log(str1);
+		console.log(reg.lastIndex);
+		console.log(reg.test(str));
+		console.log(reg.lastIndex);
+		console.log(reg.exec)
+
+        var str1= 'a2018-12-20b';
+        var reg1 = /(?<year>\d{4})-(?<month>\d{2}>)-(?<day>\d{2})/g;
+        console.log(reg1.lastIndex);
+        console.log(reg.exec);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
