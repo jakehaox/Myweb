@@ -4,10 +4,25 @@
 	<meta charset="UTF-8">
 	<title>126-正则表达式.html</title>
 	<script>
-		var arr = [yes,22,thank,123,55,jake22]
-		for(varr i = 0;i<arr.length;i++){
-			
+		var str = 'yes 22 thank 123 55 jake22';
+		var result = [];
+		var tmp = '';
+		for(var i = 0;i<str.length;i++){
+			if(!isNaN(parseInt(str.charAt(i)))){
+				result.push(str.charAt(i))
+				tmp += str.charAt(i);
+			}else{
+				if(tmp){
+					result.push(tmp);
+					tmp = '';
+				}
+			}
 		}
+		if(tmp){
+			result.push(tmp);
+		}
+		console.log(result);
+		console.log(str.match(/\d+/g));
 	</script>
 </head>
 <body>

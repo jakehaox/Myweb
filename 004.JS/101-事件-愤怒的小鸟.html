@@ -116,7 +116,6 @@
     
     clearInterval(moveBirdTimer);
 	moveBirdTimer = setInterval(function(){
-		console.log('move bird..');
 		iSpeed += 1;
 		var t = oBird.offsetTop + iSpeed;
 		if(t < 0){

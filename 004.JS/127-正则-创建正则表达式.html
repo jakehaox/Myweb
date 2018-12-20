@@ -3,6 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>127-正则-创建正则表达式.html</title>
+	<script>
+		var str = 'abg abc abf'
+
+		var reg = new RegExp('a','g');
+		console.log(str);
+		console.log(str.replace(reg,'*'));
+		//构造函数
+		var reg1  = /a/g;
+		console.log(str.replace(reg1,"*"));
+		//字面量
+	</script>
 </head>
 <body>
 	
