@@ -8,6 +8,8 @@
 	<form action="" id="form1">
 		<input type="text" name="username">
 		<input type="possword" name="password">
+		<input type="radio" name="sex">男
+		<input type="radio" name="sex">女
 	</form>
 	<form action="" id="form2"></form>
 </body>
@@ -16,5 +18,10 @@
 	console.log(document.forms[0]);
 	console.log(document.forms[0].elements);
 	console.log(document.forms[0].elements[0]);
+	console.log(document.forms[0].elements['username']);
+	console.log(document.forms[0].elements.username);
+	console.log(document.forms[0].username);
+	console.log(document.forms[0].sex);
+
 </script>
 </html>

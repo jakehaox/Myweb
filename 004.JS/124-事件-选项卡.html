@@ -33,7 +33,7 @@
 		    display: none;
 		  
 		}
-		.box{
+		.active{
 			color: #ff6700;
 			border-bottom: 2px solid #ff6700;
 
@@ -93,7 +93,7 @@
     }
        Tab.prototype.fnClick = function(oBtn){
        	for(var i = 0;i<this.aBtn.length;i++){
-       		this.aBtn.className = '';
+       		this.aBtn[i].className = '';
        		this.aContent[i].style.display = 'none'
        	   }
        	   oBtn.className = 'active';

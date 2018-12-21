@@ -34,22 +34,13 @@
         oLi.appendChild(oA);
         oUl.appendChild(oLi);
     },false)
-
-
-
-
 	var aA = document.getElementsByTagName('a');
 	for(var i = 0;i<aA.length;i++){  //循环遍历事件
 		aA[i].onclick = function(){
 			oUl.removeChild(this.parentNode);
 		}
-	
-     
-
-
 
 	oUl.addEventListener('click',function(ev){
-		console.log(ev.target.className);
         if(ev.target.className == 'del'){
         	oUl.removeChild(ev.target.parentNode);
         }

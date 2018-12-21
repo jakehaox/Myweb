@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>145-表单属性.html</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com/" id="form1">
+		<div>
+			用户名：
+			<input type="text" name="username" value="Tom">
+		</div>
+		<div>
+			密码：
+			<input type="password" name="psaaword">
+		</div>
+		<div>
+			性别：
+			<input type="radio" name="sex">男
+			<input type="radio" name="sex">女
+		</div>
+		<div>
+			爱好：
+			<input type="checkbox" name="hobby" value="basketball">篮球
+			<input type="checkbox" name="hobby" value="football">足球
+		</div>
+		<div>
+			城市：
+			<select name="city" id="city">
+				<option value="bj">北京</option>
+				<option value="sh">上海</option>
+			</select>
+		</div>
+		<div>
+			<input type="submit" value="提交">
+			<input type="submit" value="测试">
+		</div>
+	</form>
+</body>
+<script>
+	var oForm = document.forms[0];
+	oForm.username.disabled = true;
+	// oForm.username.readOnly = true;
+	var aCheckBox = oForm.hobby;
+	aCheckBox[1].checked = true;
+
+	var aRadio = oForm.sex;
+	aRadio[0].checked = true;
+
+	var oSelect = oForm.city;
+	
+	oBtn.onclick = function(){
+		var result = [];
+		if (var i = 0 ;i<oSelect.options.length;i++) {
+              if(oSelect.options[i].selected){
+              	result.push(oSelect.options[i]);
+              }
+		}
+		console.log(result);
+	}
+</script>
+</html>
