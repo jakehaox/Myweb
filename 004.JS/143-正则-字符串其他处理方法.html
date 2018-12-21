@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>143-正则-字符串其他处理方法.html</title>
+	<script>
+		var str = '你好abc ASAS 123';
+		console.log(str.charAt(1)); 
+		//根据位置返回字符,从字符第位开始
+		console.log(str.charCodeAt(2));
+        //根据位置返回字符串编码
+		console.log(str.indexOf('a'));
+        //根据字符返回位置，从前向后找，找不到返回-1
+		console.log(str.lastIndexOf('2'));
+        //根据字符返回位置，从后向前找，找不到返回-1
+		console.log(encodeURIComponent('https:www.kuazhu.com/'));
+        //编码
+		console.log(decodeURIComponent('https:www.kuazhu.com/'));
+        //解码
+        console.log('abc'.concat('123'));
+        //连接字符串
+        console.log(str.slice(-5,-1));
+        //截获字符串包括起始下标不包括结束下标，负数从尾部开始算
+        console.log(str.substr(0,4));
+        //截获字符串，下标可以是负数
+        console.log(str.substring(2,5));
+        //截获字符串下标不可以是负数
+        console.log(str.toLowerCase());
+        //把字符串转化成小写
+        console.log(str.toUpperCase());
+        //把字符串转化成大写
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

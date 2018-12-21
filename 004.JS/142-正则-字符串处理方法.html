@@ -5,11 +5,49 @@
 	<title>142-正则-字符串处理方法.html</title>
 	<script>
 		var str = 'this is a good day';
-
+        //search 方法
 		var reg = /good/;
 		var reg1 = /good/g;
+		var reg2 = /h/;
 		console.log(str.search(reg));
 		console.log(str.search(reg1));
+		console.log(str.search(reg2));
+
+		var str1 = 'a2018-12-20bbb2019-12-15ccc';
+		var reg3 = /\d{4}-\d{2}-\d{2}/g;
+		var reg4 = /\d{4}-\d{2}-\d{2}/;
+		console.log(str1.match(reg3));
+		console.log(str1.match(reg4));
+		console.log(reg4.exec(str1));
+		//在非全局匹配中str.match(reg)方法=reg.exec(str);
+
+        //split(reg)方法把空白符分割成数组
+        var str3 = 'abs dec defg    aafsd     svsca';
+        console.log(str3);
+        console.log(str3.split(/\s+/));
+
+        //判断是否回文 aabbaa cddc
+        var str4 = 'aabbaa';
+        function isH(str){
+        	return str == str.split('').reverse().join('');
+        }
+        console.log(isH(str4));
+
+        //str.replace(reg.function())
+
+        var str5 = 'a1b2c3';
+        var reg  = /\d/g;
+        console.log(str5.replace(reg,function(match,index,orgigin){
+        	console.log(match,index,orgigin);
+        	if(index%2){
+        		return '$'
+        	}else{
+        		return '#'
+        	}
+        }));
+
+        
+
 	</script>
 </head>
 <body>
