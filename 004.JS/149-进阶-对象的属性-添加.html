@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>149-进阶-对象的属性-添加.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+        this.name = 'name';
+        this.age = 'age';
+	}
+    var p1 = new Person('Tom',18);
+    var p2 = new Person('Leo',88);
+    
+   Person.prototype.showName(){
+		console.log('I am ''+this.name');
+	}
+	Person.prototype.showAge(){
+		console.log('I am ''+this.age');
+	}
+	Person.prototype.LSEC = 2;
+    p1.name = 'jake';
+    console.log(p1.name);
+    p1.classmates = '14';
+    console.log(p1.classmates);
+</script>
+</html>

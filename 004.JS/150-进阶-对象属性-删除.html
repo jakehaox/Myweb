@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>150-进阶-对象属性-删除.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+        this.name = 'name';
+        this.age = 'age';
+	}
+    var p1 = new Person('Tom',18);
+    var p2 = new Person('Leo',88);
+    
+    Person.prototype.showName(){
+		console.log('I am '+this.name'');
+    }
+	
+	Person.prototype.showAge(){
+		console.log(I am '+this.age');
+	}
+	Person.prototype.LSEC = 2;
+    p1.name = 'jake';
+    console.log(p1.name);
+    p1.classmates = '14';
+    console.log(p1.classmates);
+    delete Person.prototype.LSEC;
+    console.log( Person.prototype.LSEC);
+    console.log(delete p1.name);
+    console.log(p1.name);
+</script>
+</html>
