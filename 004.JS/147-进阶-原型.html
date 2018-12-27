@@ -3,6 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>147-进阶-原型.html</title>
+	<script>
+		function Person(name,age){
+             this.name = 'name';
+             this.age = 'age';
+		}
+		console.log(Person.prototype.constructor);
+		console.log(Person.prototype.__proto__);
+		console.log(Person)
+	</script>
 </head>
 <body>
 	

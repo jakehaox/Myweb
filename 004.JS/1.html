@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="" id="form">
+		用户名：<input type="text" id="txt">//只能字母下划线开头不能空格下划线最少3位最多8位
+		密码：<input type="password" id="pwd">//密码8-11位不能用数字空格下划线
+    </form>
+</body>
+<script>
+	var oFrom = document.getElementById('form');
+
+	var oTxt = document.getElementById('txt');
+
+	var aPassword = document.getElementById('pwd');
+    oTxt.oninput = function(){
+       var oTxtValue = oTxt.value;
+       var reg1 = /^[a-zA-Z]{2,7}$/
+	   // var reg2 = /^\W{8,11}$/
+    }
+	
+</script>
+</html>
