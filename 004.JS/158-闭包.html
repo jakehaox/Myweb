@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>158-闭包.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Fn1(){
+		var n = 1;
+		add = function(){
+			n++;
+		}
+		return function(){
+			return n;
+		}
+	}
+	var result = Fn1();
+	add();
+	console.log(result());
+	console.log(Fn1()());
+</script>
+</html>

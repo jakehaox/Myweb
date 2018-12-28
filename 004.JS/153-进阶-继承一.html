@@ -6,23 +6,51 @@
 	<script>
 		
 		function Stundent(name,age,major){
-			this.name = name;
-			this.age = age ;
+			
+			// this.name = name;
+			// this.age = age ;
+			Person.call(this,name,age);
 			this.major = major;
 		}
 		function Person(name,age){
 			this.name = name;
 			this.age = age;
 		}
-		Stundent.proptotype.showName = function(){
-			
+		// Stundent.prototype.showName = function(){
+		// 	console.log('I am' +this.name);
+		// }
+		// Stundent.prototype.showAge = function(){
+		// 	console.log('I am'+this.age+'years old');
+		// }
+		// Stundent.prototype.showMajor = function(){
+		// 	
+		// }
+		Person.prototype.showName = function(){
+			console.log('I am '+this.name);
 		}
+		Person.prototype.showAge = function(){
+			console.log('I am'+this.age +'years old');
+		}
+		Person.prototype.LEGS = 2;
+
+
 		var p1 = new Person('tom',18);
-		var p2 = new Person('jake',18,教授);
-        Person.call(this,name,age);
-        this.major = major;
-        Stundent.proptotype = Person.proptotype;
-        Stundent.proptotype.
+       
+        Stundent.prototype = Person.prototype;
+        
+        Stundent.prototype.showMajor = function(){
+        	console.log('I am  a'+this.major);
+        }
+        console.log(p1);
+        p1.showName();
+        p1.showAge();
+        p1.showMajor();
+        
+        var p2 = new Stundent('jake',18,'教授');
+        p2.showName();
+        p2.showAge();
+        p2.showMajor();
+        console.log(Person.prototype);
 
 	</script>
 </head>

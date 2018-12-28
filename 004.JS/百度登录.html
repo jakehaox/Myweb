@@ -282,14 +282,31 @@
     </div>
 </body>
 <script>
-    //获取元素
+    //1.获取元素
     var oForm = document.forms[0];
     var oUsername = oForm.username;
-    var aPhone = oForm.phone;
-    var oPwdBox = oForm.oPwdBox;
+    
+    var aMsg = document.querySelectorAll('.msg');
+    var aCancel = document.querySelectorAll('.cancal');
 
-    aCanvel.onclick = function(){
-        aCanvel.style.display = 
+    //2.初始化
+    oUsername.focus();
+        aMsg[0].className = 'tiptext';
+        aMsg[0].innerHTML = '设置后不可更改<br>中英文最长14个英文字符或七个汉字';
+    
+    //3.处理显示隐藏取消按钮
+    oUsername.oninput = function(){
+        if(oUsername.value.length > 0){
+            console.log(aCancel[0]);
+            aCancel[0].style.display = 'block';
+        }else{
+            aCancel[0].style.display = 'none';
+        }
+    }
+    aCancel[0].onclick = function(){
+        oUsername.value = '';
+        aCancel[0].style.display = 'none';
+        oUsername.focus();
     }
 </script>
 </html>

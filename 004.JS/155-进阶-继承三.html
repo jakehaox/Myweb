@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>155-进阶-继承三.html</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			console.log('I am '+this.name);
+		}
+		
+		Person.prototype.showAge = function(){
+			console.log('I am'+ this.age +'years old');
+		}
+		
+		Person.prototype.LEGS = 2;
+        
+
+        function Stundent(name,age,major){
+			Person.call(this,name,age);
+			this.major = major;
+		}
+		Stundent.prototype = new Person();
+		Stundent.prototype.constructor = Stundent;
+        console.log(Stundent.prototype);
+
+		
+		Stundent.prototype.showMajor = function(){
+        	console.log('I am  a'+this.major);
+        }
+        var s1 = new Stundent('jake',18,'computer');
+        s1.showName();
+        s1.showAge();
+        s1.showMajor();
+        
+        var p1 = new Person('tom',18);
+        console.log(p1);
+        p1.showName();
+        p1.showAge();
+        // p1.showMajor();
+
+        console.log(Person.prototype);
+        console.log(Stundent.prototype);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
