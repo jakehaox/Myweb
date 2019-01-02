@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>168-惰性登录框.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.login{
+			width: 200px;
+			height: 280px;
+			background-color: #f60;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -140px;
+			margin-left: -100px;
+			display: none;
+
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="btn" value="登录">
+	<div vlass="login"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oLogin = document.querySelect('.login');
+
+	oBtn.onclick = function(){
+		if (!login) {
+			var oDiv = document.createElement('div');
+			oDiv.className = 'login';
+			document.body.appendChild('div');
+		}
+	}
+    function createLoginlayer(){
+    	
+    }
+</script>
+</html>

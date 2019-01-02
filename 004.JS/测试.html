@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var fun1 = function(){
+		this.name = 'peter';
+		return{
+			name:'jack'
+		};
+	}
+	var p1 = new fun1();
+	console.log(p1.name);
+	var fun2 = function(){
+		this.name = 'peter';
+		return 'jack';
+	}
+     
+    var p2 = new fun2();
+    console.log(p2.name);
+</script>
+</html>

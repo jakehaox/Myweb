@@ -22,20 +22,15 @@
        		for(var i = 0;i<this.students.length;i++){
                 this.students[i].listen(task);
        		}
-       	}
+       }
     }
        w.Teacher = Teacher;
-       
 	})(window);
-
-
-
 
 	(function(w){
         function Student(name,Teacher){
             this.name = name;
             Teacher.register(this);
-
         }
         Student.prototype = {
         	constructor:Student,
@@ -43,9 +38,7 @@
             console.log(this.name + 'got task:' + task);
         }
     }
-        
 	    w.Student = Student;
-
 	})(window);
 
 	var t1 = new Teacher('Tom');
