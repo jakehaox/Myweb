@@ -17,10 +17,21 @@
 	    return value * 10;
 		console.log(arr.map);
 	});
-	//映射
+	//映射 把函数每次返回值映射成新的数组并返回
 	var bRes = arr.filter(function(value,index){
 		return value > 10;
 		console.log('value,index',value,index);
-	})
+	});
+	//过滤 把函数中的每次返回值为真的原数组中的新的数组并返回
+	var bRes = arr.every(function(value,index){
+        return value > 24;
+        console.log('value,index',value,index);
+	});
+	//全真判断 遍历数组所有值为真的情况下返回真，否则返回假 返回值true或false
+	var change = arr.some(function(value.index){
+        return value > 24;
+	};
+	//有真判断 遍历数组，有一个值为真的情况下返回真，否则返回假
+
 </script>
 </html>

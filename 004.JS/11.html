@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.login{
+			width: 200px;
+			height: 280px;
+			background-color: #f60;
+			position: absolute;
+			top: 100px;
+			left: 50%;
+			/*display: none;*/
+			/*margin-top: -140px;
+			margin-left: -100px;*/
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="登录">
+	<!-- <div class="login"></div> -->
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oLogin = document.querySelector('.login');
+    var obj = null;
+    function creataLoginLayer(){
+    	if(!obj){
+    		var oDiv = document.createElement('div');
+	    	oDiv.className = 'login';
+	    	document.body.appendChild(oDiv);
+	    	obj = oDiv;
+    	}
+    	return obj;
+    }
+	oBtn.onclick = function(){
+        creataLoginLayer();
+	}
+</script>
+</html>

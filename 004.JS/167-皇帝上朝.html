@@ -9,27 +9,25 @@
 </body>
 <script>
 	(function(w){
-		var king = null;
+		var ng = null;
 		function king(name){
-			if(!king){
+			if(!ng){
 				this.name = name;
-                this.id = Math.randow();
+                this.id = Math.random();
+                ng = this;
 			}
-			this.
-            
-
+            return ng;
 		}
 		king.prototype = {
             constructor:king,
             work:function(){
             	console.log(this.name + this.id + '有本上奏，无本退朝');
             }
-          
 		}
 		w.king = king;
 	})(window);
 	for(var i = 0;i<=5;i++){
-        new king('乾隆')；
+        console.log(new king('乾隆'));
 	}
 </script>
 </html>

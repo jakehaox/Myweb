@@ -17,28 +17,62 @@
 			left: 50%;
 			margin-top: -140px;
 			margin-left: -100px;
-			display: none;
-
+		}
+		.mask{
+			width: 100%;
+			height: 600px;
+			background-color: purple;
 		}
 	</style>
 </head>
 <body>
-	<input type="text" id="btn" value="登录">
-	<div vlass="login"></div>
+	<input type="button" id="btn" value="登录">
+	<!-- <div vlass="login"></div> -->
 </body>
 <script>
 	var oBtn = document.getElementById('btn');
-	var oLogin = document.querySelect('.login');
-
-	oBtn.onclick = function(){
-		if (!login) {
-			var oDiv = document.createElement('div');
+	var oLogin = document.querySelector('.login');
+    /*
+    var obj = null;
+    function createSingLayer(){
+    	if(!obj){
+    		var oDiv = document.createElement('div');
 			oDiv.className = 'login';
-			document.body.appendChild('div');
-		}
-	}
-    function createLoginlayer(){
-    	
+			document.body.appendChild('oDiv');
+			obj = oDiv;
+    	}
+    	return obj;
     }
+    */
+    function getSingle(fn){
+    	var obj = null;
+    	if(!obj){
+           obj = fn();
+    	}
+    	return obj;
+    	//单列的处理
+    }
+    function createLoginLayer(){
+    	var oDiv = document.createElement('div');
+		oDiv.className = 'login';
+		document.body.appendChild(oDiv);
+		return oDiv;
+    }
+    function createMaskLayer(){
+        var oDiv = document.createElement('div');
+		oDiv.className = 'mask';
+		document.body.appendChild(oDiv);
+		return oDiv;
+    }
+    
+    
+    var createSingleLoginLayer = getSingle(createLoginLayer);
+    var createSingleMaskLayer = getSingle(createMaskLayer);
+    console.log(createSingleLoginLayer);
+	oBtn.onclick = function(){
+		createSingleLoginLayer();
+		createSingleMaskLayer();
+	}
+    
 </script>
 </html>
