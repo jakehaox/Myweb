@@ -1,3 +1,4 @@
+
 /*
 var http = require('http');
 
@@ -8,7 +9,6 @@ var server = http.createServer(function(req,res){
 	res.statusCode = 200;
 	res.setHeader('Content-Type','text/plain');
 	res.end('hello');
-
 });
 server.listen(port,hostname,function(){
 	console.log("Server running at http://"+hostname+":"+port+"/");
