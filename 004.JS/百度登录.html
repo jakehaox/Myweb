@@ -253,7 +253,7 @@
                     <span class="msg"></span>
                     <div id="pwdChecklist" class="pwd-checklist" style="display:none">
                         <ul>
-                            <li class="pwd-checklist-item">长度为6~14个字符</li>
+                            <li class="pwd-checklist-item">长度为8~14个字符</li>
                             <li class="pwd-checklist-item">支持数字,大小写字母和标点符号</li>
                             <li class="pwd-checklist-item ">不允许有空格</li>
                         </ul>
@@ -300,6 +300,11 @@
     var oForm = document.forms[0];
     var oUsername = oForm.username;
     var oPhone = oForm.phone;
+    var password = oForm.password;
+    var oVerify = oForm.oVerify;
+    var oPwdChecklist = document.getElementById('pwdchecklist') ;
+    var aPwdLi = oPwdChecklist.getElementsByTagName('li');
+    var oSmsBtn = document.getElementById('smsbtn');
     
     var aMsg = document.querySelectorAll('.msg');
     var aCancel = document.querySelectorAll('.cancel');
@@ -307,6 +312,8 @@
     init();
     checkUsername();
     checkPhone();
+    checkPwd();
+    checkverify();
 
     //2.初始化
 
@@ -338,29 +345,12 @@
                     case 'verify':
                         oInput.value = '';
                         oCancel.style.display = 'none';
-                        oUsername.focus();
+                        oInput.focus();
                         break;
                 }
             }
         }
     }
-       
-/*   
-    //3.处理显示隐藏取消按钮
-    oUsername.oninput = function(){
-        if(oUsername.value.length > 0){
-            aCancel[0].style.display = 'block';
-        }else{
-            aCancel[0].style.display = 'none';
-        }
-    }
-    */
-    aCancel[0].onclick = function(){
-        oUsername.value = '';
-        aCancel[0].style.display = 'none';
-        oUsername.focus();
-    }
-
     //4.验证用户名
     function checkUsername(){
         oUsername.onblur = function(){
@@ -393,11 +383,10 @@
         oUsername.onfocus = function(){
             aMsg[0].className = 'tiptext';
             aMsg[0].innerHTML = '设置后不可更改<br>中英文最长14个英文字符或七个汉字';
-            setError(aMsg[0],'设置后不可更改<br>中英文最长14个英文字符或七个汉字');
         }
     }
     //5.验证手机号
-     function checkPhone(){
+    function checkPhone(){
         oPhone.onblur = function(){
             var sVal = oPhone.value;
             var reg1 = /^\s+$/;
@@ -407,22 +396,112 @@
                 aMsg[1].className = 'msg';
                 //解决上次因为验证失败后，再变为什么都没有
                 oPhone.className = '';
+                bPhone = false;
             //全空验证
             }else if(reg1.test(sVal)){
                 setError(aMsg[1],'请输入手机号',oPhone);
+                bPhone = false;
             } 
             //长度验证：用户名不超过七个汉字或14个英文字符
             else if(!reg2.test(sVal)){
                 setError(aMsg[1],'手机号码格式不正确',oPhone);
+                bPhone = false;
             }
             else{
-                 setOk(aMsg[1],oPhone);
+                setOk(aMsg[1],oPhone);
+                bPhone = true;
             }
         }
    
-        oPhone.onfocus = function(){
-            aMsg[1].className = 'tiptext';
-            aMsg[1].innerHTML = '请输入中国大陆手机号，其他用户不可见';
+            oPhone.onfocus = function(){
+                aMsg[1].className = 'tiptext';
+                aMsg[1].innerHTML = '请输入中国大陆手机号，其他用户不可见';
+            }
+            //输入框只能输入数字限定
+            oPhone.onkeydown = function(ev){
+                var oEvent = ev || event;
+                if((oEvent.keyCode < 97 || oEvent.keyCode > 105 || oPhone.value.length > 10) && oEvent.keyCode != 8 && oEvent.keyCode !=37 && oEvent.keyCode != 39){
+                       return false;
+                }
+            }
+    }
+    //6.密码验证
+    function checkPwd(){
+        var bPwd1 = false,bPwd2 = false,bPwd3 = false;
+        oPwd.onfocus = function(){
+            oPwdChecklist.style.display = 'block';
+            aMsg[2].className = 'msg';
+        }
+        //输入密码时实时验证
+        oPwd.oninput = function(){
+            var sVal = oPwd.value;
+            var sErrorClass = 'pwd-checklist-item pwd-checklist-item-error';
+            var sSuccClass = 'pwd-checklist-item pwd-checklist-item-success';
+            //长度为8~14个字符
+            var reg1 = /^.{8,14}$/;
+            //支持数字，大小写字符和标点符号
+            var reg2 = /[^0-9a-z@#%\*\!\$\\[\]\(\)]/i;
+            //不允许有空格
+            var reg3 = /\s/;
+
+            if(!reg1.test(sVal)){
+                aPwdLi[0].className = sErrorClass;
+                bPwd1 = false;
+            }else{
+                aPwdLi[0].className = sSuccClass;
+                bPwd1 = true;
+            }
+            if(reg2.test(sVal)){
+                aPwdLi[1].className = sErrorClass;
+                bPwd2 = false;
+            }else{
+                aPwdLi[1].className = sSuccClass;
+                bPwd2 = true;
+            }
+            if(reg3.test(sVal)){
+                aPwdLi[2].className = sErrorClass;
+                bPwd3 = false;
+            }else{
+                aPwdLi[2].className = sSuccClass;
+                bPwd3 = true;
+            }
+        }
+        //密码取消按钮特殊处理
+        aCancel[2].onclick = function(){
+            aPwdLi[0].className = 'pwd-checklist-item';
+            aPwdLi[1].className = 'pwd-checklist-item';
+            aPwdLi[2].className = 'pwd-checklist-item';
+            bPwd1 = false;
+            bPwd2 = false;
+            bPwd3 = false;
+
+        }
+        //失去焦点验证
+        oPwd.onblur = function(){
+            var sVal = oPwd.value;
+
+            //什么都不输入
+            if(sVal == ''){
+                oPwdChecklist.style.display = 'none';
+            }
+            //验证成功
+            else if(bPwd1 && bPwd2 && bPwd3){
+                oPwdChecklist.style.display = 'none';
+                setOk(aMsg[2],oPwd);
+            }
+        }
+    }
+    //7.验证码
+    function checkverify(){
+        oSmsBtn.onclick = function(){
+            //1.检验手机号是否输入
+            if(oPhone.value == ''){
+                setError(sMsg[1],'请输入手机号',phone);
+                return false;
+            }
+            if(!bPhone){
+                return false;
+            }
         }
     }
 </script>
