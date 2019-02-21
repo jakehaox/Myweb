@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-$解决冲突.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(){
+		$ = function(){
+			console.log('test $!!!')
+		}
+	})(window);
+</script>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+
+    jQuery.noConflict();
+ //   (function(){
+	// 	$ = function(){
+	// 		console.log('hellow')
+	// 	}
+	// })(window);
+	$();
+
+	jQuery(function(){
+         console.log('$1')
+	})
+    
+	var kz = jQuery.noConflict();
+
+	kz(function(){
+		console.log('jake')
+	})
+</script>
+</html>

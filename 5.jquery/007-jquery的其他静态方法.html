@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-jquery的其他静态方法.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	/*  $.trim(str)方法  去除字符串两边的空格并返回*/
+	var str = "  aa bds c  "
+	console.log(str);
+	console.log($.trim(str));
+
+
+	var obj1 = {name:'Tom',age:19};
+	var obj2 = {names:'jake'}
+
+	console.log($.extend(obj1,obj2));
+	console.log($.extend({},obj1,obj2));
+
+	
+</script>
+</html>

@@ -302,18 +302,24 @@
     var oPhone = oForm.phone;
     var password = oForm.password;
     var oVerify = oForm.oVerify;
+    var oArr = oForm.isAgree;
     var oPwdChecklist = document.getElementById('pwdchecklist') ;
     var aPwdLi = oPwdChecklist.getElementsByTagName('li');
     var oSmsBtn = document.getElementById('smsbtn');
+    var oSubBtn =  document.getElementById('subbtn');
     
     var aMsg = document.querySelectorAll('.msg');
     var aCancel = document.querySelectorAll('.cancel');
 
+    //全局验证变量
+
+    var bUsername = false,bPhbne = false,bPwd = false,bVerify = false;
     init();
     checkUsername();
     checkPhone();
     checkPwd();
     checkverify();
+    handleSubmit()
 
     //2.初始化
 
@@ -364,19 +370,24 @@
                 aMsg[0].className = 'msg';
                 //解决上次因为验证失败后，再变为什么都没有
                 oUsername.className = '';
+                bUsername = false;
             //全空验证
             }else if(reg1.test(sVal)){
                 setError(aMsg[0],'请输入用户名',oUsername);
+                bUsername = false;
             } 
             //长度验证：用户名不超过七个汉字或14个英文字符
             else if(getLen(sVal) > 14){
                 setError(aMsg[0],'用户名不超过七个汉字或14个英文字符',oUsername);
+                bUsername = false;
             }
             else if(reg2.test(sVal) || reg3.test(sVal)){
                 setError(aMsg[0],'用户名仅支持中英文,数字,和下划线,且不能为纯数字',oUsername);
+                oUsername = false;
             }
             else{
-                 setOk(aMsg[0],oUsername);
+                setOk(aMsg[0],oUsername);
+                bUsername = true;
             }
         }
    
@@ -483,11 +494,15 @@
             //什么都不输入
             if(sVal == ''){
                 oPwdChecklist.style.display = 'none';
+                bPwd = false;
             }
             //验证成功
             else if(bPwd1 && bPwd2 && bPwd3){
                 oPwdChecklist.style.display = 'none';
                 setOk(aMsg[2],oPwd);
+                bPwd = true;
+            }else{
+                bPwd = false;
             }
         }
     }
@@ -501,6 +516,65 @@
             }
             if(!bPhone){
                 return false;
+            }
+            //发送获取验证码
+            aleat('验证码请求发送...');
+        }
+        oVerify.onblur = function(){
+            var sVal = oVerify.value;
+            var reg = /^[a-z0-9]{6}$/i;
+            //什么都没输入
+            if (sVal == '') {
+                aMsg[3].className = 'msg';
+                //解决上一次验证失败后，再变成为什么都没有输入，但是显示错误框的问题
+                oVerify.className = '';
+                bVerify = false;
+            }
+            else if(!reg.text(sVal)){
+                setError(aMsg[3],'验证码格式错误',oVerify);
+                bVerify = false;
+            }
+            else{
+                setOk(aMsg[3],oVerify);
+                bVerify = true;
+            }
+        }
+        oVerify.onkeydown = function(ev){
+            var oEvent = ev || event;
+            if (oVerify.value.length > 5 
+                &&oEvent.keyCode != 8 
+                && oEvent.keyCode !=37 
+                && oEvent.keyCode != 39) {
+                return false;
+            }
+        }
+        oVerify.onfocus = function(){
+            aMsg[3].className = 'mag';
+        }
+    }
+    //8.注册验证
+    function handleSubmit(){
+        oSubBtn.oncilck = function(){
+        //什么都不输入时的验证
+            if(oUsername.value == ''){
+                setError(aMsg[0],'请输入用户名',oUsername);
+            }
+            if(oPhone.value == ''){
+                setError(aMsg[1],'请输入手机号名',oPhone);
+            }
+            if(oPwd.value == ''){
+                setError(aMsg[2],'请输入密码',oPwd);
+            }
+            if(oVerify.value == ''){
+                setError(aMsg[3],'请输入验证码',oVerify);
+            }
+            if(!oAgree.checked){
+                aMsg[4].style.display = 'inline';
+            }else{
+                aMsg[4].style.display = 'none';
+            }
+            if (bUsername && bPhone && bPwd && bVerify && oAgree.checked) {
+                oForm.sunmit();
             }
         }
     }
