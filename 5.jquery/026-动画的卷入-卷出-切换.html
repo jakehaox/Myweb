@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-动画的卷入-卷出-切换.html</title>
+    <style>
+		div{
+			width: 140px;
+			height: 140px;
+			background: blue;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button>卷入</button>
+	<button>卷出</button>
+	<button>切换</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+        $('button').eq(0).click(function(){
+        	$('div').slideDown(1000);
+        });
+		
+		$('button').eq(1).click(function(){
+        	$('div').slideUp(1000);
+        });
+
+        $('button').eq(2).click(function(){
+        	$('div').slideToggle(1000);
+		    
+        });
+		// $('div').toggle(1000);
+
+		
+		
+	})
+</script>
+</html>
