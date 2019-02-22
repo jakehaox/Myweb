@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-操作Class.html</title>
+	<style>
+		.box1{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ff6700;
+		}
+		.box2{
+			color: red;
+		}
+		.box3{
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">点击</button>
+	<div class="box1 box2">div1</div>
+	<div class="box1 box2">div2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick = function(){
+			$('div').toggleClass("box2 box3")
+		}
+		//添加
+		$('div').addClass("box1 box3");
+		$('div').addClass("box2");
+        //删除
+		$('div').removeClass("box1 box2");
+		//切换
+		$('div').toggleClass("box1");
+		console.log($('div').toggleClass("box3"));
+
+	})
+</script>
+</html>

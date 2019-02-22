@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-自定义事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 400px;
+			height: 400px;
+			margin: 100px auto;
+			border: 1px solid #ff6700;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background: red;
+			margin: 100px auto;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$('div').on('click',function(){
+		console.log('click');
+	})
+	$('div').on('myClick',function(){
+		console.log('myClick');
+	});
+	$('div').trigger('myClick');
+</script>
+</html>

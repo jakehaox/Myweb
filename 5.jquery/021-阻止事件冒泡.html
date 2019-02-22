@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-阻止事件冒泡.html</title>
+	<style>
+		.gf{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #e0e0e0;
+			margin:100px auto;
+		}
+		.f{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #ff6700;
+			margin:100px auto;
+			background: blue;
+		}
+		.s{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ccc;
+			margin:100px auto;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="gf">
+		<div class="f">
+			<div class="s"></div>
+		</div>
+	</div>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('.gf').on('click',function(ev){
+			alert('.gf');
+			// ev.stopPropagation();
+			// return false;
+		});
+	    $('.f').on('click',function(ev){
+	    	return false;
+	    	// ev.stopPropagation();
+	    	alert('.f')
+
+	    });
+	    $('.s').on('click',function(ev){
+	    	alert('.s')
+	    	// return false;
+	    	// ev.stopPropagation();
+	    })
+
+	})
+</script>
+</html>

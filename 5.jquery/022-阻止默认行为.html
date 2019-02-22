@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-阻止默认行为.html</title>
+<style>
+		.gf{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #e0e0e0;
+			margin:100px auto;
+		}
+		.f{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #ff6700;
+			margin:100px auto;
+			background: blue;
+		}
+		.s{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #ccc;
+			margin:100px auto;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+
+	
+		<a href="https://www.kauzhu.com">
+			<span>去学习</span>
+		</a>
+
+	
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+	
+	    $('a').on('click',function(ev){
+	    	alert('aa');
+	    	
+	    	// ev.preventDefault();
+
+	    });
+	    $('body').on('click',function(){
+	    	alert('cc');
+	    })
+	    $('span').trigger('click');
+	    //trigger  不阻止事件冒泡 但会阻止a标签的默认行为 
+	    //triggerHandler 阻止事件冒泡和默认行为
+	    // $('a').trigger('click');
+	    // $('a').triggerHandler('click');
+
+
+	})
+</script>
+</html>

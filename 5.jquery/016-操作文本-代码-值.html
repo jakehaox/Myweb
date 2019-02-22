@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-操作文本-代码-值.html</title>
+</head>
+<body>
+	<div>
+		    啊哈哈哈哈哈哈
+		<p>伟大的梦想，造就伟大的人</p>
+		
+	</div>
+	<input type="text" value="sdvbsd">
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div').html());
+
+		console.log($('div').html("<h1>我是超人</h1>"));
+	    $('div').text('<p>好人一生平安</p>')
+	    console.log($('input').val());
+	    console.log($('div').val());
+	})
+</script>
+</html>
