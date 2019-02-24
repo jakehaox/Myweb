@@ -5,6 +5,21 @@
 	<title>035-替换节点.html</title>
 </head>
 <body>
-	
+	<button>替换1</button>
+	<button>替换2</button>
+	<div>我是好人1</div>
+	<div>我是好人2</div>
+	<div>我是好人3</div>
+	<div>我是好人4</div>
 </body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			var $h1 = $('<h1>好人一生平安</h1>')
+			$('div').replaceWith($h1)
+
+		});
+	});
+</script>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-ajax-jqXHR对象.html</title>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$('button').on('click',function(){
+        	var jqXHR = $.ajax({
+			    url:'./037-data.json', //请求的地址
+			    type:'GET',
+			    dataType:'json',
+			    headers:{
+			    	auther:'YGH'
+			    }
+			});
+			jqXHR.done(function(aa,bb,cc){
+				console.log("1::",aa);
+				console.log("2::",bb);
+				console.log("3::",cc);
+			});
+			jqXHR.fail(function(cc,bb){
+				console.log("4::",cc);
+				console.log("5::",bb);
+			});
+			jqXHR.always(function(d,f){
+				console.log("6::",d);
+				console.log("7::",f);
+			});
+		});
+
+</script>
+</html>

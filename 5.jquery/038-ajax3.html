@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-ajax2接口封装.html</title>
+</head>
+<body>
+	<button>获取数据1</button>
+	<button>获取数据2</button>
+	<button>获取数据3</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+        $('button').eq(0).on('clcik',function(){
+        	//GET 方法
+	        $.get("037-data.json",{"name":"Tom","age":18},function(){
+
+	        },json);
+	        // 
+        });
+        $('button').eq(1).on('click',function(){
+			$.post("037-data.json",{"name":"Tom","age":18},function(){
+
+				   
+			});
+	    },json);
+	    $('button').eq(2).on('click',function(){
+			$.getJSON("037-data.json",{"name":"Tom","age":18},function(){
+
+				   
+			});
+	    });
+</script>
+</html>

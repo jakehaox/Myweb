@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-ajax2-jsonp.html</title>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+        $('button').on('click',function(){
+            $.ajax({
+                url:".037-data.json",//请求的地址
+                type:"POST",//指定请求的方法
+                data:{name:"Tom",age:18},//发送到服务器的数据
+                dataType:'json',//返回数据类型  默认是test
+                success:function(aM,cc,jqXHR){
+                	console.log('1:::',aM);
+                	console.log('2:::',cc);
+                	console.log('3:::',jqXHR);
+                },
+                error:function(jqXHR,cc){//请求失败后的回调函数
+                    console.log('4:::','jqXHR');
+                    console.log('4:::','cc');
+                },
+                complete:function(jqXHR,cc){//请求完成后的回调函数
+                    console.log('请求完成无论成功与否');
+                },
+        });
+	});
+</script>
+</html>
