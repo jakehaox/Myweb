@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-删除节点.html</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">删除</button>
+	<button id="btn2">删除</button>
+	<button id="btn3">删除</button>
+	<div>
+		我是盒子
+		<p>伟大的梦想造就伟大的人</p>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//remove 删除节点及内容
+		
+		$('#btn1').eq(0).on('click',function(){
+             $('div').remove();
+		});
+		
+		//empty 方法删除内容不删除节点
+		
+		$('#btn2').eq(1).on('click',function(){
+             $('div').empty();
+		});
+		
+		//detach方法  删除节点保事件
+        $('#btn3').eq(2).on('click',function(){
+             var $div = $('div').detach();
+             console.log($div);
+		});
+	});
+</script>
+</html>

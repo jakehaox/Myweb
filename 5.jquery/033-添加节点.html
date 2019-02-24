@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-添加节点.html</title>
+</head>
+<body>
+	<button>添加1</button>
+	<button>添加2</button>
+	<button>添加3</button>
+	<button>添加4</button>
+	<button>添加5</button>
+	<button>添加6</button>
+	<ul>
+		<li>我给你买</li>
+		<li>我养你啊</li>
+		<li>我送你啊</li>
+		<li>我娶你啊</li>
+	</ul>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//内部插入  将子节点插入到父节点后面
+        $('button').eq(0).on('click',function(){
+        	var $li = $('<li>欢愉方知时间短</li>')
+        	$('ul').append($li);
+        });
+        $('button').eq(1).on('click',function(){
+        	var $li = $('<li>你可知我欲断魂</li>')
+        	$li.appendTo('ul');
+        });
+        //内部插入  将子节点插入到父节点前面
+        $('button').eq(2).on('click',function(){
+        	var $li = $('<li>喜鹊欢愉报良辰</li>')
+        	$('ul').prepend($li);
+        });
+        $('button').eq(3).on('click',function(){
+        	var $li = $('<li>我自孤芳赏花人</li>')
+        	$li.prependTo('ul');
+        });
+        //外部插入 在jQuery对象后面插入
+        $('button').eq(4).on('click',function(){
+        	var $p = $('<p>草色遥看近却无</p>')
+        	$('ul').after($p);
+        });
+        //外部插入 在jQuery对象前面插入
+        $('button').eq(5).on('click',function(){
+        	var $p = $('<p>天街小雨润如酥</p>')
+        	$('ul').before($p);
+        });
+	});
+</script>
+</html>

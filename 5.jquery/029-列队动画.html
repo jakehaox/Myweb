@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-列队动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button>开始动画</button>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			/*
+			$('div').animate({width:200},1000)
+			$('div').animate({height:200},1000)
+			$('div').animate({opacity:0.5},1000)
+            
+			$('div').animate({width:200},1000,function(){
+                 console.log('width');
+			});
+			$('div').animate({height:200},1000,function(){
+                 console.log('height');
+			});
+			$('div').animate({opacity:0.5},1000,function(){
+                 console.log('opacity');
+			});
+            */
+            $('div').animate({width:200},1000,function(){
+               $('div').animate({height:200},1000,function(){
+                   $('div').animate({opacity:0.5},1000,function(){
+                    	console.log('aa')
+			        });
+			    });
+			});
+		});
+		
+	});
+</script>
+</html>
