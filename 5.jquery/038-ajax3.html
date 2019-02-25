@@ -14,22 +14,21 @@
 	$(function(){
         $('button').eq(0).on('clcik',function(){
         	//GET 方法
-	        $.get("037-data.json",{"name":"Tom","age":18},function(){
-
-	        },json);
+	        $.get("037-data.json",{name:"Tom",age:18},function(data){
+                console.log(data);
+	        },"json");
 	        // 
         });
         $('button').eq(1).on('click',function(){
-			$.post("037-data.json",{"name":"Tom","age":18},function(){
-
-				   
+			$.post("037-data.json",{name:"Tom",age:18},function(data){
+                console.log(data);
 			});
-	    },json);
+	    },"json");
 	    $('button').eq(2).on('click',function(){
-			$.getJSON("037-data.json",{"name":"Tom","age":18},function(){
-
-				   
+			$.getJSON("037-data.json",{name:"Tom",age:18},function(data){
+                console.log(data);
 			});
 	    });
+	});
 </script>
 </html>

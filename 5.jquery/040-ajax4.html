@@ -11,6 +11,7 @@
 		div{
 			width: 100px;
 			height: 100px;
+			color: red;
 			border: 1px solid #ccc;
 			margin-top: 20px;
 		}
@@ -23,20 +24,34 @@
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script>
-	$('button').on('click',function(){
-          $.fn.setColor = function(opations){
+	;(function(){
+		/*
+		$('button').on('click',function(){
+            $.prototype.setColor = function(){
+            	var res = this.each(function(index,elem){
+            		this.style.color = 'red';
+            	});
+            	console.log(res);
+            }
+		});
+		*/
+		
+          $.fn.setColor = function(options){
           	var DEFAULTS = {color:'red'}
           	var options = $.extend({},DEFAULTS,options);
           	return this.each(function(){
-                 this.style.color = options.color;
+                this.style.color = options.color;
+                // console.log(this);
           	});
           }
-	});
+	  
+	})(jQuery);
+	
 </script>
 <script>
 	$(function(){
         $('button').on('click',function(){
-        	$('div').setColor({color:yellow})
+        	$('div').setColor({color:"blue"}).animate({width:400});
         })
 	});
 </script>
