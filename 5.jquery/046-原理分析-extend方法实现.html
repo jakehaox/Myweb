@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-原理分析-extend测试.html</title>
+</head>
+<body>
+	
+</body>
+<script>	
+	function kQuery(){
+
+	}
+	kQuery.prototype.extend = function(options){
+		console.log(this);
+		for(key in options){
+            this[key] = options[key]
+		}
+	}
+	
+	kQuery.prototype.extend({
+		test1:function(){
+            console.log('test1')
+		}
+	})
+
+	var k = new kQuery();
+	k.test1();
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>
