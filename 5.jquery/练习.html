@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+</head>
+<body>
+	//0,1,2,3,4,5
+
+	<div class="box">
+		<ul class="list">
+			<li class="item1">li1</li>
+			<li class="item3">li3</li>
+			<li class="item7">li7</li>
+			<li class="item5">li5</li>
+		</ul>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	
+	$(function(){
+        $('ul').prepend('<li>li0</li>');
+        $('li').eq(2).before('<li>li2</li>');
+        $('li').eq(4).replaceWith('<li>li4</li>');
+        $('<li>li6</li>').appendTo('ul');
+
+	});
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-今日练习.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 50px;
+			height: 20px;
+		}
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		
+	</style>
+</head>
+<body>
+	<button>切换</button>
+	<div class="box1"></div>
+	
+</body>
+<script src="js/css.js"></script>
+<script src="js/jquery-1.12.4.js"></script>
+
+<script>
+	var $nDiv = $('div')
+	$('button').on('click',function(){
+		$nDiv.setCss('width')
+	})
+
+</script>
+</html>
