@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>049-每日一练.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [1,3,5,3,7,1,8,0];
+	//indexOf == -1 表示新数组中没这个值
+	function unique1(arr){
+		arr.sort()
+		var hash=[];
+		for (var i = 0; i < arr.length; i++) {
+		    if(hash.indexOf(arr[i])==-1){
+		    hash.push(arr[i]);
+
+		    }
+        }
+        return hash;
+    }
+    console.log(unique1(arr));
+    
+    //利用对象无序且唯一的特性
+ 	/*
+    function uniqueArray(arr){
+    	var obj = {};
+    	var result = [];
+        for(var i = 0 ;i<arr.length;i++){
+           obj[arr[i]] = '';
+        }
+        for(attr in obj){
+     	result.push(attr);
+        }
+        return result;
+    }
+   console.log(uniqueArray(arr));
+   */
+
+   function unique4(arr){
+	  var hash=[];
+	  for (var i = 0; i < arr.length; i++) {
+	       for (var j = i+1; j < arr.length; j++) {
+		      if(arr[i]===arr[j]){
+		            ++i;
+		    }
+	    }
+	    hash.push(arr[i]);
+	  }
+        return hash;
+    }
+
+</script>
+</html>
