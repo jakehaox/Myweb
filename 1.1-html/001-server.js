@@ -7,8 +7,12 @@ var server = http.createServer(function(req,res){
 
 	console.log(req.method);
 	console.log('req.url:::',urlStr);
-   
-    res.setHeader('Set-Cookie::',["username=tom"]);
+	var data = new Data();
+	var n = data.toUTCString();
+	document.wirte('2019-03-07')
+    res.setHeader('')
+    res.setHeader('Set-Cookie::',["username=tom":"Max-Age="]);
+
 
 	// console.log('Cookie::',req.headers.cookie);
 
