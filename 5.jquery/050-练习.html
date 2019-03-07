@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>050-练习.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Num(start,end){
+		var aa = [];
+		for(var i=start;i<end+1;i++){
+			var num=i.toString().split("").reverse().join("");
+			if(i==num){
+				aa.push(i);
+			}
+		}
+		return aa;
+	}
+	var ss=Num(1,10000);
+    console.log(ss);
+</script>
+
+</html>
