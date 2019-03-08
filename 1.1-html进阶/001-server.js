@@ -25,6 +25,8 @@ var server = http.createServer(function(req,res){
 	//res.setHeader('Set-Cookie',["username=tom;expires="+oDate]);
 	
 	//res.setHeader('Set-Cookie',["username=tom;max-age=10"]);
+	var oDate = new Date('2019-03-11 17:00:00').toUTCString();
+	
 
 	if(urlStr == '/favicon.ico'){
 		res.end('favicon.ico');
