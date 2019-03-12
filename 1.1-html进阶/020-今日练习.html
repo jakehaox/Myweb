@@ -15,6 +15,7 @@
 			margin: 100px auto;
 			display: flex;
 			flex-direction: row-reverse;
+			justify-content: space-between;
 			
 		}
 		.son{
@@ -24,8 +25,52 @@
 			background: pink;
 			line-height: 50px;
 			text-align: center;
-			justify-content: center;
 		}
+		.son2{
+			align-self: center;
+			/*justify-content: center;
+			flex-direction: row-reverse;
+*/
+		}
+		.son3{
+			align-self:flex-end;
+			flex-direction: row-reverse;
+		}
+		.father div:nth-child(4){
+			/*flex-wrap: wrap;*/
+			align-self: center;
+			justify-content: center;
+			flex-direction: row-reverse;
+		}
+		.father div:nth-child(5){
+			/*flex-wrap: wrap;*/
+			align-self: center;
+			justify-content: center;
+			flex-direction: row-reverse;
+		}
+		.father div:nth-child(6){
+			align-self: center;
+			justify-content: center;
+			flex-direction: row-reverse;
+		}
+		
+		.father div:nth-child(7){
+			align-self: flex-end;
+			justify-content: flex-start;
+			
+		}
+		.father div:nth-child(8){
+			align-self: flex-end;
+			justify-content: flex-start;
+			/*flex-direction: row-reverse;*/
+		}
+		.father div:nth-child(9){
+			align-self: flex-end;
+			justify-content: flex-start;
+			/*flex-direction: row-reverse;*/
+		}
+
+		/*
 		.box{
 			width: 200px;
 			display: flex;
@@ -40,11 +85,22 @@
 			justify-content:flex-start;
 			flex-direction: row;
 		}
-		
+		*/
 	</style>
 </head>
 <body>
 	<div class="father">
+		<div class="son son1">son1</div>
+		<div class="son son1">son2</div>
+		<div class="son son1">son3</div>
+		<div class="son son2">son4</div>
+		<div class="son son2">son5</div>
+		<div class="son son2">son6</div>
+		<div class="son son3">son7</div>
+		<div class="son son3">son8</div>
+		<div class="son son3">son9</div>
+	</div>
+<!--
 		<div class=" son son1">son1</div>
 		<div class=" son son2">son2</div>
 		<div class=" son son3">son3</div>
@@ -58,7 +114,6 @@
 			<div class=" son son8">son8</div>
 			<div class=" son son7">son7</div> 
 		</div>
-	</div>
-
+	-->
 </body>
 </html>
