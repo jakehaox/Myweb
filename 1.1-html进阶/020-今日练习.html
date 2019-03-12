@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-今日练习.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 600px;
+			height: 600px;
+			border: 5px solid #ff6700;
+			margin: 100px auto;
+			display: flex;
+			flex-direction: row-reverse;
+			
+		}
+		.son{
+			width: 50px;
+			height: 50px;
+			margin-left:10px;
+			background: pink;
+			line-height: 50px;
+			text-align: center;
+			justify-content: center;
+		}
+		.box{
+			width: 200px;
+			display: flex;
+			justify-content:center;
+			align-items: center;
+			flex-direction: row-reverse;
+		}
+		.box2{
+			width: 200px;
+			display: flex;
+			align-items: flex-end;
+			justify-content:flex-start;
+			flex-direction: row;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class=" son son1">son1</div>
+		<div class=" son son2">son2</div>
+		<div class=" son son3">son3</div>
+		<div class="box">
+			<div class=" son son4">son4</div>
+			<div class=" son son5">son5</div>
+			<div class=" son son6">son6</div>
+		</div>
+		<div class="box2">
+			<div class=" son son9">son9</div>
+			<div class=" son son8">son8</div>
+			<div class=" son son7">son7</div> 
+		</div>
+	</div>
+
+</body>
+</html>
