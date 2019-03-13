@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>006-今日练习.html</title>
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			background: #ccc;
+		}
+		li a{
+			color: red;
+			/*background: #ff6700;*/
+		}
+	</style>
+</head>
+<body>
+	<!--下拉菜单-->
+	<div class="dropdown">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		请选择城市
+		<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<li><a href="#">北京</a></li>
+			<li><a href="#">上海</a></li>
+			<li><a href="#">深圳</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#">重庆</a></li>
+		</ul>
+   </div>
+   <!-- Split button -->
+	<div class="btn-group">
+		<button type="button" class="btn btn-danger">Action</button>
+		<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <span class="caret"></span>
+		    <span class="sr-only">Toggle Dropdown</span>
+		</button>
+		<ul class="dropdown-menu">
+		    <li><a href="#">Action</a></li>
+		    <li><a href="#">Another action</a></li>
+		    <li><a href="#">Something else here</a></li>
+		    <li role="separator" class="divider"></li>
+		    <li><a href="#">Separated link</a></li>
+		</ul>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</html>

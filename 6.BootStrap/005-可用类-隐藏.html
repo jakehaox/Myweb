@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X_UA_Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<title>栅格系统</title>
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<style>
+		.container{
+			background: red;
+			height: 50px;
+		}
+		@media screen and (max-width: 768px){
+			.container{
+				width: 100%;
+			}
+			.hidden-xs{
+				display: none;
+			}
+		}
+		@media screen and (min-width: 768px) and (max-width: 992px){
+			.container{
+				width: 750px;
+			}
+			.hidden-sm{
+				display: none;
+			}
+		}
+		@media screen and (min-width: 992px) and (max-width: 1200px){
+			.container{
+				width: 970px;
+			}
+			.hidden-md{
+				display: none;
+			}
+		}
+		@media screen and (min-width: 1200px){
+			.container{
+				width: 1170px;
+			}
+			.hidden-lg{
+				display: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		
+    	<div class="col-md-1">.col-md-1</div>
+    	<div class="col-md-4 hidden-sm">.col-md-4</div>
+  		
+
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</html>
