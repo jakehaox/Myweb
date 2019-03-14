@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-扩展运算符.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [11,22]
+
+	var arr2 = [...arr]
+	arr2.push(33);
+	console.log(arr,arr2);
+
+	function add(n1,n2){
+		return n1 + n2;
+	}
+	let arr = [11,22]
+	add(...arr);
+
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-let解决i值问题.html</title>
+</head>
+<body>
+	<button>点击</button>
+	<button>点击</button>
+	<button>点击</button>
+	<button>点击</button>
+</body>
+<script>
+	var oBtns = document.getElementsByTagName('button');
+	// console.log(oBtn);
+	
+		for(var i = 0,i<oBtn.length,i++){
+			oBtns[i].onclick = function(){
+				 console.log(i);
+			}
+	 	   
+	    }
+	console.log(i);
+	(function(i){
+
+	})(i);
+	
+</script>
+</html>

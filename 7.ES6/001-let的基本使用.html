@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-let的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+    //let 不能进行声明提升
+    /*
+	console.log(a);
+	var a = 1;
+	
+	let b = 2;
+	console.log(b);
+	*/
+	//  var 在整个函数作用范围有效
+
+	function fn1(){
+		var a = 3;
+		function fn2(){
+			a = 6;
+		}
+		console.log('1:::',a)
+		fn2();
+		console.log('2:::',a)
+	}
+	// console.log('3:::',a)
+	fn1();
+	
+
+
+	function fn3(){
+		let b = 3;
+		function fn4(){
+			b = 6;
+		}
+		console.log('3:::',b)
+		fn4();
+		console.log('4:::',b)
+	}
+	// console.log('3:::',b)
+	fn3();
+	
+</script>
+</html>

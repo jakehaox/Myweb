@@ -24,16 +24,6 @@
 #kz-navbar{
 	opacity: 0.8;
 }
-.main{
-	margin-top: 50px;
-}
-#main-carousel .item img{
-	width: 800px;
-	height: 420px;
-}
-#main-carousel{
-	margin-bottom: 20px;
-}
 .cd .thumbnail{
 	border: none;
 	height: 200px;
