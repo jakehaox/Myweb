@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-深拷贝数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+var arr1 = [11,22,33,55,88]
+    /*
+	var arr2 = [...arr]
+	arr2.push(33);
+	console.log(arr,arr2);
+	console.log(...arr);
+
+	function add(n1,n2){
+		return n1 + n2;
+	}
+	let arr = [11,22]
+	add(...arr);
+	*/
+	/*
+	function sum(...arr){
+		console.log(arr);
+		console.log(arguments)
+		for(let i = 0;i<arr.lemgth;i++){
+			total += arr[i]
+		}
+		return total;
+	}
+	console.log(sum(11,22,33));
+    */
+    /*
+	console.log(Math.max(11,22,33));
+	console.log(Math.max.apply(null,arr));
+	console.log(Math.max(...arr));
+	*/
+	/*
+	var arr2 = arr1.slice();
+	arr2.push(100);
+	console.log(arr1);
+	*/
+
+	// slice() 和 concat() 方法相当于拷贝
+	/*
+	var arr2 = arr1.concat();
+	arr2.push(100);
+	console.log(arr1,arr2);
+	*/
+	var arr2 = [...arr1]
+	arr2.push(100);
+	console.log(arr1,arr2);
+
+
+</script>
+</html>

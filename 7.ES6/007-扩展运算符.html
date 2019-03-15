@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-扩展运算符.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var obj1 = {username:"Tom",friend:{"Leo"}};
+
+	let obj2 = {...obj1};
+	obj2.username = "peter";
+
+	obj2.friend.username = "Mike";
+    console.log(obj1,obj2);
+</script>
+</html>

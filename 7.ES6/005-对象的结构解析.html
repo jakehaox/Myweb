@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-对象的结构解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	var obj = {
+		username:'Tom',
+		age:18
+	}
+	var username = obj.username;
+	var age = obj.age;
+	console.log(username,age);
+    */
+    let obj = {
+    	username:'tom',
+     	age:19
+     }
+	// let{username:username1,age:age1} = obj;
+	// console.log(username,age);
+
+	let{age,username,friend={username:"jake"}} = {username:'Tom',age:18,friend:{username:"pept"}};
+	console.log(username,age,friend);
+
+
+
+
+
+
+</script>
+
+</html>

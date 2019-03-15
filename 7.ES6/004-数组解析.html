@@ -11,25 +11,34 @@
 	// let [a,b,c] = [1,2,3]
 	// console.log(a,b,c);
 
-	// // let [a,b,[c,d]] = [1,2,3] 
-	// // console.log(a,b,[c,d]);
+	// let [a,b,[c,d]] = [1,2,[3,4]] 
+	// console.log(a,b,[c,d]);
 
-	// let [a,b] = [4]
-	// console(a,b);
+	// let [a,b] = [4,undefined]
+	// console.log(a,b);
 
-	// let [b,a,c] = [1,2,underfied]
+	let [a,b,c,d] = [1,2,4]
+	console.log(a,b,c,d);//当
 
-	var obj = {
-		username:'jake',
-		age:18
-	}
-	var obj.username = username;
-	var obj.age = age;
+	// let[a,b,c,d=99] = [1,2,3] 
+	// console.log(a,b,c,d);
+
+	// let[a,b,c,d=99] = [1,2,3,undefined] 
+	// console.log(a,b,c,d);
+    
+    
+
+	// let obj = {
+	// 	username:'jake',
+	// 	age:18
+	// }
+	// var obj.username = username;
+	// var obj.age = age;
 	
-	console.log(username,age);
+	// console.log(username,age);
 
-	let [ username,age,sex={girl}] = [jake,19,boy]
-	console.log(username,age,sex);
+	// let [ username,age,sex={girl}] = [jake,19,boy]
+	// console.log(username,age,sex);
 
 
 </script>
