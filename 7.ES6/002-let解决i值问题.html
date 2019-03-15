@@ -5,18 +5,19 @@
 	<title>002-let解决i值问题.html</title>
 </head>
 <body>
-	<button>点击</button>
-	<button>点击</button>
-	<button>点击</button>
-	<button>点击</button>
+	<button>点击1</button>
+	<button>点击2</button>
+	<button>点击3</button>
+	<button>点击4</button>
 </body>
 <script>
 	var oBtns = document.getElementsByTagName('button');
 	// console.log(oBtn);
 	
 		for(var i = 0,i<oBtns.length,i++){
+			oBtns[i].index = i;
 			oBtns[i].onclick = function(){
-				 console.log(i);
+				 console.log(this.index);
 			}
 	 	   
 	    }
