@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-set基本用法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [11,22,33,44,44,11]
+	let s = new Set();
+	s.add(11);
+	s.add(22);
+	s.add(33);
+	console.log(s);
+	// s.delete(22);
+	// console.log(s);
+	// s.clear();
+	// console.log(s);
+	s.has(22);
+	console.log(s);
+
+
+	let s1 = new Set(arr);
+	var arr2 = [...s1]
+	console.log(s);
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-Map操作方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let s = new Set();
+	// let.obj1 = ["obj1","teacher"]
+	// let.obj2 = ["obj2","student"]
+
+	let map = new Map();
+	map.set('name',"Jake")
+	map.set('age',19);
+	console.log(map);
+	// map.set()
+
+	var obj1 = {'id':100}
+	var obj2 = {'id':101}
+	map.set(obj1,'teacher');
+	map.set(obj2,'student')
+	console.log(map);
+	console.log(map.get(obj1));
+	console.log(map.get(obj2));
+	console.log(map.get('xxx'));
+	console.log(map.size());
+</script>
+</html>

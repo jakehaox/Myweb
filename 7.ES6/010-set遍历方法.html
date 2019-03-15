@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-set遍历方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s = new Set([1,2,37,5,6,8])
+	console.log(s);
+	for( let key of s.keys()){
+		console.log("a",key)
+	}
+	for( let values of s.values()){
+		console.log("b",values)
+	}
+	for(let entries of s.entries()){
+		console.log("c",entries)
+	}
+
+
+</script>
+</html>
