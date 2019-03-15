@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-symbol用法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s1 = Symbol('username for jake');
+	let s2 = Symbol('username for amy');
+	var obj = {
+		[s1]:'jake',
+		age:18
+	}
+	obj[s2] = 'amy';
+	console.log(obj);
+	var key = Reflect.onkeys(obj);
+	for( let key of keys()){
+		console.log(key);
+	}
+</script>
+</html>

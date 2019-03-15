@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-箭头函数基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//箭头函数在定义时确定而不是调用时确定
+	/*
+	function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this,this.id);
+		},200)
+	}
+	var id = 99;//定义的id属于 window
+	let s = new Timer(200);//结果  window 99
+	*/
+	/*
+	function Timer(id){
+		this.id = id;
+		setTimeout(()=>{
+			console.log(this,this.id);
+		},200)
+	}
+	var id = 99;//定义的id属于 window
+	let s = new Timer(200);//结果  Timer 200
+	*/
+	function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this,this.id);
+		}.bind(this),200);
+	}
+	var id = 99;//定义的id属于 改变this指向
+	let s = new Timer(200);//结果  Timer 200
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-定义时指定默认参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function show(name="Tom",age=13){
+		console.log(name,age)
+	}
+	show();
+	show('Leo',19);
+	// show(18);
+	*/
+	/*
+	function sum(...arr){
+		console.log(arr);
+	}
+	sum(1,2,3,5,8);
+	function show(
+		pag1,
+		pag2
+	){
+		console.log(pag1,pag2)
+	}
+	show(pag1,pag2);
+	*/
+	function show2(url,{method="GET",body="name=Tom"} = {}){
+        console.log(method,body);
+    }
+    show2();//GET name=Tom
+    show2('http://kuazhu.com',method='post',body='jake');//GET name=Tom
+</script>
+</html>
