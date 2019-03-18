@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-Generator语法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen(x){
+		console.log(x);
+		let y = yield(x + 5);
+		console.log(y);
+		let c = yield(x + 10);
+	}
+	let g = gen(5);
+	console.log(g.next());
+	console.log(g.next());
+	console.log(g.next());
+</script>
+</html>

@@ -16,13 +16,19 @@
 			})
 		});
 	}
-	let promise = getDataPromise('https://api.github.com/users/jakehaox');
+	let promise = getDataPromise('https://api.github.com/users/kuazhu');
 	promise
 	.then(data1=>{
+		/*
 		getDataPromise(data1.followers_url)
 		.then(data2=>{
 			console.log(data2);
 		})
+		*/
+		return getDataPromise(data1.followers_url);
+	})
+	.then(data2=>{
+		console.log(data2);
 	})
 
 	
