@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-promise处理ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	let getDataPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			$.get(url,data=>{
+				resolve(data);
+			})
+		});
+	}
+	let promise = getDataPromise('https://api.github.com/users/jakehaox');
+	promise
+	.then(data1=>{
+		getDataPromise(data1.followers_url)
+		.then(data2=>{
+			console.log(data2);
+		})
+	})
+
+	
+</script>
+</html>

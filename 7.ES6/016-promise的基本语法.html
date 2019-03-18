@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-promise的基本语法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let promise = new Promise((resolve,reject)=>{
+		//初始状态时pending
+		// resolve('hello');
+		//调用函数时是fulfilled
+		reject('出错了');//reject代表失败
+		//resovle  reject 这两个参数不仅能改变状态还能传递值
+	});
+	console.log(promise);
+</script>
+</html>

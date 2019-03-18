@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-promise对象的方法-catch.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//如果异步操作抛出错误,状态就会变为rejected,当then中没有指定rejected状态的回调时就会调用catch方法指定的回调函数
+	let p1 = new Promise((resolve,reject)=>{
+		// resovle('ok');
+		reject('error!!')
+	})
+
+	p1
+	.then(data=>{
+		console.log('success::',data);
+	})
+	.catch(err=>{
+		console.log('failed::',err);
+	});
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-promise方法的使用-finally.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let p1 = new Promise((resolve,reject)=>{
+		// resovle('ok');
+		reject('error!!');
+	});
+
+	p1
+	.then(data=>{
+		console.log('success::',data);
+
+	})
+	.catch(err=>{
+		console.log('failed::',err);
+	})
+	//不管Promise对象最后状态如何,都会执行的操作
+	.finally(()=>{
+		console.log('finally!!')
+	})
+</script>
+</html>

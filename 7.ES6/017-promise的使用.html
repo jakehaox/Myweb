@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-promise的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let promise = new Promise((resolve,reject)=>{
+
+		//2.执行异步请求
+
+		//模拟异步请求成功
+		// resolve('hello');
+
+		//模拟异步请求失败
+		reject('出错了')；
+	});
+	// console.log(promise);
+
+	//通过promise实例对异步结果及逆行处理
+
+	promise
+	.then((data)=>{
+		console.log("success::",data);
+	},(err)=>{
+		console.log("failed::",err)
+	});
+
+
+
+
+
+
+</script>
+</html>
