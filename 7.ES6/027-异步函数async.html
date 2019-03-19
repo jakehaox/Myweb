@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025-异步函数async.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	async function fn(){//表示这个函数里面有异步处理
+		return 'hello';//async函数内部return语句返回的值，会成为then方法回调函数的参数。
+	}
+	let p = fn();
+	p.then(data=>{//async函数返回一个 Promise 对象，可以使用then方法添加回调函数。
+		console.log(data);
+	})
+
+	console.log(p);
+</script>
+</html>

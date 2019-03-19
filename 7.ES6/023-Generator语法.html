@@ -8,15 +8,48 @@
 	
 </body>
 <script>
-	function * gen(x){
-		console.log(x);
-		let y = yield(x + 5);
-		console.log(y);
-		let c = yield(x + 10);
+	/*
+		next方法处理流程
+		1.遇到yield表达式，就暂停执行后面的操作，并将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值
+
+		2.下一次调用next方法时，再继续往下执行，直到遇到下一个yield表达式
+
+		3.如果没有再遇到新的yield表达式，就一直运行到函数结束，直到return语句为止，并将return语句后面的表达式的值，作为返回的对象的value属性值
+		
+		4.如果该函数没有return语句，则返回的对象的value属性值为undefined
+
+	*/
+	function * gen(){
+		console.log('in gen ....');
+		yield 'get data1';
+		console.log('do something after get data1...');
+		yield 'get data2';
+		console.log('do something after get data2...');
+		yield 'get data3';
+		return 'data3';
 	}
-	let g = gen(5);
-	console.log(g.next());
-	console.log(g.next());
-	console.log(g.next());
+	// console.log(gen);
+	// console.log(typeof gen);
+	/*
+	let g = gen();//该函数并不执行，返回一个遍历器对象
+	let res = g.next();
+	console.log(res);
+	*/
+
+	let g  = gen();//该函数并不执行，返回一个遍历器对象
+	console.log(g.next());//{value:"get data1",done:false}
+	console.log(g.next());//{value:"get data2",done:false}
+	console.log(g.next());//{value:"get data3",done:false}
+	console.log(g.next());//{value:"data3",done:true}
+
+
+
+
+
+
+
+
+
+
 </script>
 </html>

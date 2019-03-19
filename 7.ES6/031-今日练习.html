@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-今日练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+	function Person(name,age){
+		this.name = name
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log('I am ' + this.name)
+	}
+	Person.prototype.sayAge = function(){
+		console.log('I am ' + this.age + 'years old')
+	}
+	Person.sayHi = function(){
+		console.log('Hi....')
+	}
+	var p = new Person("Tom",18);
+	p.sayName();
+	p.sayAge();
+	Person.sayHi();
+
+	console.log(p);
+	
+	//属性继承
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	Student.prototype = Object.create(Person.prototype);
+
+	Student.prototype.showMajor = function(){
+		console.log("I am from " + this.major);
+	}
+	Student.sayHi = Person.sayHi;
+
+	var s = new Student("Amy",22,'Computer');
+	s.sayName();
+	s.sayAge();
+	s.showMajor();
+	Student.sayHi();
+	console.log(s);
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*
+	class Teacher{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		sayName(){
+			console.log('I am' + this.name);
+		}
+		sayAge(){
+			console.log('I am ' + this.age + 'years old');
+		}
+		static sayHi(){
+			console.log('hi everybody....')
+		}
+	}
+	let t = new Teacher('Leo',19);
+	t.sayName();
+	t.sayAge();
+	Teacher.sayHi();
+	console.log(t);
+
+
+	class Student extends Teacher{
+		constructor(name,age,major){
+			super(name,age)
+			this.major = major;
+		}
+		myMajor(){
+			console.log('I am ' + this.major + 'students');
+		}
+	}
+	let s = new Student('Jake',19,'computer');
+	s.sayAge();
+	s.sayName();
+	s.myMajor();
+	console.log(s);
+	*/
+</script>
+</html>

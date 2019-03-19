@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-class类.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Teacher{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		sayName(){
+		console.log('I am' + this.name)
+	    }
+		sayAge(){
+			console.log('I am' + this.age + 'years old')
+		}
+		static sayHi(){
+			console.log('hi...')
+		}
+	}
+	let p = new Teacher('Jake',18);
+	console.log(p);
+	p.sayName();
+	p.sayAge();
+	Teacher.sayHi();
+		
+	
+    class Student extends Teacher{
+    	constructor(name,age,major){
+    		super(name,age);
+    		this.major = major;
+    	}
+    	sayMajor(){
+    		console.log('I am from' + this.major)
+    	}
+    }
+    let s = new Student("Leo",19,'computer');
+	console.log(s);
+	s.sayAge();
+	s.sayName();
+	Student.sayMajor();
+
+</script>
+</html>
