@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021.04-promise.race方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//接受一个Promise实例数组作为参数,返回执行最快的那个promise对象 
+	let getDataPromise = (delay)=>{
+		return new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				resolve('data::'+delay);
+			},delay)
+		});
+    }
+    let aPromises = [600,300,800].map(delay=>getDataPromise(delay));
+    let p = new Promise((resolve,reject)=>{
+    	setTimeout(()=>{
+    		reject('reject data::' +500)
+    	},500)
+    });
+
+    aPromises.push(p);
+
+    Promise.race(aPromises)
+    .then(data=>{
+    	console.log(data);
+    })
+    .catch(err=>{
+    	console.log(err)
+    })
+
+
+
+
+</script>
+</html>

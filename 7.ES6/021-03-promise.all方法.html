@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-03-promise.all方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let getLoadImgPromise = (url)=>{
+		return new Promise((resovle,reject)=>{
+			var img = new Image();
+			img.onload = function(){
+				resovle(url)
+			}
+			img.onerror = function(){
+				reject(url);
+			}
+			img.src = url;
+		})
+	}
+
+	let aPromises = ['img/1.png','img/2.png','img/5.png','img/6.png']
+	.map(url=>{
+		return getLoadImgPromise(url);
+	});
+	let p = Promise.all(aPromises);
+	p
+	.then(data=>{
+		console.log('1::',data);
+	})
+	.catch(err=>{
+		console.log('2::',err)
+	})
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

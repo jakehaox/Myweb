@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-02-promise.reject方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+   /*
+	let p1 = Promise.reject();
+
+	console.log(p1);
+	*/
+	let p2 = Promise.reject('error!!!');
+	console.log(p2);
+
+	p2
+	.catch(err=>{
+		console.log(err);
+	});
+	//返回一个新的Promise实例,该实例的状态为rejected,参数会原封不动地作为reject的理由
+</script>
+</html>
