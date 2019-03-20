@@ -1,7 +1,8 @@
-const str = "hellow woeld";
+const str = "hellow wold";
 
 const fn = ()=>{
 	console.log(str)
+	console.log(obj)
 }
 
 const obj = {
