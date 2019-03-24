@@ -8,13 +8,11 @@
 	
 </body>
 <script>
-	function * gen(x){
-		console.log('x=',x);
-		let y = yield(x + 5);
-		console.log('y=',y);
-		let z = yield(y + 10);
-		console.log('z=',z);
-		return (x + y + z);
+	function * gen(a){
+		let b = yield(a + 5);
+		let c = yield(b + 10);
+		let d = yield(c + 10);
+		return (d + 100);
 	}
 
 	let g = gen(5);
@@ -23,10 +21,11 @@
 	console.log(g.next()); //{value:NaN,done:false}
 	console.log(g.next()); //{value:NaN,done:true}
 	*/
+	
 	console.log(g.next()); //{value:10,done:false}
-	console.log(g.next(20));//{value:30,done:false}
-	console.log(g.next(40));//{value:65,done:true}
-
+	console.log(g.next());//{value:30,done:false}
+	console.log(g.next());//{value:65,done:true}
+    var result = g.next(5);
 
 
 
