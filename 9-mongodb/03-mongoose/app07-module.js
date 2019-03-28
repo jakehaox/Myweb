@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
+
 const UserModel = require('./models/user.js')
+
+//1.连接数据库服务
 mongoose.connect('mongodb://localhost/kuazhu', {useNewUrlParser: true});
 
 const db = mongoose.connection;
@@ -11,16 +14,18 @@ db.on('error', (err)=>{
 
 db.once('open', ()=>{
 	console.log('connection successful');
-	
-	UserModel.insertMany({
-		name:"Tom",
-		age:18,
-		major:"computer"
-	},(err,docs)=>{
+
+	//2.用模型操作数据(CRUD)
+
+	UserModel.distinct('name',{age:{$gt:100}},(err,result)=>{
 		if(err){
-			console.log('insertMany err::',err)
+			console.log('distinct err',err);
 		}else{
-			console.log(docs)
+			console.log(result);
 		}
-	})
+	});
+
+
+
+	
 });
