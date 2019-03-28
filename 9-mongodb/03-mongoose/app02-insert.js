@@ -6,8 +6,9 @@ const mongoose = require('mongoose');
 
 //构建数据用
 const getRandom = (min,max)=>{
-	return Math.round(min + (max - min) * Math.round());
+	return Math.round(min + (max - min) * Math.random());
 }
+
 const names = ["Tom","Jake","Amy","Andy","Simon","Leo"];
 const majors = ["art","sport","music","computer"]
 
@@ -38,7 +39,7 @@ db.once('open',()=>{
 	const UserModel = mongoose.model('user',UserSchema);
 
 	//4.用模型操作数据(CRUD)
-    
+    /*
 	const user = new UserModel({name:"Amy",age:19,major:"art"});
 
 	user.save((err,doc)=>{
@@ -57,8 +58,75 @@ db.once('open',()=>{
 			console.log(docs)
 		}
 	})
-	
+	*/
+    //insertMany 两种用法 可传数组 可传对象
+    /*
+	UserModel.insertMany(
+		[
+			{name:getName(),age:getRandom(10,150),major:getMajor()},
+			{name:getName(),age:getRandom(10,150),major:getMajor()},
+			{name:getName(),age:getRandom(10,150),major:getMajor()}
 
+		],
+		(err,docs)=>{
+			if(err){
+				console.log('updateMany err::',err)
+			}else{
+				console.log(docs)
+			}
+       })
+    */
+    /*
+    let promise = UserModel.insertMany(
+		[
+			{name:getName(),age:getRandom(10,150),major:getMajor()},
+			{name:getName(),age:getRandom(10,150),major:getMajor()},
+			{name:getName(),age:getRandom(10,150),major:getMajor()}
 
-})
+		],
+		promise
+		.then(docs=>{
+			console.log(docs)
+		})
+		.catch(err=>{
+			console.log('undateMany err',err)
+		})
+	*/
+	/*
+	UserModel.create(
+		[
+			{name:getName(),age:getRandom(10,150),major:getMajor()},
+			{name:getName(),age:getRandom(10,150),major:getMajor()},
+			{name:getName(),age:getRandom(10,150),major:getMajor()}
+
+		],
+		(err,docs)=>{
+			if(err){
+				console.log('create err::',err)
+			}else{
+				console.log(docs)
+			}
+       })
+      */
+
+    const arr = [];
+    for(let i = 0;i<10;i++){
+    	arr.push({
+    		name:getName(),
+    		age:getRandom(10,150),
+    		major:getMajor()
+    	})
+    }
+    UserModel.insertMany(
+    	arr,
+    	(err,docs)=>{
+			if(err){
+				console.log('create err::',err)
+			}else{
+				console.log(docs)
+			}
+		}
+    );
+
+});
 
