@@ -23,4 +23,3 @@ var UserSchema = new mongoose.Schema({
 		enum:["art","computer","sport","music"]
 	}
 });
-const 

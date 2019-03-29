@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
 		type:Number,
 		default:0,
 		min:[10,"最小年龄是10"],
-		max:[150,"最大年龄是150"]
+		max:[150,"最大年龄是150"],
 		required:[true,"用户名称必须输入"]
 	},
 	phone:{
@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema({
 	},
 	createdAt:{
 		type:Date,
-		default:Date.now,
+		default:Date.now
 	},
 	friends:{
 		type:Array

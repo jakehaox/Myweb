@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-27 18:39:54
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-28 18:59:50
-*/
+
 const mongoose = require('mongoose');
 const BlogModel = require('./models/blog.js')
 mongoose.connect('mongodb://localhost/kuazhu', {useNewUrlParser: true});
