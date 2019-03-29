@@ -1,3 +1,5 @@
+
+
 const mongoose = require('mongoose');
 const UserModel = require('./models/user.js')
 mongoose.connect('mongodb://localhost/kuazhu', {useNewUrlParser: true});

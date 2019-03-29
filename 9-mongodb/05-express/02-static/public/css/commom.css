@@ -1,0 +1,92 @@
+
+.link{
+	text-decoration: none;
+}
+.link:hover{
+	color: #f65a8a !important;
+}
+.test-ellipsis{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#kz-navbar .navbar-nav a{
+	font-size: 16px;
+	margin-right: 36px;
+}
+#kz-navbar .navbar-nav a:hover{
+	color: #f65a8a;
+}
+#kz-navbar .active a{
+	background: transparent ;
+	color: #f65a8a;
+}
+#kz-navbar{
+	opacity: 0.8;
+}
+.cd .thumbnail{
+	border: none;
+	height: 200px;
+	padding: 0;
+	transition: all 0.5s;
+}
+.cd .thumbnail img{
+	width: 100%;
+	height: 100%;
+}
+.cd .thumbnail:hover{
+	box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+}
+.conctent-item .panel-heading{
+	background: transparent;
+	border: none;
+	padding-left: 0;
+}
+.conctent-item .panel-title a{
+ 	border-left: 2px solid #f65a8a;
+ 	padding-left: 15px;
+}
+.conctent-item .panel-footer{
+	background: transparent;
+	border: none;
+}
+.conctent-item .panel-footer-text{
+	margin-right: 30px;
+}
+.conctent-item:hover .panel-title a{
+	color: #f65a8a;
+}
+#page .pagination>li>a:hover{
+	color: #f65a8a;
+	background: #fff;
+}
+.custom-panel .panel-heading{
+	background: transparent;
+	border: none;
+}
+.custom-panel .panel-body{
+	background: #f7f7f7;
+}
+.img-me{
+	width: 100px;
+	height: 100px;
+}
+.host-list{
+	margin-top: 20px;
+}
+.host-list .panel-body{
+	padding-left: 0;
+	padding-right: 0;
+}
+.host-list  .list-group-item{
+	border: none;
+	background: #f7f7f7;
+}
+.host-list  .list-group-item .link{
+	color: #333;
+	display: block;
+}
+footer{
+	text-align:center;
+}
+
