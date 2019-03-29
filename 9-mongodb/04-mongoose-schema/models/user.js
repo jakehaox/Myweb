@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-27 20:25:44
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-28 19:22:22
-*/
+
 
 const mongoose = require('mongoose');
 
@@ -21,6 +16,7 @@ const UserSchema = new mongoose.Schema({
 		default:0,
 		min:[10,"最小年龄是10"],
 		max:[150,"最大年龄是150"]
+		required:[true,"用户名称必须输入"]
 	},
 	phone:{
 		type:String,
