@@ -22,6 +22,33 @@
 				console.log(result);
 			})
 		});
+		$('#post').on('click',function(){
+			$.ajax({
+				url:'/'
+				type:'post'
+			})
+			.done(function(result){
+				console.log(result);
+			})
+		});
+		$('#put').on('click',function(){
+			$.ajax({
+				url:'/'
+				type:'put'
+			})
+			.done(function(result){
+				console.log(result);
+			})
+		});
+		$('#delete').on('click',function(){
+			$.ajax({
+				url:'/'
+				type:'delete'
+			})
+			.done(function(result){
+				console.log(result);
+			})
+		});
 	})
 </script>
 </html>
