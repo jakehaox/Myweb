@@ -1,61 +1,101 @@
 
+body{
+	background: #f1f1f1;
+}
 .link{
-	text-decoration: none;
+	text-decoration: none !important;
 }
 .link:hover{
 	color: #f65a8a !important;
 }
-.test-ellipsis{
+.text-ellipsis{
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
 #kz-navbar .navbar-nav a{
 	font-size: 16px;
-	margin-right: 36px;
+	margin-right: 20px;
 }
 #kz-navbar .navbar-nav a:hover{
 	color: #f65a8a;
 }
 #kz-navbar .active a{
-	background: transparent ;
+	background: transparent;
 	color: #f65a8a;
 }
 #kz-navbar{
 	opacity: 0.8;
 }
-.cd .thumbnail{
+.main{
+	margin-top: 70px;
+}
+
+/*用户注册登录*/
+.user-panel{
+	background: #fff;
+	padding-top:20px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+.user-panel .btn{
+	width:100%;
+}
+.user-panel .link{
+	margin-top: 10px;
+	display: block;
+	text-align: right;
+}
+#user-info{
+	padding-left: 20px;
+	box-sizing: border-box;
+	height: 130px;
+}
+#user-info .link{
+	text-align: left;
+}
+.user-panel .err{
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+}
+/*用户注册登录*/
+
+.ad .thumbnail{
 	border: none;
 	height: 200px;
 	padding: 0;
 	transition: all 0.5s;
 }
-.cd .thumbnail img{
+.ad .thumbnail img{
 	width: 100%;
 	height: 100%;
 }
-.cd .thumbnail:hover{
+.ad .thumbnail:hover{
 	box-shadow: 0 5px 5px rgba(0,0,0,0.3);
 }
-.conctent-item .panel-heading{
+
+.content-item .panel-heading{
 	background: transparent;
 	border: none;
-	padding-left: 0;
+	padding-left:0;
 }
-.conctent-item .panel-title a{
- 	border-left: 2px solid #f65a8a;
- 	padding-left: 15px;
+.content-item .panel-title{
+	border-left: 2px solid #f65a8a;
+	padding-left: 15px;
 }
-.conctent-item .panel-footer{
+.content-item .panel-footer{
 	background: transparent;
-	border: none;
+	border: none;	
 }
-.conctent-item .panel-footer-text{
-	margin-right: 30px;
+.content-item .panel-footer-text{
+	margin-right: 20px;
 }
-.conctent-item:hover .panel-title a{
+.content-item:hover .panel-title a{
 	color: #f65a8a;
 }
+
 #page .pagination>li>a:hover{
 	color: #f65a8a;
 	background: #fff;
@@ -71,22 +111,18 @@
 	width: 100px;
 	height: 100px;
 }
-.host-list{
-	margin-top: 20px;
-}
-.host-list .panel-body{
+.hot-list .panel-body{
 	padding-left: 0;
 	padding-right: 0;
 }
-.host-list  .list-group-item{
+.hot-list .list-group-item{
 	border: none;
 	background: #f7f7f7;
 }
-.host-list  .list-group-item .link{
+.hot-list .list-group-item .link{
 	color: #333;
 	display: block;
 }
 footer{
-	text-align:center;
+	text-align: center;
 }
-
