@@ -1,5 +1,5 @@
 
-
+//密码加密处理
 const crypto = require('crypto')
 //1.根据算法生成hash对象
 // const hash = crypto.createHash('md5')

@@ -22,7 +22,7 @@ db.on('error', (err)=>{
 db.once('open', ()=>{
 	console.log('connection successful');	
 });
-//处理静态资源目录
+
 app.use(express.static('public'))
 
 //开发阶段设置不走缓存
@@ -36,10 +36,6 @@ app.engine('html', swig.renderFile);
 app.set('views', './view')
 //注册模板引擎
 app.set('view engine', 'html')
-
-app.get('',(req,res)=>{
-	res.render('main/index')
-})
 
 //post/put请求处理中间件
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -89,5 +85,6 @@ app.use((req,res,next)=>{
 app.use('/',require('./routes/index.js'))
 app.use('/user',require('./routes/user.js'))
 app.use('/admin',require('./routes/admin.js'))
+app.use('/category',require('./routes/category.js'))
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
