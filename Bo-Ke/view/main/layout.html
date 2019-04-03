@@ -29,10 +29,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active"><a href="index.html">首页<span class="sr-only">(current)</span></a></li>
-          <li><a href="detail.html" target="_blank">兰博基尼</a></li>
-          <li><a href="detail.html" target="_blank">玛莎拉蒂</a></li>
-          <li><a href="detail.html" target="_blank">布加迪威龙</a></li>
-          <li><a href="detail.html" target="_blank">我的足迹</a></li>
+          {% for category in categories %}
+          <li><a href="/list/{{ category._id.toString() }}">{{ category.name }}</a></li>
+          {% endfor %}
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->
@@ -183,9 +182,9 @@
   <footer>
     Blog Design by <a href="#">Kuazhu</a> <a href="#">豫ICP备11002373号-1</a>.
   </footer>
-<script src="lib/jquery/jquery-1.12.4.min.js"></script>	
-<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-<script src="js/common.js"></script>
+<script src="/lib/jquery/jquery-1.12.4.min.js"></script>	
+<script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="/js/common.js"></script>
 {% block footer %}{% endblock %}
 </body>
 

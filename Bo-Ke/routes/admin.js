@@ -32,8 +32,8 @@ router.get("/users",(req,res)=>{
 
 	第 page 页 跳过 （page -1）* limit 条 skip(（page -1）* limit)
 
-	 */
-	/* 
+	*/
+	
 	let { page } = req.query;
 	const limit = 2;
 
@@ -75,7 +75,7 @@ router.get("/users",(req,res)=>{
 			})			
 		})
 	})
-	*/
+	/*
 	const options = {
 		page:req.query.page,
 		model:UserModel,
@@ -94,7 +94,7 @@ router.get("/users",(req,res)=>{
 			url:'/admin/users'
 		})		
 	})
-
+*/
 
 })
 
