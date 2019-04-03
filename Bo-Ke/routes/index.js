@@ -37,6 +37,7 @@ router.get("/",(req,res)=>{
 		res.render('main/index',{
 			userInfo:req.userInfo,
 			categories,
+			//首页文章分页数据
 			articles:pageArticles.docs,
 			page:pageArticles.page,
 			list:pageArticles.list,
