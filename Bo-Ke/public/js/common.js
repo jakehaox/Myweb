@@ -114,7 +114,7 @@
 		}
 	})
 	//4.文章列表分页
-	var $articlePagination = $('#article-list')
+	var $articlePagination = $('#article-page')
 	function buildArtileListHtml(articles){
 		var createdAt = moment(article.createdAt).format('YYYY年MM月DD日 H:mm:ss')
 		var html = '';

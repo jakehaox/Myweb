@@ -78,7 +78,7 @@ router.get('/list/:id',(req,res)=>{
 	getCommonData()
 	.then(data=>{
 		const { categories,topArtcles} = data;
-		ArticleModel.findOneAndUpdate({_id:id},{$inc:{click:1}},{new:true})
+		ArticleModel.getPaginationArticles(req,{category:id})
 		.populate({path:"user",select:'username'})
 		.populate({path:'category',select:'name'})
 		.then(article=>{
