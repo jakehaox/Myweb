@@ -1,7 +1,9 @@
 
 ;(function($){
 	//用户退出
+	console.log($('#logout'))
 	$('#logout').on('click',function(){
+		console.log(11);
 		$.ajax({
 			url:'/user/logout'
 		})

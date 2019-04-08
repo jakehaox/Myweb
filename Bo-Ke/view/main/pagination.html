@@ -1,7 +1,7 @@
-<nav aria-label="Page navigation">
+<nav aria-label="Page navigation" id="article-list">
   <ul class="pagination">
     <li>
-      <a href="{{ url }}?page={{ page - 1 }}" aria-label="Previous">
+      <a href="javascript:;" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
@@ -9,11 +9,11 @@
     {% if i == page %}
     <li class="active"><a href="javascript:;">{{ i }}</a></li>
     {% else %}
-    <li><a href="{{ url }}?page={{ i }}">{{ i }}</a></li>
+    <li><a href="javascript:;">{{ i }}</a></li>
     {% endif %}
     {% endfor %}
     <li>
-      <a href="{{ url }}?page={{ page + 1 }}" aria-label="Next">
+      <a href="javascript:;" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>

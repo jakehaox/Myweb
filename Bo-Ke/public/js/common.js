@@ -113,4 +113,73 @@
 			})
 		}
 	})
+	//4.文章列表分页
+	var $articlePagination = $('#article-list')
+	function buildArtileListHtml(articles){
+		var createdAt = moment(article.createdAt).format('YYYY年MM月DD日 H:mm:ss')
+		var html = '';
+		articles.forEach(function(article){
+			html += ` <div class="panel panel-default conctent-item">
+			    <div class="panel-heading">
+			        <h3 class="panel-title"><a href="/view/${ article.id.toString() }" class="link" target="_blank">${article.title}</a></h3>
+			    </div>
+			    <div class="panel-body">
+			        ${ article.intro}
+			    </div>
+			    <div class="panel-footer">
+					<span class="glyphicon glyphicon-user"></span>
+					<span class="panel-footer-text text-muted">${article.user.username}</span>
+					<span class="glyphicon glyphicon-th-list"></span>
+					<span class="panel-footer-text text-muted">${article.categroy.name}</span>
+					<span class="glyphicon glyphicon-time"></span>
+					<span class="panel-footer-text text-muted">${ article.createdAt | date('Y年m月d日 H:m:i',-8*60) }</span>
+					<span class="glyphicon glyphicon-eye-open"></span>
+					<span class="panel-footer-text text-muted"><em>${ article.click }</em>已阅读</span>
+			    </div>
+			</div>
+			`
+		})
+		return html;
+	}
+
+	function buildArtilePaginactionHtml(list,page){
+		var html = '';
+		html = `<li>
+			      <a href="javascript:;" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			   `
+		list.forEach(function(i){
+			if(i == page){
+				html += `<li class="active"><a href="javascript:;">${ i }</a></li>`
+			}else{
+				html += `<li><a href="javascript:;">${ i }</a></li>`
+			}
+
+		})
+		html += `<li>
+			      <a href="javascript:;" aria-label="Next"> 
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>`
+			return html;
+	    } 
+	$articlePagination.on('get-data',function(ev,data){
+		//1.构建文章列表
+		$('#article-wrap').html(buildArtileListHtml(data.dacs))
+		//2.构建分页器
+		var $paginaction = $articlePaginationHtml.find('paginaction')
+		if(data.pages > 1){
+			$paginaction.html(buildArtileListHtml(data.list,data.page))
+		}else{
+			$pagination.html('')
+		}
+	})
+
+	$articlePagination.pagination({
+		url:'/articles'
+	})
+
+
 })(jQuery);

@@ -1,10 +1,10 @@
 {% extends './layout.html' %}
 
 {% block title %}
-  我的个人博客
+  {{ article.title }}
 {% endblock %}
 {% block head %}
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="/css/index.css">
 {% endblock %} 
 {% block content %}
 <div id="main-carousel" class="carousel slide" data-ride="carousel">
@@ -33,86 +33,34 @@
 	    <span class="sr-only">Next</span>
 	    </a>
 </div>
+<div id="article-wrap">
+{% for article in articles %}
 	<div class="panel panel-default conctent-item">
 	    <div class="panel-heading">
-	        <h3 class="panel-title"><a href="detail.html" class="link" target="_blank">兰博基尼</a></h3>
+	        <h3 class="panel-title"><a href="/view/{{ article.id.toString() }}" class="link" target="_blank">{{article.title}}</a></h3>
 	    </div>
 	    <div class="panel-body">
-	        兰博基尼（Automobili Lamborghini S.p.A.）是一家意大利汽车生产商，全球顶级跑车制造商及欧洲奢侈品标志之一，公司坐落于意大利圣亚加塔·波隆尼（Sant'Agata Bolognese），由费鲁吉欧·兰博基尼在1963年创立。
-			兰博基尼早期由于经营不善，于1980年破产；数次易主后，1998年归入奥迪旗下，现为大众集团（Volkswagen Group）旗下品牌之一。兰博基尼的标志是一头充满力量、正向对方攻击的斗牛，与大马力高性能跑车的特性相契合，同时彰显了创始人斗牛般不甘示弱的个性。
-			2018年12月，世界品牌实验室编制的《2018世界品牌500强》揭晓，排名第248
+	        {{ article.intro}}
 	    </div>
 	    <div class="panel-footer">
 			<span class="glyphicon glyphicon-user"></span>
-			<span class="panel-footer-text text-muted">Jake</span>
+			<span class="panel-footer-text text-muted">{{article.user.username}}</span>
 			<span class="glyphicon glyphicon-th-list"></span>
-			<span class="panel-footer-text text-muted">兰博基尼</span>
+			<span class="panel-footer-text text-muted">{{article.categroy.name}}</span>
 			<span class="glyphicon glyphicon-time"></span>
-			<span class="panel-footer-text text-muted">2019-03-15</span>
+			<span class="panel-footer-text text-muted">{{ createdAt | date('Y年m月d日 H:m:i',-8*60) }}</span>
 			<span class="glyphicon glyphicon-eye-open"></span>
-			<span class="panel-footer-text text-muted"><em>1800520</em>已阅读</span>
+			<span class="panel-footer-text text-muted"><em>{{ article.click }}</em>已阅读</span>
 	    </div>
 	</div>
-	<div class="panel panel-default conctent-item">
-	    <div class="panel-heading">
-	        <h3 class="panel-title"><a href="detail.html" class="link" target="_blank">玛莎拉蒂</a></h3>
-	    </div>
-	    <div class="panel-body">
-		    玛莎拉蒂（Maserati）是一家意大利豪华汽车制造商，1914年12月1日成立于博洛尼亚（Bologna），公司总部现设于摩德纳（Modena），品牌的标志为一支三叉戟。1993年菲亚特（Fiat S.p.A.）收购玛莎拉蒂，使品牌得以保留。
-			玛莎拉蒂曾经是法拉利（一家菲亚特拥有大部分股权的公司）的一部分，现为菲亚特克莱斯勒汽车直接拥有。而今的玛莎拉蒂全新轿跑系列是意大利顶尖轿跑车制作技术的体现，也是意大利设计美学以及优质工匠设计思维的完美结合。
-	    </div>
-	    <div class="panel-footer">
-			<span class="glyphicon glyphicon-user"></span>
-			<span class="panel-footer-text text-muted">Jake</span>
-			<span class="glyphicon glyphicon-th-list"></span>
-			<span class="panel-footer-text text-muted">玛莎拉蒂</span>
-			<span class="glyphicon glyphicon-time"></span>
-			<span class="panel-footer-text text-muted">2019-03-12</span>
-			<span class="glyphicon glyphicon-eye-open"></span>
-			<span class="panel-footer-text text-muted"><em>1520520</em>已阅读</span>
-	    </div>
-	</div>
-	<div class="panel panel-default conctent-item">
-	    <div class="panel-heading">
-	        <h3 class="panel-title"><a href="detail.html" class="link" target="">布加迪威龙</a></h3>
-	    </div>
-	    <div class="panel-body">
-	        布加迪威龙16.4是一款超级跑车，布加迪威龙（VEYRON）这个名字源自曾经驾驶布加迪57赢得1939利曼桂冠的Pierre Veyron。而16.4代表16个气缸和4个涡增压器。
-			如果买了此车，车主签约之后会接受邀请前往法国，定制个人专属的颜色及其它个性化参数设计，在6个月的定制过程之后，新车随即进入之后的6个月制作流程。从签约预定到个性定制，从精心制作到驾驶培训，一台布加迪威龙16.4从签约预定到交付车主需要约一年的时间。
-	    </div>
-	    <div class="panel-footer">
-			<span class="glyphicon glyphicon-user"></span>
-			<span class="panel-footer-text text-muted">Jake</span>
-			<span class="glyphicon glyphicon-th-list"></span>
-			<span class="panel-footer-text text-muted">布加迪威龙</span>
-			<span class="glyphicon glyphicon-time"></span>
-			<span class="panel-footer-text text-muted">2019-03-08</span>
-			<span class="glyphicon glyphicon-eye-open"></span>
-			<span class="panel-footer-text text-muted"><em>1750520</em>已阅读</span>
-	    </div>
-	</div>
-    <nav aria-label="Page navigation" id="page">
-	  <ul class="pagination">
-	    <li>
-	      <a href="#" aria-label="Previous">
-	        <span aria-hidden="true">&laquo;</span>
-	      </a>
-	    </li>
-	    <li><a href="#">1</a></li>
-	    <li><a href="#">2</a></li>
-	    <li><a href="#">3</a></li>
-	    <li><a href="#">4</a></li>
-	    <li><a href="#">5</a></li>
-	    <li>
-	      <a href="#" aria-label="Next">
-	        <span aria-hidden="true">&raquo;</span>
-	      </a>
-	    </li>
-	  </ul>
-    </nav>                                         
+{% endfor %}
+</div>
+{% include './pagination.html'%}
+                 
 {% endblock %}
 {% block footer %}
 <script src="js/index.js"></script>
+<!-- <script src="js/logout.js"></script> -->
 {% endblock %}
 
 		

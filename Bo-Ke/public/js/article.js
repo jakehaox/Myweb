@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-13 18:10:45
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-02 19:09:48
-*/
+//富文本编辑器
 ;(function($){
     ClassicEditor
     .create( document.querySelector( '#content' ),{

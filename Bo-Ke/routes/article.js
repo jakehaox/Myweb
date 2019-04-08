@@ -16,7 +16,7 @@ router.use((req,res,next)=>{
 
 //显示文章列表
 router.get("/",(req,res)=>{
-	/*
+	
 	const options = {
 		page:req.query.page,
 		model:ArticleModel,
@@ -36,7 +36,7 @@ router.get("/",(req,res)=>{
 			url:'/article'
 		})		
 	})
-	*/
+	
 	ArticleModel.getPaginationArticles(req)
 	.then(data=>{
 		res.render('admin/article_list',{

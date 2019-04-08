@@ -126,3 +126,6 @@ body{
 footer{
 	text-align: center;
 }
+#article-wrap{
+	min-height: 400px;
+}

@@ -7,9 +7,8 @@
 	<title>
   {% block title %}{% endblock %} 
   </title>
-  <link rel="stylesheet" href="">
-	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-  <link rel="stylesheet"  href="/css/common.css">
+	<link rel="stylesheet" href="/lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/common.css">
   {% block head %}{% endblock %} 
 </head>
 <body>
@@ -28,7 +27,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">首页<span class="sr-only">(current)</span></a></li>
+          <li class="active"><a href="/">首页<span class="sr-only">(current)</span></a></li>
           {% for category in categories %}
           <li><a href="/list/{{ category._id.toString() }}">{{ category.name }}</a></li>
           {% endfor %}
@@ -121,12 +120,12 @@
           <!--用户注册登录-->          
           <div class="ad">
             <a href="#" class="thumbnail">
-              <img src="img/cd1.png" alt="广告1">
+              <img src="/img/cd1.png" alt="广告1">
             </a>
           </div>
           <div class="ad">
             <a href="#" class="thumbnail">
-              <img src="img/cd2.jpg" alt="广告2">
+              <img src="/img/cd2.jpg" alt="广告2">
             </a>
           </div>
           <div class="panel panel-default custom-panel">
@@ -137,7 +136,7 @@
               <div class="media">
                 <div class="media-left">
                   <a href="#">
-                    <img class="media-object img-me img-circle" src="img/c.jpg" alt="博主帅照">
+                    <img class="media-object img-me img-circle" src="/img/c.jpg" alt="博主帅照">
                   </a>
                 </div>
                 <div class="media-body">
@@ -154,16 +153,10 @@
             <div class="panel-body">
               <ul class="list-group">
                 <ul class="list-group">
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">兰博基尼百米加速测试,最高时速测试... ...</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">玛莎拉蒂各车系低价查寻，玛莎拉蒂Maserati总裁，玛莎拉蒂GHIBLI,玛莎拉蒂莱万特SUV</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">布加迪威龙新车发布会,国内落地价最低2500万人民币</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">法拉利恩佐现身成都街头，耀眼炸街,开车男子系某集团公子哥</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">超跑热销品牌排行榜</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">兰博基尼百米加速测试,最高时速测试... ...</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">玛莎拉蒂各车系低价查寻，玛莎拉蒂Maserati总裁，玛莎拉蒂GHIBLI,玛莎拉蒂莱万特SUV</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">布加迪威龙新车发布会,国内落地价最低2500万人民币</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">法拉利恩佐现身成都街头，耀眼炸街,开车男子系某集团公子哥</a></li>
-                <li class="list-group-item"><a href="detail.html" class="link test-ellipsis" target="_blank">超跑热销品牌排行榜</a></li>                                                 
+                {% for article in topArticles %}
+                <li class="list-group-item"><a href="/view/{{article._id.toString() }}" class="link test-ellipsis" target="_blank">[{{ article.click}}] {{ article.title }}</a></li>
+                {% endfor %}
+                                                                 
               </ul>     
             </div>
           </div>
@@ -172,7 +165,7 @@
               <h3 class="panel-title">关注我</h3>
             </div>
             <div class="panel-body">
-              <img src="img/weixin.jpg" class="img-responsive" alt="">
+              <img src="/img/weixin.jpg" class="img-responsive" alt="">
             </div>
           </div>                                         
         </div>
@@ -184,7 +177,11 @@
   </footer>
 <script src="/lib/jquery/jquery-1.12.4.min.js"></script>	
 <script src="/lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="/lib/moment/moment.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/pagination.js"></script>
 <script src="/js/common.js"></script>
+
 {% block footer %}{% endblock %}
 </body>
 

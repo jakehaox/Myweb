@@ -1,5 +1,6 @@
 
 const express = require('express')
+const multer = require('')
 const UserModel = require('../models/user.js')
 const pagination = require('../util/pagination.js')
 const router = express.Router()
@@ -13,7 +14,7 @@ router.use((req,res,next)=>{
 	}
 })
 
-//显示后台首页
+//显示后台首页                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 router.get("/",(req,res)=>{
 	res.render('admin/index',{
 		userInfo:req.userInfo
@@ -47,35 +48,6 @@ router.get("/users",(req,res)=>{
 		page = 1;
 	}
 
-	UserModel.countDocuments({})
-	.then(count=>{
-		//计算总页数
-		const pages = Math.ceil(count / limit)
-		if(page > pages){
-			page = pages
-		}
-		//生成页码数组
-		const list = [];
-		for(let i = 1;i<=pages;i++){
-			list.push(i)
-		}
-
-		//每页显示条数
-		const skip = (page -1) * limit
-
-		UserModel.find({},'-password -__v')
-		.skip(skip)
-		.limit(limit)
-		.then(users=>{
-			res.render('admin/user_list',{
-				userInfo:req.userInfo,
-				users,
-				page,
-				list
-			})			
-		})
-	})
-	/*
 	const options = {
 		page:req.query.page,
 		model:UserModel,
@@ -94,8 +66,16 @@ router.get("/users",(req,res)=>{
 			url:'/admin/users'
 		})		
 	})
-*/
 
 })
+//处理上传图片
+router.post('/uploadImage',upload.single('upload'),(req,res)=>{
+	console.log(req.flie)
+	res.json({
+
+	})
+})
+
+
 
 module.exports = router
