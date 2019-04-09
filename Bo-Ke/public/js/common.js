@@ -142,7 +142,7 @@
 		return html;
 	}
 
-	function buildArtilePaginactionHtml(list,page){
+	function buildPaginactionHtml(list,page){
 		var html = '';
 		html = `<li>
 			      <a href="javascript:;" aria-label="Previous">
@@ -171,7 +171,7 @@
 		//2.构建分页器
 		var $paginaction = $articlePaginationHtml.find('paginaction')
 		if(data.pages > 1){
-			$paginaction.html(buildArtileListHtml(data.list,data.page))
+			$paginaction.html(buildPaginationHtml(data.list,data.page))
 		}else{
 			$pagination.html('')
 		}
@@ -179,6 +179,22 @@
 
 	$articlePagination.pagination({
 		url:'/articles'
+	})
+	//5.评论分页列表
+	var $commentPagination = $('#comment-page')
+	$commentPagination.on('get-data',function(ev,data){
+		//1.构建评论列表
+		$('#comment-wrap').html(buildCommentListHtml(data.dacs))
+		//2.构建分页器
+		var $paginaction = $commentPaginationHtml.find('paginaction')
+		if(data.pages > 1){
+			$paginaction.html(buildPaginationHtml(data.list,data.page))
+		}else{
+			$pagination.html('')
+		}
+	})
+	$commentPagination.paginaction({
+		url:'/comment/list'
 	})
 
 
