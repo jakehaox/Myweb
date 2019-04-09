@@ -141,7 +141,6 @@
 		})
 		return html;
 	}
-
 	function buildPaginactionHtml(list,page){
 		var html = '';
 		html = `<li>
@@ -165,6 +164,21 @@
 			    </li>`
 			return html;
 	    } 
+	}
+	function buildCommentListHtml(comment){
+		var html = '';
+		comments.forEach(function(){
+			var createdAt = moment(comment.createdAt).format('YYYY年MM月DD日 h:mm:ss')
+			html += `<div class="panel panel-default">
+		                <div class="panel-heading">${ comment.user.username }发布于 ${createdAt}</div>
+		                <div class="panel-body">
+		                    ${ comment.content}
+		                </div>
+		            </div>`
+		})
+
+		return htnl;
+	}
 	$articlePagination.on('get-data',function(ev,data){
 		//1.构建文章列表
 		$('#article-wrap').html(buildArtileListHtml(data.dacs))

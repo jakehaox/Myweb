@@ -26,7 +26,8 @@
 			}
 		})
 		.done(function(result){
-			console.log(result)
+			$('#comment-content').val('')
+			$('#comment-page').trigger('get-data',result.data)
 		})
 		.fail(function(err){
 			console.log(err)
