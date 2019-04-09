@@ -41,23 +41,6 @@ app.set('view engine', 'html')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-
-/*
-//设置cookie中间件
-app.use((req,res,next)=>{
-	req.cookies = new Cookies(req,res)
-	
-	req.userInfo = {}
-	
-	let userInfo = req.cookies.get('userInfo');
-	
-	if(userInfo){
-		req.userInfo = JSON.parse(userInfo);
-	}
-	next()
-})
-*/
-
 //设置session中间件
 app.use(session({
 	//设置cookie名称
@@ -85,6 +68,7 @@ app.use((req,res,next)=>{
 app.use('/',require('./routes/index.js'))
 app.use('/user',require('./routes/user.js'))
 app.use('/admin',require('./routes/admin.js'))
+app.use('/home',require('./routes/home.js'))
 app.use('/category',require('./routes/category.js'))
 app.use('/article',require('./routes/article.js'))
 app.use('/comment',require('./routes/comment.js'))
