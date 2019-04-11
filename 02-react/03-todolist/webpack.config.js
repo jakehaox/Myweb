@@ -50,6 +50,10 @@ module.exports = {
 			    use: {
 			        loader: 'babel-loader',
 			        options: {
+			        	plugins: [
+                        	["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] 
+			            
+			            ],
 			            presets: ['env', 'react']
 			        }
 			    }               

@@ -17,11 +17,18 @@ class App extends Component{
 	static getDerivedStateFromProps(nextProps,prevState){
 		console.log('App getDerivedStateFromProps(nextProps,prevState)',nextProps,prevState);
 		return {
-			list:['睡觉']
+		
 		}
 	}
-	conponentDidMound(){
-	console.log('App conponentDidMound')
+	shouldComponentUpdate(nextProps,nextState){
+		console.log('App shouldComponentUpdate(nextProps,nextState)',nextProps,nextState);
+		return true;
+	}
+	getSnapshotBeforeUpdate(prevProps, prevState){
+		console.log('App getSnapshotBeforeUpdate(prevProps, prevState)',prevProps,preState)
+	}
+	componentDidUpdate(prevProps,prevState,snapshot){
+		console.log('App componentDidUpdate(prevProps,prevState,snapshot) ',prevProps,prevState,snapshot)
 	}
 	handleAdd(){
 		this.setState(preState=>({

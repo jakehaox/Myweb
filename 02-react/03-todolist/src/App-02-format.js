@@ -8,33 +8,42 @@ class App extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			list:["吃饭"],
+			list:["吃饭","睡觉","打豆豆"],
 			val:''
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 	}
-	static getDerivedStateFromProps(nextProps,prevState){
-		console.log('App getDerivedStateFromProps(nextProps,prevState)',nextProps,prevState);
-		return {
-			list:['睡觉']
-		}
-	}
-	conponentDidMound(){
-	console.log('App conponentDidMound')
-	}
 	handleAdd(){
+		/*
+		this.setState({
+			list:[...this.state.list,this.state.val]
+			val:''
+		})
+		*/
+		/*
+		this.setState((preState)=>{
+			return{
+				list:[...preState.list,preState.val],
+				val:''
+			}
+		})
+		*/
 		this.setState(preState=>({
 			list:[...preState.list,preState.val],
 			val:''
-		}),()=>{
-			console.log(this.ul.querySelectorAll('li'))
-		})
+		}))
 			
     }
     handleChange(ev){
-    	const val = this.input.value
+    	/*
+    	this.setState({
+    		val:ev.target.value
+    	})
+    	*/
+    	const val = ev.target.value
     	this.setState(()=>({
+    		val:ev.target.value
     		val
     	}));
 
@@ -42,6 +51,11 @@ class App extends Component{
     handleDel(index){
     	const list = [...this.state.list]
     	list.splice(index,1)
+    	/*
+    	this.setState({
+    		list
+    	})
+    	*/
     	this.setState(()=>({
     		list
     	}));
@@ -52,18 +66,12 @@ class App extends Component{
 		})
     }
 	render(){
-		console.log('.App render...')
+		console.log('')
 		return (
 			<div className="App">
-				<input 
-					onChange={this.handleChange} 
-					value={this.state.val}
-					ref={(input)=>{
-						this.input = input
-					}}
-				/>
+				<input onChange={this.handleChange} value={this.state.val}/>
 				<button onClick={this.handleAdd}>新增</button>
-				<ul ref={(ul)=>{this.ul=ul}}>
+				<ul>
 					{
 						this.getItems()
 					}
