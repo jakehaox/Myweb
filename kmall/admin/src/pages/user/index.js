@@ -6,61 +6,66 @@
 */
 
 import React,{ Component } from 'react'
-
+import { connect } from 'react-redux'
 import { Table, Divider, Tag } from 'antd';
+
 import Layout from 'common/layout'
-
-
-
-import './index.css'
-const dataSource = [{
-  key: '1',
-  name: 'admin',
-  isAdmin: true,
-  email:'test@kuazhu.coom',
-  phone:'17337032832',
-  createdAt: '2019-04-19 10:52:00'
-}, {
-  key: '2',
-  name: '胡彦祖',
-  age: 42,
-  address: '西湖区湖底公园1号'
-}];
 
 const columns = [{
   title: '用户名',
-  dataIndex: 'name',
-  key: 'name',
+  dataIndex: 'username',
+  key: 'username',
 }, {
-  title: '是否是管理员',
-  dataIndex: 'admin',
-  key: 'admin',
+  title: '是否管理员',
+  dataIndex: 'isAdmin',
+  key: 'isAdmin',
+  render:isAdmin=>isAdmin?'是':'否'
 }, {
-  title: '邮箱',
+  title: 'email',
   dataIndex: 'email',
   key: 'email',
-}{
-  title: '手机号码',
+}, {
+  title: '手机',
   dataIndex: 'phone',
   key: 'phone',
-},{
-  title: '创建时间',
+}, {
+  title: '注册时间',
   dataIndex: 'createdAt',
   key: 'createdAt',
-},];
+}];
 
-<Table dataSource={dataSource} columns={columns} />
 class User extends Component{
     render(){
+      const { list } = this.props;
+      const dataSource = list.map(user=>{
+        return {
+        key:user.get('_id'),
+        username: user.get('username'),
+        isAdmin: user.get('isAdmin'),
+        email: user.get('email'),
+        phone:user.get('phone'),
+        createdAt:user.get('createdAt')
+        }
+      }).toJS()
         return (
-        	<div className="User">
-        		<Layout>
-        			<Table dataSource={dataSource} columns={columns} />
-        		</Layout>
-        	</div>
+          <div className="User">
+            <Layout>
+              <Table dataSource={dataSource} columns={columns} />
+            </Layout>
+          </div>
         )
     }
 }
 
+const mapStateToProps = (state)=>{
+  return {
+    list:state.get('user').get('list'),
+  }
+}
 
-export default User
+const mapDispatchToProps = (dispath)=>{
+  return {
+
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(User)
