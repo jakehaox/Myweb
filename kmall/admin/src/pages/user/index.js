@@ -8,7 +8,8 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { Table, Divider, Tag } from 'antd';
-
+import moment from 'moment'
+import { actionCreator } from './store'
 import Layout from 'common/layout'
 
 const columns = [{
@@ -35,16 +36,19 @@ const columns = [{
 }];
 
 class User extends Component{
+  componentDidMount(){
+    this.props.handleUserPage()
+  }
     render(){
       const { list } = this.props;
       const dataSource = list.map(user=>{
         return {
-        key:user.get('_id'),
-        username: user.get('username'),
-        isAdmin: user.get('isAdmin'),
-        email: user.get('email'),
-        phone:user.get('phone'),
-        createdAt:user.get('createdAt')
+          key:user.get('_id'),
+          username: user.get('username'),
+          isAdmin: user.get('isAdmin'),
+          email: user.get('email'),
+          phone:user.get('phone'),
+          createdAt:moment(user.get('createdAt')).format('YYYY-MM-DD HH:mm:ss')
         }
       }).toJS()
         return (
@@ -64,8 +68,12 @@ const mapStateToProps = (state)=>{
 }
 
 const mapDispatchToProps = (dispath)=>{
-  return {
 
+  return {
+    handleUserPage:()=>{
+      const action = actionCreator.getPageAction()
+      dispath(action)
+    }
   }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(User)

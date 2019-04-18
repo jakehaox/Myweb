@@ -2,7 +2,7 @@
 * @Author: TomChen
 * @Date:   2019-04-16 18:14:09
 * @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-16 18:53:03
+* @Last Modified time: 2019-04-17 20:36:56
 */
 
 import axios from 'axios';
@@ -12,18 +12,37 @@ export const request = (options)=>{
 		const params = {
         	method:options.method || 'get',	
 			url:options.url || '',
-			data:options.data || ''
+			withCredentials: true,
+		}
+		switch(params.method.toUpperCase()){
+			case 'GET':
+			case 'DELETE':
+				params.params = options.data
+				break
+			default:
+				params.data = options.data
+
 		}
 		axios(params)
 		.then(result=>{
-			resolve(result.data);
+			const data = result.data;
+			if(data.code == 10){//没有权限
+				//移除前端的登录信息
+				removeUserName();
+				//跳转到登录页面
+				window.location.href = '/login'
+				reject('没有权限')
+			}else{
+				resolve(result.data);
+			}
+			
 		})
 		.catch(err=>{
 			reject(err)
 		})
 	})
 }
-//登录用户信息本地储存
+
 export const setUserName = (username)=>{
 	window.localStorage.setItem('username',username)
 }

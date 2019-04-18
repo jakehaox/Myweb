@@ -2,11 +2,22 @@
 * @Author: TomChen
 * @Date:   2019-04-11 20:15:26
 * @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-12 20:09:18
+* @Last Modified time: 2019-04-17 20:45:48
 */
 import * as types from './actionTypes.js'
 import { request } from 'util'
 import { GET_USERS } from 'api'
+
+const getPageRequestAction = ()=>{
+	return {
+		type:types.PAGE_REQUEST
+	}
+}
+const getPageDoneAction = ()=>{
+	return {
+		type:types.PAGE_DONE
+	}
+}
 
 const setPageAction = (payload)=>{
 	return {
@@ -14,8 +25,10 @@ const setPageAction = (payload)=>{
 		payload
 	}
 }
+
 export const getPageAction = (page)=>{
 	return (dispatch)=>{
+		dispatch(getPageRequestAction())
 		request({
 			url:GET_USERS,
 			data:{
@@ -23,7 +36,6 @@ export const getPageAction = (page)=>{
 			}
 		})
 		.then(result=>{
-			console.log('asdfasdfasdf',result)
 			if(result.code == 0){
 				dispatch(setPageAction(result.data))
 			}
@@ -31,5 +43,10 @@ export const getPageAction = (page)=>{
 		.catch(err=>{
 			console.log(err)
 		})
+		.finally(()=>{
+			dispatch(getPageDoneAction())
+		})
 	}
 }
+
+
