@@ -21,7 +21,8 @@ export default (state=defaultState,action)=>{
 			list:fromJS(action.payload.list),
 			current:action.payload.current,
 			pageSize:action.payload.pageSize,
-			total:action.payload.total				
+			total:action.payload.total,
+
 		})
 	}
 	if(action.type == types.PAGE_REQUEST){

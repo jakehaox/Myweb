@@ -5,8 +5,9 @@
 * @Last Modified time: 2019-04-17 20:45:48
 */
 import * as types from './actionTypes.js'
+import { message } from 'antd'
 import { request } from 'util'
-import { GET_USERS,ADD_CATEDORY } from 'api'
+import { GET_USERS,ADD_CATEGORY,GET_CATEGORIES,UPDATE_CATEGORY_ORDER } from 'api'
 
 const getPageRequestAction = ()=>{
 	return {
@@ -18,7 +19,6 @@ const getPageDoneAction = ()=>{
 		type:types.PAGE_DONE
 	}
 }
-
 const getAddRequestAction = ()=>{
 	return {
 		type:types.ADD_REQUEST
@@ -35,14 +35,20 @@ const setPageAction = (payload)=>{
 		payload
 	}
 }
-
-export const getPageAction = (page)=>{
+const setLevelOneCategoriesAction = (payload)=>{
+	return {
+		type:types.SET_LEVEL_ONE_CATEGORIES,
+		payload
+	}
+}
+export const getPageAction = (pid,page)=>{
 	return (dispatch)=>{
 		dispatch(getPageRequestAction())
 		request({
-			url:GET_USERS,
+			url:GET_CATEGORIES,
 			data:{
-				page:page
+				page:page,
+				pid:pid
 			}
 		})
 		.then(result=>{
@@ -63,18 +69,58 @@ export const getAddAction = (values)=>{
 		dispatch(getAddRequestAction())
 		request({
 			method:'post',
-			url:ADD_CATEDORY,
+			url:ADD_CATEGORY,
 			data:values
 		})
 		.then(result=>{
-			console.log(result)
+			if(result.code == 0){
+				if(result.data){
+					dispatch(setLevelOneCategoriesAction(result.data))
+				}
+				message.success('添加分类成功')
+			}else if(result.code == 1){
+				message.error(result.message)
+			}
 		})
 		.catch(err=>{
-			console.log(err)
+			message.error('添加分类失败')
 		})
 		.finally(()=>{
 			dispatch(getAddDoneAction())
 		})
-	}
+	}	
 }
-
+export const getLevelOneCategoriesAction = ()=>{
+	return (dispatch)=>{
+		request({
+			url:GET_CATEGORIES,
+			data:{
+				pid:0
+			}
+		})
+		.then(result=>{
+			dispatch(setLevelOneCategoriesAction(result.data))
+		})
+	}	
+}
+export const getOrderAction = (pid,id,newOrder)=>{
+	return (dispatch,getState)=>{
+		const state = getState().get('category');
+		request({
+			method:'put',
+			url:UPDATE_CATEGORY_ORDER,
+			data:{
+				pid:pid,
+				id:id,
+				order:newOrder,
+				page:state.get('current')
+			}
+		})
+		.then(result=>{
+			if(result.code == 0){
+				message.success('更新排序成功')
+				dispatch(setPageAction(result.data))
+			}
+		})
+	}	
+}
