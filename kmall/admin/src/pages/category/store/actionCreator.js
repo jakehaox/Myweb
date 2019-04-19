@@ -6,7 +6,7 @@
 */
 import * as types from './actionTypes.js'
 import { request } from 'util'
-import { GET_USERS } from 'api'
+import { GET_USERS,ADD_CATEDORY } from 'api'
 
 const getPageRequestAction = ()=>{
 	return {
@@ -19,6 +19,16 @@ const getPageDoneAction = ()=>{
 	}
 }
 
+const getAddRequestAction = ()=>{
+	return {
+		type:types.ADD_REQUEST
+	}
+}
+const getAddDoneAction = ()=>{
+	return {
+		type:types.ADD_DONE
+	}
+}
 const setPageAction = (payload)=>{
 	return {
 		type:types.SET_PAGE,
@@ -48,5 +58,23 @@ export const getPageAction = (page)=>{
 		})
 	}
 }
-
+export const getAddAction = (values)=>{
+	return (dispatch)=>{
+		dispatch(getAddRequestAction())
+		request({
+			method:'post',
+			url:ADD_CATEDORY,
+			data:values
+		})
+		.then(result=>{
+			console.log(result)
+		})
+		.catch(err=>{
+			console.log(err)
+		})
+		.finally(()=>{
+			dispatch(getAddDoneAction())
+		})
+	}
+}
 

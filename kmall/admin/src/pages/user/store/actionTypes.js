@@ -6,3 +6,5 @@
 */
 
 export const SET_PAGE = 'user@set_page'
+export const PAGE_REQUEST = 'user@PAGE_request'
+export const PAGE_DONE = 'user@page_done'

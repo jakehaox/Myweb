@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-09 19:29:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-16 18:07:11
-*/
+
 
 import React,{ Component } from 'react'
 //1.react-redux 里面的connect方法负责把store里面的数据和方法映射到UI组件
@@ -44,6 +39,7 @@ class NormalLoginForm extends Component {
     	<div className="Login">
 			<Form className="login-form">
 			<Form.Item>
+			 <Form.Item>
 			  {getFieldDecorator('username', {
 			    rules: [{ required: true, message: '请输入用户名!' },{ pattern: /^[a-z0-9_]{3,6}$/, message: '用户名为3到6位的字母,数字或者下划线!' }],
 			  })(

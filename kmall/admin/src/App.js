@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Route,Redirect,Switch } from "react-router-dom
 import Login from 'pages/login'
 import Home from 'pages/home'
 import User from 'pages/user'
+import Category from 'pages/category'
 import Err from 'common/err'
 
 import { getUserName } from 'util'
@@ -51,6 +52,7 @@ class App extends Component{
 						}
 						<LoginRoute path="/login" component={Login} />
 						<ProtectRoute path="/user" component={User} />
+						<ProtectRoute path="/category" component={Category} />
 						<Route component={Err} />
 					</Switch>
 				</div>

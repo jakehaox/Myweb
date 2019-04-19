@@ -8,3 +8,7 @@
 	margin: 0;
 	padding: 0;
 }
+.ant-table-content{
+	min-height: 680px;
+	margin-top: 20px;
+}

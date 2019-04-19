@@ -8,6 +8,17 @@ import * as types from './actionTypes.js'
 import { request } from 'util'
 import { GET_USERS } from 'api'
 
+const getPageRequestAction = ()=>{
+	return {
+		type:types.PAGE_REQUEST
+	}
+}
+const getPageDoneAction = ()=>{
+	return {
+		type:types.PAGE_DONE
+	}
+}
+
 const setPageAction = (payload)=>{
 	return {
 		type:types.SET_PAGE,
@@ -16,6 +27,7 @@ const setPageAction = (payload)=>{
 }
 export const getPageAction = (page)=>{
 	return (dispatch)=>{
+		dispatch(getPageRequestAction())
 		request({
 			url:GET_USERS,
 			data:{
@@ -30,6 +42,9 @@ export const getPageAction = (page)=>{
 		})
 		.catch(err=>{
 			console.log(err)
+		})
+		.finally(()=>{
+			dispatch(getPageDoneAction())
 		})
 	}
 }
