@@ -14,6 +14,7 @@ import Login from 'pages/login'
 import Home from 'pages/home'
 import User from 'pages/user'
 import Category from 'pages/category'
+import Product from 'pages/product'
 import Err from 'common/err'
 
 import { getUserName } from 'util'
@@ -34,10 +35,9 @@ class App extends Component{
 				}}
 			/>
 		)
-		//登录后跳转到指定页面
 		const LoginRoute = ({component:Component,...rest})=>{
 			return getUserName()
-			? <Redirect to="/" />//登录成功后跳转到首页
+			? <Redirect to="/" />
 			: <Component {...rest} />
 		}
 
@@ -47,12 +47,13 @@ class App extends Component{
 				<div className="App">
 					<Switch>
 						<ProtectRoute exact path="/" component={Home} />
+						<ProtectRoute path="/user" component={User} />
+						<ProtectRoute path="/category" component={Category} />
+						<ProtectRoute path="/product" component={Product} />
 						{
 							//当匹配到路由"/login"后,渲染Login组件
 						}
-						<LoginRoute path="/login" component={Login} />
-						<ProtectRoute path="/user" component={User} />
-						<ProtectRoute path="/category" component={Category} />
+						<LoginRoute path="/login" component={Login} />						
 						<Route component={Err} />
 					</Switch>
 				</div>

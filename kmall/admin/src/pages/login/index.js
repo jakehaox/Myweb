@@ -39,7 +39,6 @@ class NormalLoginForm extends Component {
     	<div className="Login">
 			<Form className="login-form">
 			<Form.Item>
-			 <Form.Item>
 			  {getFieldDecorator('username', {
 			    rules: [{ required: true, message: '请输入用户名!' },{ pattern: /^[a-z0-9_]{3,6}$/, message: '用户名为3到6位的字母,数字或者下划线!' }],
 			  })(
