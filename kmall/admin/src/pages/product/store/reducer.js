@@ -2,23 +2,27 @@
 * @Author: TomChen
 * @Date:   2019-04-11 18:56:06
 * @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-17 20:46:45
+* @Last Modified time: 2019-04-21 17:14:28
 */
 import { fromJS } from 'immutable'
 
 import * as types from './actionTypes.js'
 
 const defaultState = fromJS({
-	isAddFetching:false,
+	parentCategoryId:'',
+	categoryId:'',
+	images:'',
+	detail:'',
+	categoryIdValidateStatus:'',
+	categoryIdHelp:'',
+	imagesValidateStatus:'',
+	imagesHelp:'',	
+	isSaveFetching:false,
 	isPageFetching:false,
-	levelOneCategories:[],	
 	list:[],
 	current:1,
 	pageSize:0,
 	total:0,
-	updateNameModalVisible:false,
-	updateId:'',
-	updateName:''
 })
 export default (state=defaultState,action)=>{
 	if(action.type == types.SET_PAGE){
@@ -35,27 +39,42 @@ export default (state=defaultState,action)=>{
 	if(action.type == types.PAGE_DONE){
 		return state.set('isPageFetching',false)
 	}
-	if(action.type == types.ADD_REQUEST){
-		return state.set('isAddFetching',true)
-	}
-	if(action.type == types.ADD_DONE){
-		return state.set('isAddFetching',false)
-	}
-	if(action.type == types.SET_LEVEL_ONE_CATEGORIES){
-		return state.set('levelOneCategories',fromJS(action.payload))
-	}
-	if(action.type == types.SHOW_UPDATE_NAME_MODAL){
+	
+	if(action.type == types.SET_CATEGORY_ID){
 		return state.merge({
-			updateNameModalVisible:true,
-			updateName:action.payload.updateName,
-			updateId:action.payload.updateId
+			parentCategoryId:action.payload.parentCategoryId,
+			categoryId:action.payload.categoryId,
+			categoryIdValidateStatus:'',
+			categoryIdHelp:''			
 		})
 	}
-	if(action.type == types.CLOSE_UPDATE_NAME_MODAL){
-		return state.set('updateNameModalVisible',false)
+	if(action.type == types.SET_IMAGES){
+		return state.merge({
+			images:action.payload,
+			imagesValidateStatus:'',
+			imagesHelp:''
+		})
 	}
-	if(action.type == types.UPDATE_NAME_CHANGE){
-		return state.set('updateName',action.payload)
-	}			
+	if(action.type == types.SET_DETAIL){
+		return state.set('detail',action.payload)
+	}
+	if(action .type == types.SET_CATEGORY_ERROR){
+		return state.merge({
+			categoryIdValidateStatus:'error',
+			categoryIdHelp:'请选择商品分类!'
+		})
+	}
+	if(action .type == types.SET_IMAGES_ERROR){
+		return state.merge({
+			imagesValidateStatus:'error',
+			imagesHelp:'请选择商品图片!'
+		})
+	}
+	if(action.type == types.SAVE_REQUEST){
+		return state.set('isSaveFetching',true)
+	}
+	if(action.type == types.SAVE_DONE){
+		return state.set('isSaveFetching',false)
+	}							
 	return state;
 }
