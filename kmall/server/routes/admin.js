@@ -32,6 +32,7 @@ router.get("/init",(req,res)=>{
 });
 */
 
+/*
 router.get("/init",(req,res)=>{
 	const users = [];
 	for(let i = 0;i<100;i++){
@@ -47,7 +48,7 @@ router.get("/init",(req,res)=>{
 		res.send('ok')
 	})
 });
-
+*/
 //用户登录
 router.post("/login",(req,res)=>{
 	let body = req.body;

@@ -1,10 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-09 19:29:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-16 20:47:16
-*/
-
 import React,{ Component,Fragment } from 'react'
 import { BrowserRouter as Router, Route,Redirect,Switch } from "react-router-dom";
 

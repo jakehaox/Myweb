@@ -51,6 +51,7 @@ let pagination = (options)=>{
 
 		options.model.countDocuments(options.query)
 		.then((count)=>{
+			console.log(count)
 			let pages = Math.ceil(count / limit);
 			if(page > pages){
 				page = pages;
@@ -68,7 +69,6 @@ let pagination = (options)=>{
 					query = query.populate(options.populate[i])
 				}
 			}
-
 			query
 			.sort(options.sort)
 			.skip(skip)

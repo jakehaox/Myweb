@@ -8,7 +8,7 @@ const defaultState = fromJS({
 	current:1,
 	pageSize:0,
 	total:0,
-	inFetching:true
+	inFetching:false
 
 })
 export default (state=defaultState,action)=>{

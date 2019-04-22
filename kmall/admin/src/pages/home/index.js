@@ -34,7 +34,6 @@ class Home extends Component{
     }
 }
 const mapStateToProps = (state)=>{
-	console.log(state)
 	return {
 		usernum:state.get('home').get('usernum'),
 		productnum:state.get('home').get('productnum'),

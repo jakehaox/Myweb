@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {
@@ -25,10 +24,19 @@ class ProductSave extends Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.state = {
+            productId:this.props.match.params.productId
+        }
+    }
+    componentDidMount(){
+        if(this.state.productId){
+            this.props.handleProductDetail(this.state.productId)
+        }
     }
     handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
+            values.id = this.state.productId;
             this.props.handleSave(err,values)
         });
     }
@@ -42,8 +50,27 @@ class ProductSave extends Component {
             categoryIdHelp,
             imagesValidateStatus,
             imagesHelp,
-            isSaveFetching
+            isSaveFetching,
+            
+            parentCategoryId,
+            categoryId,
+            images,
+            detail,
+            description,
+            name,
+            price,
+            stock            
         } = this.props
+        let fileList = [];
+        console.log(images)
+        if(images){
+            fileList = images.split(',').map((url,index)=>({
+                uid:index,
+                status: 'done',
+                url:url,
+                response:url
+            }))
+        }
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
@@ -78,6 +105,7 @@ class ProductSave extends Component {
                         <Form.Item label="商品名称">
                           {getFieldDecorator('name', {
                             rules: [{ required: true, message: '请输入商品名称!' }],
+                            initialValue:name
                           })(
                             <Input placeholder="商品名称" />
                           )}
@@ -85,6 +113,7 @@ class ProductSave extends Component {
                         <Form.Item label="商品描述">
                           {getFieldDecorator('description', {
                             rules: [{ required: true, message: '请输入商品描述!' }],
+                            initialValue:description
                           })(
                             <Input placeholder="商品描述" />
                           )}
@@ -95,13 +124,18 @@ class ProductSave extends Component {
                             validateStatus={categoryIdValidateStatus}
                             help={categoryIdHelp}
                         >
-                            <CategorySelector getCategoryId={(pid,id)=>{
-                                handleCategoryId(pid,id)
-                            }} />
+                            <CategorySelector 
+                                getCategoryId={(pid,id)=>{
+                                    handleCategoryId(pid,id)
+                                }}
+                                parentCategoryId={parentCategoryId}
+                                categoryId={categoryId} 
+                            />
                         </Form.Item>
                         <Form.Item label="商品价格">
                           {getFieldDecorator('price', {
                             rules: [{ required: true, message: '请输入商品价格!' }],
+                            initialValue:price
                           })(
                             <InputNumber  
                                 min={0}
@@ -111,6 +145,7 @@ class ProductSave extends Component {
                         <Form.Item label="商品库存">
                           {getFieldDecorator('stock', {
                             rules: [{ required: true, message: '请输入商品库存!' }],
+                            initialValue:stock
                           })(
                             <InputNumber  
                                 min={0}
@@ -129,6 +164,7 @@ class ProductSave extends Component {
                                 getFileList={(fileList)=>{
                                     handleImages(fileList)
                                 }}
+                                fileList={fileList}
                             />
                         </Form.Item>
                         <Form.Item label="商品描述">
@@ -162,7 +198,16 @@ const mapStateToProps = (state) => {
         categoryIdHelp:state.get('product').get('categoryIdHelp'),
         imagesValidateStatus:state.get('product').get('imagesValidateStatus'),
         imagesHelp:state.get('product').get('imagesHelp'),        
-        isSaveFetching:state.get('product').get('isSaveFetching'),        
+        isSaveFetching:state.get('product').get('isSaveFetching'),
+        
+        parentCategoryId:state.get('product').get('parentCategoryId'),
+        categoryId:state.get('product').get('categoryId'),
+        images:state.get('product').get('images'),
+        detail:state.get('product').get('detail'),
+        description:state.get('product').get('description'),
+        name: state.get('product').get('name'),
+        price: state.get('product').get('price'),
+        stock: state.get('product').get('stock'),                
     }
 }
 
@@ -183,6 +228,10 @@ const mapDispatchToProps = (dispatch) => {
         handleSave:(err,values)=>{
             const action = actionCreator.getSaveAction(err,values)
             dispatch(action)              
+        },
+        handleProductDetail:(productId)=>{
+            const action = actionCreator.getProductDetailAction(productId)
+            dispatch(action)               
         }                
     }
 }

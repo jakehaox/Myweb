@@ -58,15 +58,22 @@ class ProductList extends Component {
             title: '状态',
             dataIndex: 'status',
             key: 'status',
+            render:(status,record)=><Switch 
+                checkedChildren="在售" 
+                unCheckedChildren="下架" 
+                checked={status==0 ? true : false}
+                onChange={(checked)=>{
+                    handleUpdateStatus(record.id,checked ? '0' : '1')
+                }} 
         }, {
             title: '操作',
             dataIndex: 'action',
             key: 'action',
             render: (text, record) => (
                 <span>
-                    <Link to={"/product/"+record.id} >查看详情</Link>
+                    <Link to={"/product/"+record.id} >修改</Link>
                     <Divider type="vertical" />
-                     <Link to={"/product/save/"+record.id} >修改</Link>                   
+                     <Link to={"/product/save/"+record.id} >查看详情</Link>                   
                 </span>
             ),
         }];

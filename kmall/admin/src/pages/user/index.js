@@ -62,7 +62,7 @@ class User extends Component{
               <Table 
                 dataSource={dataSource} 
                 columns={columns} 
-                paginaction={{
+                pagination={{
                   current:current,
                   pageSize:pageSize,
                   total:total
