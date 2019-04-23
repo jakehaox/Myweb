@@ -1,13 +1,6 @@
-/*
- * @Author: TomChen
- * @Date:   2019-04-09 19:29:30
- * @Last Modified by:   TomChen
- * @Last Modified time: 2019-04-21 17:11:50
- */
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Breadcrumb, Button, Table, InputNumber, Divider, Modal, Input } from 'antd'
+import { Breadcrumb, Button, Table, InputNumber, Divider, Modal, Input,Switch } from 'antd'
 import { Link } from "react-router-dom"
 import { actionCreator } from './store'
 import Layout from 'common/layout'
@@ -25,7 +18,8 @@ class ProductList extends Component {
             total,
             handlePage,
             isPageFetching,
-            handleUpdateOrder
+            handleUpdateOrder,
+            handleUpdateStatus
         } = this.props;
         const dataSource = list.map(product => {
             return {
@@ -65,15 +59,16 @@ class ProductList extends Component {
                 onChange={(checked)=>{
                     handleUpdateStatus(record.id,checked ? '0' : '1')
                 }} 
+            />
         }, {
             title: '操作',
             dataIndex: 'action',
             key: 'action',
             render: (text, record) => (
                 <span>
-                    <Link to={"/product/"+record.id} >修改</Link>
-                    <Divider type="vertical" />
-                     <Link to={"/product/save/"+record.id} >查看详情</Link>                   
+                    <Link to={"/product/save/"+record.id} >修改</Link>
+                    <Divider type="vertical" />   
+                    <Link to={"/product/"+record.id} >查看详情</Link>
                 </span>
             ),
         }];
@@ -130,7 +125,11 @@ const mapDispatchToProps = (dispath) => {
         handleUpdateOrder: (id, newOrder) => {
             const action = actionCreator.getUpdateOrderAction(id, newOrder)
             dispath(action)
-        }
+        },
+        handleUpdateStatus: (id, newStatus) => {
+            const action = actionCreator.getUpdateStatusAction(id, newStatus)
+            dispath(action)
+        },        
     }
 }
 
