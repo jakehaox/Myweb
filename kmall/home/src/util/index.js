@@ -34,23 +34,24 @@ var _util = {
 		alert(msg)
 	},
 	goLogin:function(){
-		window.location.herf = './user-login.html'
+		window.location.href = './user-login.html'
 	},
 	goHome:function(){
-		window.location.herf = '/'
+		window.location.href = '/'
+
 	},
 	validate:function(value,type){
 		var value = $.trim(value)
 		//非空验证
-		if(type == require){
+		if(type == 'require'){
 			return !! value;
 		}
 		//用户名格式验证
-		if(type == userName){
+		if(type == 'username'){
 			return /^[a-zA-Z0-9]{3,6}$/.test(value);
 		}
 		//密码格式验证
-		if(type == password){
+		if(type == 'password'){
 			return /^[a-zA-Z0-9_]{3,6}$/.test(value);
 		}
 	}

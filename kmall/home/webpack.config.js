@@ -43,6 +43,7 @@ module.exports = {
         alias:{
             pages:path.resolve(__dirname,'./src/pages'),
             util:path.resolve(__dirname,'./src/util'),
+            service:path.resolve(__dirname,'./src/service'),
             api:path.resolve(__dirname,'./src/api'),
             common:path.resolve(__dirname,'./src/common'),
             node_modules:path.resolve(__dirname,'./node_modules'),
