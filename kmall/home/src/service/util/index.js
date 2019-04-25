@@ -35,6 +35,24 @@ var _util = {
 	},
 	goLogin:function(){
 		window.location.herf = './user-login.html'
+	},
+	goHome:function(){
+		window.location.herf = '/'
+	},
+	validate:function(value,type){
+		var value = $.trim(value)
+		//非空验证
+		if(type == require){
+			return !! value;
+		}
+		//用户名格式验证
+		if(type == userName){
+			return /^[a-zA-Z0-9]{3,6}$/.test(value);
+		}
+		//密码格式验证
+		if(type == password){
+			return /^[a-zA-Z0-9_]{3,6}$/.test(value);
+		}
 	}
 }
 
