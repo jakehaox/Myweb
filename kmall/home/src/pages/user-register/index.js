@@ -1,13 +1,7 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-23 19:31:31
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-24 18:06:49
-*/
+
 require('pages/common/footer')
 require('pages/common/logo')
 require('./index.css')
-
 var _util = require('util')
 var _user = require('service/user')
 var formErr = {
@@ -37,7 +31,6 @@ var page = {
 				return;
 			}
 			if(!_util.validate(username,'username')){
-				result.msg = '用户名格式不正确'
 				return;
 			}
 			_user.checkUsername(username,function(){
@@ -48,15 +41,15 @@ var page = {
 		})
 		//2.用户注册
 		$('#btn-submit').on('click',function(){
-			_this.submitLogin();
+			_this.submitRegister();
 		})
 		$('input').on('keyup',function(ev){
 			if(ev.keyCode == 13){
-				_this.submitLogin();
+				_this.submitRegister();
 			}
 		})
 	},
-	submitLogin:function(){
+	submitRegister:function(){
 		//1.获取数据
 		var formData = {
 			username:$.trim($('[name="username"]').val()),
@@ -70,8 +63,8 @@ var page = {
 		//3.发送请求
 		if(validateResult.status){//验证通过
 			formErr.hide()
-			_user.login(formData,function(){
-				_util.goHome()
+			_user.register(formData,function(){
+				window.location.href = './result.html?type=register'
 			},function(msg){
 				formErr.show(msg)
 			})
@@ -104,9 +97,35 @@ var page = {
 		if(!_util.validate(formData.password,'password')){
 			result.msg = '密码格式不正确'
 			return result;
-		}		
+		}
+		//两次密码不一致
+		if(formData.password != formData.repassword){
+			result.msg = '两次密码不一致'
+			return result;			
+		}
+		//手机号码不能为空
+		if(!_util.validate(formData.phone,'require')){
+			result.msg = '手机号码不能为空'
+			return result;
+		}
+		//手机号码格式不正确
+		if(!_util.validate(formData.phone,'phone')){
+			result.msg = '手机号码格式不正确'
+			return result;
+		}
+		//邮箱不能为空
+		if(!_util.validate(formData.email,'require')){
+			result.msg = '邮箱不能为空'
+			return result;
+		}
+		//邮箱格式不正确
+		if(!_util.validate(formData.email,'email')){
+			result.msg = '邮箱格式不正确'
+			return result;
+		}						
 		result.status = true;
 		return result;
+
 	}
 }
 $(function(){

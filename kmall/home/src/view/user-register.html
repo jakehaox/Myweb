@@ -6,37 +6,53 @@
 </head>
 <body>
 	<%=require('html-loader!./common/logo.html') %>
-	<div class="nav">
-	<div class="container">
-		<div class="user-info">
-			<div class="user not-login">
-				<a class="link" href="./user-login.html">登录</a>
-				<a class="link" href="./user-register.html">注册</a>
+	<div class="form">
+		<div class="container">
+			<div class="form-box">
+				<h2 class="title">用户注册</h2>
+				<div class="error-item">
+					<i class="fa fa-minus-circle error-icon"></i>
+					<p class="error-msg">error</p>
+				</div>
+				<div class="form-item">
+					<label for="" class="form-lable">
+						<i class="fa fa-user"></i>
+					</label>
+					<input type="text" class="form-content" name="username" placeholder="请输入用户名" autocomplete="off">
+				</div>
+				<div class="form-item">
+					<label for="" class="form-lable">
+						<i class="fa fa-lock"></i>
+					</label>
+					<input type="password" class="form-content" name="password" placeholder="请输入密码">
+				</div>
+				<div class="form-item">
+					<label for="" class="form-lable">
+						<i class="fa fa-lock"></i>
+					</label>
+					<input type="password" class="form-content" name="repassword" placeholder="请再次输入密码">
+				</div>
+				<div class="form-item">
+					<label for="" class="form-lable">
+						<i class="fa fa-phone"></i>
+					</label>
+					<input type="text" class="form-content" name="phone" placeholder="请输入手机号">
+				</div>
+				<div class="form-item">
+					<label for="" class="form-lable">
+						<i class="fa fa-envelope"></i>
+					</label>
+					<input type="text" class="form-content" name="email" placeholder="请输入邮箱">
+				</div>														
+				<div class="btn-item">
+					<a href="javascript:;" class="btn btn-submit" id="btn-submit">提交</a>
+				</div>	
+				<div class="link-item">
+					<a href="./user-login.html" class="link">已有账号去登录</a>
+				</div>			
 			</div>
-			<div class="user login hide">
-				<span class="link-text">
-					欢迎
-				</span>
-				<span class="username">
-					
-				</span>
-				<a class="link" href="javascript:;" id="logout">退出</a>
-			</div>			
 		</div>
-		<ul class="nav-list">
-			<li class="nav-item">
-				<a class="link" href="./cart.html">
-					<i class="fa fa-shopping-cart"></i>
-					购物车(<span class="cart-num">0</span>)
-				</a>
-			</li>
-			<li class="nav-item">
-				<a class="link" href="./order-list.html">我的订单</a>
-				<a class="link" href="./user-center.html">个人中心</a>
-			</li>
-		</ul>
 	</div>
-</div>	
 	<%=require('html-loader!./common/footer.html') %>
 </body>
 </html>

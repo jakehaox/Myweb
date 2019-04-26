@@ -1,3 +1,9 @@
+/*
+* @Author: TomChen
+* @Date:   2019-04-24 19:11:15
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-04-26 18:10:11
+*/
 var _util = require('util')
 
 var _user = {
@@ -18,9 +24,26 @@ var _user = {
 		})
 
 	},
+	register:function(data,success,error){
+		_util.request({
+			method:'post',
+			url:'/user/register',
+			data:data,
+			success:success,
+			error:error
+		})
+
+	},	
 	getUsername:function(success,error){
 		_util.request({
 			url:'/user/username',
+			success:success,
+			error:error			
+		})	
+	},
+	getUserInfo:function(success,error){
+		_util.request({
+			url:'/user/userInfo',
 			success:success,
 			error:error			
 		})	
