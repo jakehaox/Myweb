@@ -1,6 +1,35 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-23 20:22:40
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-24 18:05:40
-*/
+.focus{
+	margin-bottom: 40px;
+}
+.keywords{
+	float: left;
+	width: 240px;
+	height: 440px;
+	padding: 20px 0px;
+	background: #999;
+	box-sizing: border-box;
+	margin-right: 10px;
+}
+.keywords .keyowrd-item{
+	padding:0 10px;
+	height: 40px;
+	line-height: 40px;
+}
+.keywords .keyowrd-item:hover{
+	background-color: #666;
+}
+.keywords .keyowrd-item .link{
+	color: #fff;
+	font-size: 14px;
+	margin-right: 5px;
+}
+.keywords .keyowrd-item .link:hover{
+	color: #f21;
+}
+.focus .swiper-container {
+    height: 440px;
+}
+.focus .swiper-container .swiper-pagination-bullet{
+	width: 15px;
+	height: 15px;
+}  
