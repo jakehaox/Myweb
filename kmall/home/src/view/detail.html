@@ -7,18 +7,19 @@
 <body>
 	<%=require('html-loader!./common/nav.html') %>
 	<%=require('html-loader!./common/search.html') %>
-	<div class="focus">
-		<div class="container clearfix">
-			<ul class="keywords">
-			</ul>
-			<div class="swiper-container">			    
-			</div>			
-		</div>		
-	</div>
-	<div class="floor">
+	<div class="detail">
 		<div class="container">
-			<div class="floor-wrap">		
+			<div class="crumb">
+				<a href="/" class="link">首页</a>
+				<i class="fa fa-angle-right"></i>
+				<span class="link-text">
+					<%= htmlWebpackPlugin.options.title %> 
+				</span>
 			</div>
+		</div>		
+		<div class="container clearfix">
+			<div class="detail-box">
+			</div>	
 		</div>
 	</div>	
 	<%=require('html-loader!./common/footer.html') %>
