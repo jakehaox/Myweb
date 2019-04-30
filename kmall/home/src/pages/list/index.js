@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-23 19:31:31
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-28 15:35:52
-*/
+
 require('pages/common/nav')
 require('pages/common/search')
 require('pages/common/footer')
@@ -70,9 +65,11 @@ var page = {
 		});
 	},
 	loadProductList:function(){
+		console.log('aa')
 		var _this = this;
 		this.listParam.keyword ? (delete this.listParam.categoryId) : (delete this.listParam.keyword)
 		_product.getProductList(this.listParam,function(result){
+			console.log(result)
 			if(result.list.length > 0){
 				result.list.forEach(function(product){
 					product.image = product.images.split(',')[0]
