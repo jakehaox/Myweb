@@ -6,10 +6,9 @@ import { BrowserRouter as Router, Route,Redirect,Switch } from "react-router-dom
 import Login from 'pages/login'
 import Home from 'pages/home'
 import User from 'pages/user'
-
-
 import Category from 'pages/category'
 import Product from 'pages/product'
+import Order from 'pages/order'
 import Err from 'common/err'
 
 import { getUserName } from 'util'

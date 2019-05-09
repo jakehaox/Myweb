@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+      <image class="userinfo-avatar" src="../../images/avatar/2.jpg"></image>
+      <text class="userInfo.nickName">郝鑫宁</text>
+  
+  </view>
+  <view class="usermotto" bindtap="tapMooto">
+    <!-- <text class="user-motto" catchtap="tapText">开启之旅</text> -->
+     <text class="user-motto">开启之旅</text>
+  </view>
+</view>
