@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue初体验</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			message:'hello vue'
+		}
+	});
+	beforeCreate(){
+		console.log('beforCreate')
+		console.log('this.message:',this.message);
+		console.log('this.$el:',this.$el);
+		console.log('this.$refs.p:',this.$refs.p);
+	}
+	created(){
+		console.log('created')
+		console.log('this.message:',this.message);
+		console.log('this.$el:',this.$el);
+		console.log('this.$refs.p:',this.$refs.p);
+	}
+	beforeMount(){
+		console.log('beforeMount')
+		console.log('this.message:',this.message);
+		console.log('this.$el:',this.$el);
+		console.log('this.$refs.p:',this.$refs.p);
+	}
+	updated(){
+		console.log('updated')
+		console.log('this.message:',this.message);
+		console.log('this.$el:',this.$el);
+		console.log('this.$refs.p:',this.$refs.p);
+	}
+	beforeDestroy(){
+		console.log('beforeDeatroy')
+		console.log('this.message:',this.message);
+		console.log('this.$el:',this.$el);
+		console.log('this.$refs.p:',this.$refs.p);
+	}
+	destroyed(){
+		console.log('destroyed')
+		console.log('this.message:',this.message);
+		console.log('this.$el:',this.$el);
+		console.log('this.$refs.p:',this.$refs.p);
+	}
+</script>
+</html>
