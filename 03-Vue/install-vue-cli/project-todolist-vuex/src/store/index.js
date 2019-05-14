@@ -1,4 +1,9 @@
-
+/*
+* @Author: TomChen
+* @Date:   2019-05-13 20:42:44
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-05-13 20:47:40
+*/
 import Vue from 'vue'
 import Vuex from 'vuex'
 
