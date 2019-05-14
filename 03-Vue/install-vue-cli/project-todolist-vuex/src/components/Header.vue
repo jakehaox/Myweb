@@ -48,6 +48,7 @@
 		box-sizing: border-box;
 	}
 	.Header{
+
 		margin-bottom: 10px;
 	}
 </style>

@@ -4,8 +4,8 @@
 		<h3>ToDo List</h3>
 		<!--2.3使用组件-->
 		<Header :addTodo="addTodo" />
-		<List :todos="todos" :delTodo="delTodo" />
-		<Footer :todos="todos" :selectAllTodo="selectAllTodo" :delAllDoneTodo="delAllDoneTodo" />
+		<List  :delTodo="delTodo" />
+		<!-- <Footer :todos="todos" :selectAllTodo="selectAllTodo" :delAllDoneTodo="delAllDoneTodo" /> -->
 	</div>
 </template>
 <!--2.逻辑-->
@@ -22,6 +22,7 @@
 			List,
 			Footer
 		},
+		/*
 		data(){
 			return {
 				todos:[
@@ -31,6 +32,7 @@
 				]
 			}
 		},
+		*/
 		methods:{
 			addTodo(todo){
 				this.todos.unshift(todo)

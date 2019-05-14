@@ -1,10 +1,11 @@
 <template>
 	<div class="List">
-		<Item 
-			v-for="(todo,index) in todos"
+		<Item
+			v-for="(todo,index) in this.$store.state.todos"
 			:todo="todo"
 			:delTodo="delTodo"
 			:index="index"
+			:key="index"
 		/>
 	</div>
 </template>
